@@ -2,7 +2,7 @@
 #include <iostream>
 #include <sstream>
 
-//Author: Henk-Jan Leusink
+//Author: Martijn van Olst
 //Description: 	This class is the controller of Willy.
 // 				It handles feedback which is send from Willy and send controls to Willy for driving.
 //Default Constructor
