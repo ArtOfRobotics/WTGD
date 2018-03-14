@@ -51,10 +51,7 @@
                 "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/ucrt",
                 "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/shared",
                 "C:/Program Files (x86)/Windows Kits/10/Include/10.0.16299.0/winrt",
-                "${workspaceRoot}",
-                "${workspaceRoot}/arduino/ros_lib",
-                "${workspaceRoot}/arduino/ros",
-                "${workspaceRoot}/ros_gps/lib"
+                "${workspaceRoot}"
             ],
             "defines": [
                 "_DEBUG",

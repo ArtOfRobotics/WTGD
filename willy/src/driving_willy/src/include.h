@@ -14,6 +14,7 @@
 	#include <geometry_msgs/Twist.h>
 	#include <std_msgs/String.h>
 
+
 	// ROS includes
 	#include <ros/ros.h>
 	#include <sensor_msgs/PointCloud2.h>
@@ -54,6 +55,7 @@
 	#include "Commands/Stop.h"
 	#include "Commands/Movement.h"
 	#include "Commands/ForwardUntilHit.h"
+	#include "peopledetect.h"
 
 	//odometry includes
 	//nclude "Odometry/odometry.h"
