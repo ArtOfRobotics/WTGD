@@ -3,18 +3,20 @@
 
 class Stop : public ICommand
 {
-	public:
-		void Execute();
+  public:
+	void Execute();
 
-		Stop(int Time);	
+	Stop(int Time);
 
-		std::string toString();
+	std::string toString();
 
-		ostream& operator<< (Stop& obj) {
-			return cout << obj.toString();
-		}
-	private: 
-		int _time;
+	ostream &operator<<(Stop &obj)
+	{
+		return cout << obj.toString();
+	}
+
+  private:
+	int _time;
 };
 
 #endif

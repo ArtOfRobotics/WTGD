@@ -3,22 +3,23 @@
 
 class Backward : public ICommand
 {
-	public:
-		//Declataratio of Function for executing Bacward Command
-		void Execute();
-		
-		//Constructor
-		Backward(double Meters, WillyController* Controller);
+  public:
+	//Declataratio of Function for executing Bacward Command
+	void Execute();
 
-		//Declataratio of toString Function
-		std::string toString();
-		ostream& operator<< (Forward& obj) {
-			return cout << obj.toString();
-		}
+	//Constructor
+	Backward(double Meters, WillyController *Controller);
 
-	private:
-		double _meters;
-		WillyController* _controller;
+	//Declataratio of toString Function
+	std::string toString();
+	ostream &operator<<(Forward &obj)
+	{
+		return cout << obj.toString();
+	}
+
+  private:
+	double _meters;
+	WillyController *_controller;
 };
 
 #endif

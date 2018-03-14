@@ -3,21 +3,22 @@
 
 class ForwardUntilHit : public ICommand
 {
-	public:
-		//Method where the ForwardUntilHit Command will be execute.
-		void Execute();
+  public:
+	//Method where the ForwardUntilHit Command will be execute.
+	void Execute();
 
-		//Constructor
-		ForwardUntilHit(WillyController* Controller);
+	//Constructor
+	ForwardUntilHit(WillyController *Controller);
 
-		//Default ToString Methods
-		std::string toString();
-		ostream& operator<< (Forward& obj) {
-			return cout << obj.toString();
-		}
+	//Default ToString Methods
+	std::string toString();
+	ostream &operator<<(Forward &obj)
+	{
+		return cout << obj.toString();
+	}
 
-	private:
-		WillyController* _controller;
+  private:
+	WillyController *_controller;
 };
 
 #endif

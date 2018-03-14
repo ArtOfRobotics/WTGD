@@ -7,11 +7,12 @@ void Stop::Execute()
 	std::cout << "Stopping\n";
 }
 
-Stop::Stop(int Time) 
+Stop::Stop(int Time)
 {
 	_time = Time;
-}	
+}
 
-std::string Stop::toString() {
+std::string Stop::toString()
+{
 	return "Stop";
 }
