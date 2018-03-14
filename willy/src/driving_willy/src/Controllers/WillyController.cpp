@@ -7,15 +7,13 @@
 // 				It handles feedback which is send from Willy and send controls to Willy for driving.
 //Default Constructor
 
-
-
-WillyController::WillyController() {
+WillyController::WillyController()
+{
 	ReceivedFirstTick = false;
 	CanDriveForward = true;
 	CanDriveBackward = true;
 	CanTurnLeft = true;
 	CanTurnRight = true;
-
 
 	////
 	//// |8-------7--------6|
@@ -66,22 +64,28 @@ WillyController::WillyController() {
 }
 
 //This method executes the command which extend the ICommand.
-void WillyController::Execute(ICommand& command) {
+void WillyController::Execute(ICommand &command)
+{
 	command.Execute();
 }
 
 //This method gets fired wen there's a new message from the sonar system.
-void WillyController::SonarCallback(const sensor_msgs::LaserEcho& sonar) {
-	for(int i = 0; i < 10; i++){
+void WillyController::SonarCallback(const sensor_msgs::LaserEcho &sonar)
+{
+	for (int i = 0; i < 10; i++)
+	{
 		printf("%d\n", SonarData[i].Value);
 		SonarData[i].Value = sonar.echoes[i];
 	}
 	CalculateMovingPossibilities();
 }
 
-int WillyController::GetSonarValueByDegrees(int Degrees) {
-	for(int i = 0; i < sizeof(SonarData) / sizeof(SonarData[0]); i++){
-		if(SonarData[i].Degrees == Degrees) {
+int WillyController::GetSonarValueByDegrees(int Degrees)
+{
+	for (int i = 0; i < sizeof(SonarData) / sizeof(SonarData[0]); i++)
+	{
+		if (SonarData[i].Degrees == Degrees)
+		{
 			return SonarData[i].Value;
 		}
 	}
@@ -89,8 +93,10 @@ int WillyController::GetSonarValueByDegrees(int Degrees) {
 }
 
 //Gets fired when a new wheel_encoder topic is send.
-void WillyController::WheelCallback(const geometry_msgs::Vector3::ConstPtr& ticks) {
-	if(!ReceivedFirstTick) {
+void WillyController::WheelCallback(const geometry_msgs::Vector3::ConstPtr &ticks)
+{
+	if (!ReceivedFirstTick)
+	{
 		ReceivedFirstTick = true;
 	}
 
@@ -98,16 +104,16 @@ void WillyController::WheelCallback(const geometry_msgs::Vector3::ConstPtr& tick
 	_ticks.y = ticks->y;
 }
 
-void WillyController::GpsCallback(const std_msgs::String::ConstPtr& msg)
+void WillyController::GpsCallback(const std_msgs::String::ConstPtr &msg)
 {
 	printf("gps msg = %s\n", msg->data.c_str());
 	std::string input = msg->data.c_str();
 	std::istringstream ss(input);
 	std::string token;
 	int counter = 0;
-	while(std::getline(ss, token, ','))
+	while (std::getline(ss, token, ','))
 	{
-		printf("%s\n", (char*)token.c_str());
+		printf("%s\n", (char *)token.c_str());
 		++counter;
 	}
 	// msg->data.c_str().substr (0,5);
@@ -115,73 +121,77 @@ void WillyController::GpsCallback(const std_msgs::String::ConstPtr& msg)
 
 double WillyController::getLng()
 {
-
 }
 
 double WillyController::getLat()
 {
-
 }
 
 int WillyController::getSat()
 {
-
 }
 
 void WillyController::setLng(double lng)
 {
-
 }
 
 void WillyController::setLat(double lat)
 {
-
 }
 void WillyController::setSat(int sat)
 {
-
 }
 
 //This method receives the ROS NodeHandle and creates a new publisher
-void WillyController::SetNode(ros::NodeHandle *n) {
+void WillyController::SetNode(ros::NodeHandle *n)
+{
 	_commandPublisher = n->advertise<geometry_msgs::Twist>("/cmd_vel", 100);
 	_movingPossibilitiesPublisher = n->advertise<std_msgs::Int32MultiArray>("/possible_directions", 100);
 }
 
-void WillyController::CalculateMovingPossibilities() {
+void WillyController::CalculateMovingPossibilities()
+{
 	CanDriveForward = false;
 	CanDriveBackward = true;
 	CanTurnLeft = true;
 	CanTurnRight = true;
 
-	for(int i = 0; i < sizeof(ChecksTurnLeft) / sizeof(ChecksTurnLeft[0]); i++){
-		if(ChecksTurnLeft[i].Value != 0 && ChecksTurnLeft[i].Value > SonarData[ChecksTurnLeft[i].SonarID].Value) {
+	for (int i = 0; i < sizeof(ChecksTurnLeft) / sizeof(ChecksTurnLeft[0]); i++)
+	{
+		if (ChecksTurnLeft[i].Value != 0 && ChecksTurnLeft[i].Value > SonarData[ChecksTurnLeft[i].SonarID].Value)
+		{
 			CanTurnLeft = false;
-			printf("Left:%d > %d\n",ChecksTurnLeft[i].Value, SonarData[ChecksTurnLeft[i].SonarID].Value);
+			printf("Left:%d > %d\n", ChecksTurnLeft[i].Value, SonarData[ChecksTurnLeft[i].SonarID].Value);
 			break;
 		}
 	}
 
-	for(int i = 0; i < sizeof(ChecksTurnRight) / sizeof(ChecksTurnRight[0]); i++){
-		if(ChecksTurnRight[i].Value != 0 && ChecksTurnRight[i].Value > SonarData[ChecksTurnRight[i].SonarID].Value) {
+	for (int i = 0; i < sizeof(ChecksTurnRight) / sizeof(ChecksTurnRight[0]); i++)
+	{
+		if (ChecksTurnRight[i].Value != 0 && ChecksTurnRight[i].Value > SonarData[ChecksTurnRight[i].SonarID].Value)
+		{
 			CanTurnRight = false;
-			printf("Right:%d > %d\n",ChecksTurnRight[i].Value, SonarData[ChecksTurnRight[i].SonarID].Value);
+			printf("Right:%d > %d\n", ChecksTurnRight[i].Value, SonarData[ChecksTurnRight[i].SonarID].Value);
 			break;
 		}
 	}
 
-	for(int i = 0; i < sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0]); i++){
-		if(ChecksDriveForward[i].Value != 0 && ChecksDriveForward[i].Value > SonarData[ChecksDriveForward[i].SonarID].Value) {
+	for (int i = 0; i < sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0]); i++)
+	{
+		if (ChecksDriveForward[i].Value != 0 && ChecksDriveForward[i].Value > SonarData[ChecksDriveForward[i].SonarID].Value)
+		{
 			CanDriveForward = false;
-			printf("Forward:%d > %d\n",ChecksDriveForward[i].Value, SonarData[ChecksDriveForward[i].SonarID].Value);
+			printf("Forward:%d > %d\n", ChecksDriveForward[i].Value, SonarData[ChecksDriveForward[i].SonarID].Value);
 			break;
 		}
 	}
 
-	for(int i = 0; i < sizeof(ChecksDriveBackward) / sizeof(ChecksDriveBackward[0]); i++){
-		if(ChecksDriveBackward[i].Value != 0 && ChecksDriveBackward[i].Value > SonarData[ChecksDriveBackward[i].SonarID].Value) {
+	for (int i = 0; i < sizeof(ChecksDriveBackward) / sizeof(ChecksDriveBackward[0]); i++)
+	{
+		if (ChecksDriveBackward[i].Value != 0 && ChecksDriveBackward[i].Value > SonarData[ChecksDriveBackward[i].SonarID].Value)
+		{
 			CanDriveBackward = false;
-			printf("Backward:%d > %d\n",ChecksDriveBackward[i].Value, SonarData[ChecksDriveBackward[i].SonarID].Value);
+			printf("Backward:%d > %d\n", ChecksDriveBackward[i].Value, SonarData[ChecksDriveBackward[i].SonarID].Value);
 			break;
 		}
 	}
@@ -200,11 +210,13 @@ void WillyController::CalculateMovingPossibilities() {
 }
 
 //This method sends the msg to the arduino. It can be controlled from the commands.
-void WillyController::SendCommandToArduino(geometry_msgs::Twist msg) {
+void WillyController::SendCommandToArduino(geometry_msgs::Twist msg)
+{
 	_commandPublisher.publish(msg);
 }
 
 //This method returns the last feedback which is received by the arduino.
-geometry_msgs::Vector3 WillyController::GetLatestTicks() {
+geometry_msgs::Vector3 WillyController::GetLatestTicks()
+{
 	return _ticks;
 }

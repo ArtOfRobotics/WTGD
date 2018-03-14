@@ -11,35 +11,34 @@ using namespace std;
 
 class Transform
 {
-  public:
-    //constructor
-    Transform(ros::NodeHandle *n);
+public:
+  //constructor
+  Transform(ros::NodeHandle *n);
 
-    void WheelCallback(const geometry_msgs::Vector3::ConstPtr& ticks);
+  void WheelCallback(const geometry_msgs::Vector3::ConstPtr &ticks);
 
-    void TransformData();
+  void TransformData();
 
-  private:
+private:
+  long _PreviousLeftEncoderCounts;
+  long _PreviousRightEncoderCounts;
+  ros::Time current_time_encoder, last_time_encoder;
+  ros::Time current_time, last_time;
+  tf::TransformBroadcaster odom_broadcaster;
+  double DistancePerCount;
 
-    long _PreviousLeftEncoderCounts;
-    long _PreviousRightEncoderCounts;
-    ros::Time current_time_encoder, last_time_encoder;
-    ros::Time current_time, last_time;
-    tf::TransformBroadcaster odom_broadcaster;
-    double DistancePerCount;
+  double x;
+  double y;
+  double th;
 
-    double x;
-    double y;
-    double th;
+  double vx;
+  double vy;
+  double vth;
+  double deltaLeft;
+  double deltaRight;
 
-    double vx;
-    double vy;
-    double vth;
-    double deltaLeft;
-    double deltaRight;
-
-    ros::Publisher odom_pub;
-    ros::Subscriber sub;
+  ros::Publisher odom_pub;
+  ros::Subscriber sub;
 };
 
 #endif

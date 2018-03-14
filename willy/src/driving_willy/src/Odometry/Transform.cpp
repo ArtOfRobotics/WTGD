@@ -1,7 +1,6 @@
 #include "../include.h"
 
-
-void Transform::WheelCallback(const geometry_msgs::Vector3::ConstPtr& ticks)
+void Transform::WheelCallback(const geometry_msgs::Vector3::ConstPtr &ticks)
 {
 
   current_time_encoder = ros::Time::now();
@@ -9,9 +8,8 @@ void Transform::WheelCallback(const geometry_msgs::Vector3::ConstPtr& ticks)
   deltaLeft = ticks->x - _PreviousLeftEncoderCounts;
   deltaRight = ticks->y - _PreviousRightEncoderCounts;
 
-  vx = deltaLeft * DistancePerCount; // (current_time_encoder - last_time_encoder).toSec();
+  vx = deltaLeft * DistancePerCount;  // (current_time_encoder - last_time_encoder).toSec();
   vy = deltaRight * DistancePerCount; // (current_time_encoder - last_time_encoder).toSec();
-
 
   _PreviousLeftEncoderCounts = ticks->x;
   _PreviousRightEncoderCounts = ticks->y;
@@ -31,7 +29,8 @@ Transform::Transform(ros::NodeHandle *n)
 
 void Transform::TransformData()
 {
-  while(true){
+  while (true)
+  {
 
     current_time = ros::Time::now();
 
