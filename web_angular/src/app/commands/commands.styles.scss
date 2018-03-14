@@ -1,0 +1,35 @@
+commands {
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  #commands {
+    height: 400px;
+    margin-bottom: 10px;
+  }
+
+  .commands-container {
+    width: 100%;
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    .command-container {
+      margin-bottom: 5px;
+
+      .btn-group {
+        width: 100%;
+      }
+      .btn-primary {
+        width: 80%;
+      }
+      .btn-warning {
+        width: 20%;
+      }
+    }
+  }
+
+}
