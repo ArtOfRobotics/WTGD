@@ -6,3 +6,4 @@ This repo is for Willy the Garbage Disposal robot.
 
 * Easy scripts to program with willy.
 * Controlling willy with a ps3/xbox controller.
+* Making Willy Great Again
