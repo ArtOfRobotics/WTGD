@@ -38,7 +38,7 @@
 #if ARDUINO>=100
   #include <Arduino.h>  // Arduino 1.0
 #else
-  #include <WProgram.h>  // Arduino 0022
+  //#include <WProgram.h>  // Arduino 0022
 #endif
 
 #if defined(__MK20DX128__) || defined(__MK20DX256__)
