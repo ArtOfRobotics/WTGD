@@ -22,24 +22,24 @@
 	#include <std_msgs/UInt8.h>
 	#include <std_msgs/UInt8.h>
 	#include <sensor_msgs/LaserEcho.h>
-	#include <sensor_msgs/image_encodings.h>
-	#include <sensor_msgs/Image.h>
-	#include <std_msgs/Int32MultiArray.h>
+	//#include <sensor_msgs/image_encodings.h>
+	//#include <sensor_msgs/Image.h>
+	//#include <std_msgs/Int32MultiArray.h>
 
 	// const sensor_msgs::LaserEcho& sonar
 	// PCL includes
-	#include <pcl/conversions.h>
-	#include <pcl_ros/point_cloud.h>
-	#include <pcl/point_types.h>
+	//#include <pcl/conversions.h>
+	//#include <pcl_ros/point_cloud.h>
+	//#include <pcl/point_types.h>
 
 	// People Detection Includes
-	#include <image_transport/image_transport.h>
-	#include <cv_bridge/cv_bridge.h>
+	//#include <image_transport/image_transport.h>
+	//#include <cv_bridge/cv_bridge.h>
 
 	//OpenCV
-	#include <opencv2/opencv.hpp>
-	#include <opencv2/imgproc/imgproc.hpp>
-	#include <opencv2/highgui/highgui.hpp>
+	//#include <opencv2/opencv.hpp>
+	//#include <opencv2/imgproc/imgproc.hpp>
+	//#include <opencv2/highgui/highgui.hpp>
 
 
 	//Projects scripts
