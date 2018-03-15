@@ -74,7 +74,7 @@ void WillyController::SonarCallback(const sensor_msgs::LaserEcho &sonar)
 {
 	for (int i = 0; i < 10; i++)
 	{
-		printf("%d\n", SonarData[i].Value);
+		//printf("%d\n", SonarData[i].Value);
 		SonarData[i].Value = sonar.echoes[i];
 	}
 	CalculateMovingPossibilities();
@@ -151,10 +151,10 @@ void WillyController::SetNode(ros::NodeHandle *n)
 
 void WillyController::CalculateMovingPossibilities()
 {
-	CanDriveForward = true;
+	CanDriveForward = false;
 	CanDriveBackward = true;
-	CanTurnLeft = true;
-	CanTurnRight = true;
+	CanTurnLeft = false;
+	CanTurnRight = false;
 
 	for (int i = 0; i < sizeof(ChecksTurnLeft) / sizeof(ChecksTurnLeft[0]); i++)
 	{
