@@ -151,7 +151,7 @@ void WillyController::SetNode(ros::NodeHandle *n)
 
 void WillyController::CalculateMovingPossibilities()
 {
-	CanDriveForward = false;
+	CanDriveForward = true;
 	CanDriveBackward = true;
 	CanTurnLeft = true;
 	CanTurnRight = true;
