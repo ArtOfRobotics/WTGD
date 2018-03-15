@@ -40,10 +40,10 @@ class WillyController
 	void GpsCallback(const std_msgs::String::ConstPtr &msg);
 
 	//Method which calculates the distances.
-	int ReadDepthData(unsigned int height_pos, unsigned int width_pos, sensor_msgs::ImageConstPtr depth_image);
+	//int ReadDepthData(unsigned int height_pos, unsigned int width_pos, sensor_msgs::ImageConstPtr depth_image);
 
 	//Method which calculates the distances by an array.
-	int ReadDepthDataArray(sensor_msgs::ImageConstPtr depth_image);
+	//int ReadDepthDataArray(sensor_msgs::ImageConstPtr depth_image);
 
 	//Method where the ROS Node can be given.
 	void SetNode(ros::NodeHandle *n);
