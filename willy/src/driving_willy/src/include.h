@@ -24,7 +24,7 @@
 	#include <sensor_msgs/LaserEcho.h>
 	//#include <sensor_msgs/image_encodings.h>
 	//#include <sensor_msgs/Image.h>
-	//#include <std_msgs/Int32MultiArray.h>
+	#include <std_msgs/Int32MultiArray.h>
 
 	// const sensor_msgs::LaserEcho& sonar
 	// PCL includes
