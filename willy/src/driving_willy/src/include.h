@@ -55,7 +55,7 @@
 	#include "Commands/Stop.h"
 	#include "Commands/Movement.h"
 	#include "Commands/ForwardUntilHit.h"
-	#include "peopledetect.h"
+	//#include "peopledetect.h"
 
 	//odometry includes
 	//nclude "Odometry/odometry.h"
