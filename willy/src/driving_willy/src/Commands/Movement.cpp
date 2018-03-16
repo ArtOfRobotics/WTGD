@@ -57,7 +57,7 @@ geometry_msgs::Twist Movement::GetLeftCommand() {
 	leftDriving.linear.z = 0;
 	leftDriving.angular.x = 0;
 	leftDriving.angular.y = 0;
-	leftDriving.angular.z = 0.80;
+	leftDriving.angular.z = 0.50;
 
 	return leftDriving;
 }
@@ -71,7 +71,7 @@ geometry_msgs::Twist Movement::GetRightCommand() {
 	rightDriving.linear.z = 0;
 	rightDriving.angular.x = 0;
 	rightDriving.angular.y = 0;
-	rightDriving.angular.z = -0.80;
+	rightDriving.angular.z = -0.50;
 
 	return rightDriving;
 }
