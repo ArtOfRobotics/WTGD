@@ -238,6 +238,7 @@ add_executable(main
 	src/Commands/Turn.cpp
 	src/Commands/ForwardUntilHit.cpp
 
+    src/Controllers/JoyController.cpp
 	src/Controllers/WillyController.cpp
 	src/Controllers/AutonomousDrivingController.cpp
 

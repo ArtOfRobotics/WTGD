@@ -4,43 +4,44 @@ using namespace std;
 
 WillyController controller;
 int argc;
-char** argv;
+char **argv;
 
-JoyController::JoyController(WillyController *Controller, int argc, char **argv) {
+JoyController::JoyController(WillyController *Controller, int argc, char **argv)
+{
     this.controller = Controller;
     this.argc = argc;
     this.argv = argv;
 }
 
 void JoyController::Start()
+{
+    if (argc < 2)
     {
-        if (argc < 2)
+        fprintf(stderr, "Usage: %s <device>\n", argv[0]);
+        fprintf(stderr, "Example: %s /dev/input/js0\n", argv[0]);
+        exit(0);
+    }
+
+    Joystick *joy = new Joystick(argv[1]);
+
+    while (true)
+    {
+        usleep(1000);
+        joy->Update();
+
+        if (joy->hasButtonUpdate())
         {
-            fprintf(stderr, "Usage: %s <device>\n", argv[0]);
-            fprintf(stderr, "Example: %s /dev/input/js0\n", argv[0]);
-            exit(0);
+            update_buttons(joy);
         }
 
-        Joystick *joy = new Joystick(argv[1]);
-
-        while (true)
+        if (joy->hasAxisUpdate())
         {
-            usleep(1000);
-            joy->Update();
-
-            if (joy->hasButtonUpdate())
-            {
-                update_buttons(joy);
-            }
-
-            if (joy->hasAxisUpdate())
-            {
-                update_axes(joy);
-            }
+            update_axes(joy);
         }
+    }
 
-        return 0;
-        /*
+    return 0;
+    /*
         _controller->SendCommandToArduino(Movement::GetForwardCommand());
 
         _controller->SendCommandToArduino(Movement::GetRightCommand());
@@ -97,5 +98,5 @@ void JoyController::Start()
             }
         }*/
 
-        ros::Duration(1).sleep();
-    }
+    ros::Duration(1).sleep();
+}
