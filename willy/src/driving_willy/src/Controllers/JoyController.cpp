@@ -18,22 +18,27 @@ void JoyController::Start()
         if (input == 'w')
         {
             _controller->SendCommandToArduino(Movement::GetForwardCommand());
+            printf("vooruit");
         }
         else if (input == 'a')
         {
             _controller->SendCommandToArduino(Movement::GetLeftCommand());
+            printf("links");
         }
         else if (input == 'd')
         {
             _controller->SendCommandToArduino(Movement::GetRightCommand());
+            printf("Rechts");
         }
         else if (input == 's')
         {
             _controller->SendCommandToArduino(Movement::GetBackwardCommand());
+            printf("Achteruit");
         }
         else if (input == 'q')
         {
             _controller->SendCommandToArduino(Movement::GetStopCommand());
+            printf("Stoppen");
         }
         //_controller->SendCommandToArduino(Movement::GetForwardCommand());
     }
