@@ -2,9 +2,17 @@
 
 using namespace std;
 
-JoyController::JoyController(WillyController *Controller, int argc, char **argv()
-{
-    void JoyController::Start()
+WillyController controller;
+int argc;
+char** argv;
+
+JoyController::JoyController(WillyController *Controller, int argc, char **argv() {
+    this.controller = Controller;
+    this.argc = argc;
+    this.argv = argv;
+}
+
+void JoyController::Start()
     {
         if (argc < 2)
         {
@@ -91,4 +99,3 @@ JoyController::JoyController(WillyController *Controller, int argc, char **argv(
 
         ros::Duration(1).sleep();
     }
-}
