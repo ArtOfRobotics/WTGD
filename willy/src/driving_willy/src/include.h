@@ -3,7 +3,6 @@
 
 	//CPP Plugins //test
 	#include <iostream>
-	//#include <termios.h>
 	#include <queue>
 	#include <string>
 	//#include <unistd.h>
@@ -17,6 +16,7 @@
 
 
 	// ROS includes
+	#include <termios.h>
 	#include <ros/ros.h>
 	#include <sensor_msgs/PointCloud2.h>
 	#include <std_msgs/Float64.h>
