@@ -11,6 +11,7 @@ class JoyController
     void Start();
 
   private:
+    char getch();
 };
 
 #endif
