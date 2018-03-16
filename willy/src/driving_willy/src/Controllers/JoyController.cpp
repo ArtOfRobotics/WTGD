@@ -12,6 +12,7 @@ void JoyController::Start()
 
     while (true)
     {
+        ROS_INFO("Waiting for characters!");
         cin >> input;
         ROS_INFO("New character!");
         printf("Character: %c", input);
