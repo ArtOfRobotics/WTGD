@@ -46,6 +46,7 @@
 	#include "Interfaces/ICommand.h"
 
 	#include "Controllers/WillyController.h"
+	#include "Controllers/JoyController.h"
 	#include "Controllers/AutonomousDrivingController.h"
 	//#include "Controllers/PeopleDetectorController.h"
 
