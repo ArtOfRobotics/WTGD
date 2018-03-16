@@ -13,15 +13,16 @@ void JoyController::Start()
     while (true)
     {
         ROS_INFO("Waiting for characters!");
-        cin >> input;
+        input = getch();
         ROS_INFO("New character!");
         printf("Character: %c", input);
 
-       if (input == 'q') {
+        if (input == 'q')
+        {
             ROS_INFO("Getting character q!");
             printf("Je hebt op q gedrukt!\n");
-       }
-       //_controller->SendCommandToArduino(Movement::GetForwardCommand());
+        }
+        //_controller->SendCommandToArduino(Movement::GetForwardCommand());
     }
     /*
         _controller->SendCommandToArduino(Movement::GetForwardCommand());
@@ -81,4 +82,44 @@ void JoyController::Start()
         }*/
 
     ros::Duration(1).sleep();
+}
+
+char getch()
+{
+    fd_set set;
+    struct timeval timeout;
+    int rv;
+    char buff = 0;
+    int len = 1;
+    int filedesc = 0;
+    FD_ZERO(&set);
+    FD_SET(filedesc, &set);
+
+    timeout.tv_sec = 0;
+    timeout.tv_usec = 1000;
+
+    rv = select(filedesc + 1, &set, NULL, NULL, &timeout);
+
+    struct termios old = {0};
+    if (tcgetattr(filedesc, &old) < 0)
+        ROS_ERROR("tcsetattr()");
+    old.c_lflag &= ~ICANON;
+    old.c_lflag &= ~ECHO;
+    old.c_cc[VMIN] = 1;
+    old.c_cc[VTIME] = 0;
+    if (tcsetattr(filedesc, TCSANOW, &old) < 0)
+        ROS_ERROR("tcsetattr ICANON");
+
+    if (rv == -1)
+        ROS_ERROR("select");
+    else if (rv == 0)
+        ROS_INFO("no_key_pressed");
+    else
+        read(filedesc, &buff, len);
+
+    old.c_lflag |= ICANON;
+    old.c_lflag |= ECHO;
+    if (tcsetattr(filedesc, TCSADRAIN, &old) < 0)
+        ROS_ERROR("tcsetattr ~ICANON");
+    return (buff);
 }
