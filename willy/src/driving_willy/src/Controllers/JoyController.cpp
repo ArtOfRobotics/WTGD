@@ -14,7 +14,7 @@ void JoyController::Start()
     {
         cin >> input;
 
-       if (input.equal('q') {
+       if (input == 'q') {
             printf("Je hebt op q gedrukt!\n");
        }
        //_controller->SendCommandToArduino(Movement::GetForwardCommand());
