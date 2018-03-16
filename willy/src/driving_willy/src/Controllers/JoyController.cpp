@@ -8,9 +8,9 @@ char **argv;
 
 JoyController::JoyController(WillyController *Controller, int argc, char **argv)
 {
-    this.controller = Controller;
-    this.argc = argc;
-    this.argv = argv;
+    controller = Controller;
+    argc = argc;
+    argv = argv;
 }
 
 void JoyController::Start()
