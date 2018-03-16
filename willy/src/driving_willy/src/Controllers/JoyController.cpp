@@ -15,31 +15,16 @@ JoyController::JoyController(WillyController *Controller, int argc, char **argv)
 
 void JoyController::Start()
 {
-    if (argc < 2)
-    {
-        fprintf(stderr, "Usage: %s <device>\n", argv[0]);
-        fprintf(stderr, "Example: %s /dev/input/js0\n", argv[0]);
-        exit(0);
-    }
+   char input = ''; 
 
-    Joystick *joy = new Joystick(argv[1]);
+   while(true) {
+       cin >> input;
 
-    while (true)
-    {
-        usleep(1000);
-        joy->Update();
-
-        if (joy->hasButtonUpdate())
-        {
-            update_buttons(joy);
-        }
-
-        if (joy->hasAxisUpdate())
-        {
-            update_axes(joy);
-        }
-    }
-
+       if (input.equal('q') {
+           printf("Je hebt op q gedrukt!\n");
+       }
+       //_controller->SendCommandToArduino(Movement::GetForwardCommand());
+   }
     /*
         _controller->SendCommandToArduino(Movement::GetForwardCommand());
 

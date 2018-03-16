@@ -56,8 +56,6 @@
 	#include "Commands/Stop.h"
 	#include "Commands/Movement.h"
 	#include "Commands/ForwardUntilHit.h"
-	#include "Joystick/updates.h"
-	#include "Joystick/joystick.h"
 	//#include "peopledetect.h"
 
 	//odometry includes
