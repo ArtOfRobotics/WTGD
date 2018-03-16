@@ -1,6 +1,6 @@
 #pragma once
 
-#include "joy.h"
+#include "joystick.h"
 #include <iostream>
 #include <climits>
 
