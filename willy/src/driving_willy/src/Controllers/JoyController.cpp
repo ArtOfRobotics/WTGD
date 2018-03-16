@@ -84,7 +84,7 @@ void JoyController::Start()
     ros::Duration(1).sleep();
 }
 
-char getch()
+char JoyController::getch()
 {
     fd_set set;
     struct timeval timeout;
