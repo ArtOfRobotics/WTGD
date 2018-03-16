@@ -2,13 +2,13 @@
 
 using namespace std;
 
-WillyController controller;
+WillyController willyController;
 int argc;
 char **argv;
 
 JoyController::JoyController(WillyController *Controller, int argc, char **argv)
 {
-    controller = Controller;
+    willyController = Controller;
     argc = argc;
     argv = argv;
 }
