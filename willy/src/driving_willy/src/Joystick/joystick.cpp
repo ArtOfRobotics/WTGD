@@ -1,4 +1,4 @@
-#include "joy.h"
+#include "joystick.h"
 
 Joystick::Joystick(std::string filename)
 {
