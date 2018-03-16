@@ -15,7 +15,7 @@ JoyController::JoyController(WillyController *Controller, int argc, char **argv)
 
 void JoyController::Start()
 {
-   char input = ''; 
+   char input; 
 
    while(true) {
        cin >> input;
