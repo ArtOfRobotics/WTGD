@@ -6,7 +6,7 @@ WillyController controller;
 int argc;
 char** argv;
 
-JoyController::JoyController(WillyController *Controller, int argc, char **argv() {
+JoyController::JoyController(WillyController *Controller, int argc, char **argv) {
     this.controller = Controller;
     this.argc = argc;
     this.argv = argv;

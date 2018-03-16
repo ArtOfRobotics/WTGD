@@ -11,7 +11,7 @@ class JoyController
     void Start();
 
   private:
-    WillyController controller;
+    WillyController * controller;
     int argc;
     char ** argv;
 };
