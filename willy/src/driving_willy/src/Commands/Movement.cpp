@@ -9,7 +9,7 @@ using namespace std;
 geometry_msgs::Twist Movement::GetForwardCommand() {
 	geometry_msgs::Twist goForwardDriving;
 	
-	goForwardDriving.linear.x = 0.30;
+	goForwardDriving.linear.x = 0.50;
 	goForwardDriving.linear.y = 0;
 	goForwardDriving.linear.z = 0;
 	goForwardDriving.angular.x = 0;
@@ -23,7 +23,7 @@ geometry_msgs::Twist Movement::GetForwardCommand() {
 geometry_msgs::Twist Movement::GetBackwardCommand() {
 	geometry_msgs::Twist goBackwardDriving;
 	
-	goBackwardDriving.linear.x = -0.30;
+	goBackwardDriving.linear.x = -0.50;
 	goBackwardDriving.linear.y = 0;
 	goBackwardDriving.linear.z = 0;
 	goBackwardDriving.angular.x = 0;
@@ -57,7 +57,7 @@ geometry_msgs::Twist Movement::GetLeftCommand() {
 	leftDriving.linear.z = 0;
 	leftDriving.angular.x = 0;
 	leftDriving.angular.y = 0;
-	leftDriving.angular.z = 0.20;
+	leftDriving.angular.z = 0.30;
 
 	return leftDriving;
 }
@@ -71,7 +71,7 @@ geometry_msgs::Twist Movement::GetRightCommand() {
 	rightDriving.linear.z = 0;
 	rightDriving.angular.x = 0;
 	rightDriving.angular.y = 0;
-	rightDriving.angular.z = -0.20;
+	rightDriving.angular.z = -0.30;
 
 	return rightDriving;
 }

@@ -126,7 +126,7 @@ char JoyController::getch()
     if (rv == -1)
         ROS_ERROR("select");
     else if (rv == 0)
-        ROS_INFO("no_key_pressed");
+        //ROS_INFO("no_key_pressed");
     else
         read(filedesc, &buff, len);
 
