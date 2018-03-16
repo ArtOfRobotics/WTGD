@@ -2,29 +2,23 @@
 
 using namespace std;
 
-WillyController willyController;
-int argc;
-char **argv;
-
 JoyController::JoyController(WillyController *Controller, int argc, char **argv)
 {
-    willyController = Controller;
-    argc = argc;
-    argv = argv;
 }
 
 void JoyController::Start()
 {
-   char input; 
+    char input;
 
-   while(true) {
-       cin >> input;
+    while (true)
+    {
+        cin >> input;
 
        if (input.equal('q') {
-           printf("Je hebt op q gedrukt!\n");
+            printf("Je hebt op q gedrukt!\n");
        }
        //_controller->SendCommandToArduino(Movement::GetForwardCommand());
-   }
+    }
     /*
         _controller->SendCommandToArduino(Movement::GetForwardCommand());
 
