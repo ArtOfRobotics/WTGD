@@ -4,6 +4,7 @@ using namespace std;
 
 JoyController::JoyController(WillyController *Controller, int argc, char **argv)
 {
+    _controller = Controller;
 }
 
 void JoyController::Start()

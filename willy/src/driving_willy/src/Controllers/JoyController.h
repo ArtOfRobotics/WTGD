@@ -11,6 +11,7 @@ class JoyController
     void Start();
 
   private:
+    WillyController *_controller;
     char getch();
 };
 
