@@ -12,15 +12,27 @@ void JoyController::Start()
 
     while (true)
     {
-        ROS_INFO("Waiting for characters!");
         input = getch();
-        ROS_INFO("New character!");
-        printf("Character: %c", input);
 
-        if (input == 'q')
+        if (input == 'w')
         {
-            ROS_INFO("Getting character q!");
-            printf("Je hebt op q gedrukt!\n");
+            _controller->SendCommandToArduino(Movement::GetForwardCommand());
+        }
+        else if (input == 'a')
+        {
+            _controller->SendCommandToArduino(Movement::GetLeftCommand());
+        }
+        else if (input == 'd')
+        {
+            _controller->SendCommandToArduino(Movement::GetRightCommand());
+        }
+        else if (input == 's')
+        {
+            _controller->SendCommandToArduino(Movement::GetBackwardCommand());
+        }
+        else if (input == 'q')
+        {
+            _controller->SendCommandToArduino(Movement::GetStopCommand());
         }
         //_controller->SendCommandToArduino(Movement::GetForwardCommand());
     }
