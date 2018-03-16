@@ -40,7 +40,6 @@ void JoyController::Start()
         }
     }
 
-    return 0;
     /*
         _controller->SendCommandToArduino(Movement::GetForwardCommand());
 
