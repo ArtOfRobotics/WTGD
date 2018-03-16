@@ -13,8 +13,11 @@ void JoyController::Start()
     while (true)
     {
         cin >> input;
+        ROS_INFO("New character!");
+        printf("Character: %c", input);
 
        if (input == 'q') {
+            ROS_INFO("Getting character q!");
             printf("Je hebt op q gedrukt!\n");
        }
        //_controller->SendCommandToArduino(Movement::GetForwardCommand());
