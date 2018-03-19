@@ -9,7 +9,7 @@ using namespace std;
 geometry_msgs::Twist Movement::GetForwardCommand() {
 	geometry_msgs::Twist goForwardDriving;
 	
-	goForwardDriving.linear.x = 3.00;
+	goForwardDriving.linear.x = 1.00;
 	goForwardDriving.linear.y = 0;
 	goForwardDriving.linear.z = 0;
 	goForwardDriving.angular.x = 0;
