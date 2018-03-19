@@ -12,6 +12,7 @@ void JoyController::Start()
     char input;
     bool inMenu;
     int menuItem = 0;
+    printf("Starting joycontroller");
 
     while (true)
     {
