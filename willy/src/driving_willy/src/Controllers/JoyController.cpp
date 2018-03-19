@@ -10,37 +10,63 @@ JoyController::JoyController(WillyController *Controller, int argc, char **argv)
 void JoyController::Start()
 {
     char input;
+    bool inMenu;
+    int menuItem = 0;
 
     while (true)
     {
         input = getch();
 
-        if (input == 'w')
+        if (input == 'w' && inMenu == false)
         {
             _controller->SendCommandToArduino(Movement::GetForwardCommand());
             printf("vooruit");
         }
-        else if (input == 'a')
+        else if (input == 'a' && inMenu == false)
         {
             _controller->SendCommandToArduino(Movement::GetLeftCommand());
             printf("links");
         }
-        else if (input == 'd')
+        else if (input == 'd' && inMenu == false)
         {
             _controller->SendCommandToArduino(Movement::GetRightCommand());
             printf("Rechts");
         }
-        else if (input == 's')
+        else if (input == 's' && inMenu == false)
         {
             _controller->SendCommandToArduino(Movement::GetBackwardCommand());
             printf("Achteruit");
         }
-        else if (input == 'q')
+        else if (input == 'q' && inMenu == false)
         {
             _controller->SendCommandToArduino(Movement::GetStopCommand());
             printf("Stoppen");
         }
+        else if (input == 'm' && inMenu == false)
+        {
+            inMenu = true;
+        }
+        else if (input == 'n' && inMenu == true)
+        {
+            inMenu = false;
+            menuItem = 0;
+        }
+        else if (input == '1' && inMenu == true)
+        {
+            menuItem = 1;
+        }
         //_controller->SendCommandToArduino(Movement::GetForwardCommand());
+
+        if (inMenu && menuItem > 0)
+        {
+            if (menuItem = 1)
+            {
+                _controller->SendCommandToArduino(Movement::GetForwardCommand());
+                ros::Duration(3).sleep();
+                _controller->SendCommandToArduino(Movement::GetBackwardCommand());
+                ros::Duration(3).sleep();
+            }
+        }
     }
     /*
         _controller->SendCommandToArduino(Movement::GetForwardCommand());
@@ -130,8 +156,8 @@ char JoyController::getch()
 
     if (rv == -1)
         ROS_ERROR("select");
-    //else if (rv == 0)      
-        //ROS_INFO("no_key_pressed");
+    //else if (rv == 0)
+    //ROS_INFO("no_key_pressed");
     else
         read(filedesc, &buff, len);
 
