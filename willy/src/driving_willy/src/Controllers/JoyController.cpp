@@ -12,11 +12,13 @@ void JoyController::Start()
     char input;
     bool inMenu;
     int menuItem = 0;
-    printf("Starting joycontroller");
+    printf("Starting joycontroller\n");
 
     while (true)
     {
+        printf("Getting character...\n");
         input = getch();
+        printf("Got a character!!!\n");
 
         if (input == 'w' && inMenu == false)
         {
