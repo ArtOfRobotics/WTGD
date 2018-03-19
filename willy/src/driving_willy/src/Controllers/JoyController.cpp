@@ -45,15 +45,18 @@ void JoyController::Start()
         else if (input == 'm' && inMenu == false)
         {
             inMenu = true;
+            printf("Menu opened");
         }
         else if (input == 'n' && inMenu == true)
         {
             inMenu = false;
             menuItem = 0;
+            printf("Menu closed");
         }
         else if (input == '1' && inMenu == true)
         {
             menuItem = 1;
+            printf("Menu 1 selected");
         }
         //_controller->SendCommandToArduino(Movement::GetForwardCommand());
 
@@ -61,6 +64,7 @@ void JoyController::Start()
         {
             if (menuItem = 1)
             {
+                printf("Running menu 1");
                 _controller->SendCommandToArduino(Movement::GetForwardCommand());
                 ros::Duration(3).sleep();
                 _controller->SendCommandToArduino(Movement::GetBackwardCommand());
