@@ -70,12 +70,11 @@ void JoyController::Start()
             {
                 printf("Running menu 1");
                 _controller->SendCommandToArduino(Movement::GetForwardCommand());
-                ros::Duration(3).sleep();
-                _controller->SendCommandToArduino(Movement::GetStopCommand());
-                ros::Duration(3).sleep();
+                printf("Going forward\n");
+                ros::Duration(2).sleep();
                 _controller->SendCommandToArduino(Movement::GetBackwardCommand());
-                ros::Duration(3).sleep();
-                _controller->SendCommandToArduino(Movement::GetStopCommand());
+                printf("Going backward\n");
+                ros::Duration(2).sleep();
             }
         }
     }
