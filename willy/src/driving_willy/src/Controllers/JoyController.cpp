@@ -66,7 +66,7 @@ void JoyController::Start()
 
         if (inMenu && menuItem > 0)
         {
-            if (menuItem = 1)
+            if (menuItem == 1)
             {
                 printf("Running menu 1");
                 _controller->SendCommandToArduino(Movement::GetForwardCommand());
