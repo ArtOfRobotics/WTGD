@@ -206,7 +206,7 @@ void WillyController::CalculateMovingPossibilities()
 
 	//Publish array
 	_movingPossibilitiesPublisher.publish(array);
-	ROS_INFO("-----------------------------------------------");
+	//ROS_INFO("-----------------------------------------------");
 }
 
 //This method sends the msg to the arduino. It can be controlled from the commands.
