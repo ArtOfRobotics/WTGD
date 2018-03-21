@@ -106,14 +106,14 @@ void WillyController::WheelCallback(const geometry_msgs::Vector3::ConstPtr &tick
 
 void WillyController::GpsCallback(const std_msgs::String::ConstPtr &msg)
 {
-	printf("gps msg = %s\n", msg->data.c_str());
+	//printf("gps msg = %s\n", msg->data.c_str());
 	std::string input = msg->data.c_str();
 	std::istringstream ss(input);
 	std::string token;
 	int counter = 0;
 	while (std::getline(ss, token, ','))
 	{
-		printf("%s\n", (char *)token.c_str());
+		//printf("%s\n", (char *)token.c_str());
 		++counter;
 	}
 	// msg->data.c_str().substr (0,5);
