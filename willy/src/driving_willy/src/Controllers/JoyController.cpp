@@ -16,9 +16,9 @@ void JoyController::Start()
 
     while (true)
     {
-        printf("Getting character...\n");
+        //printf("Getting character...\n");
         input = getch();
-        printf("Got a character!!!\n");
+        //printf("Got a character!!!\n");
 
         if (input == 'w' && inMenu == false)
         {
