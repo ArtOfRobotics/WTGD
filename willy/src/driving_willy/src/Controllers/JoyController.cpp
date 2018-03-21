@@ -12,10 +12,13 @@ void JoyController::Start()
     char input;
     bool inMenu;
     int menuItem = 0;
+    printf("Starting joycontroller\n");
 
     while (true)
     {
+        printf("Getting character...\n");
         input = getch();
+        printf("Got a character!!!\n");
 
         if (input == 'w' && inMenu == false)
         {
@@ -55,6 +58,7 @@ void JoyController::Start()
         }
         else if (input == '1' && inMenu == true)
         {
+            _controller->SendCommandToArduino(Movement::GetStopCommand());
             menuItem = 1;
             printf("Menu 1 selected");
         }
@@ -62,13 +66,15 @@ void JoyController::Start()
 
         if (inMenu && menuItem > 0)
         {
-            if (menuItem = 1)
+            if (menuItem == 1)
             {
                 printf("Running menu 1");
                 _controller->SendCommandToArduino(Movement::GetForwardCommand());
-                ros::Duration(3).sleep();
+                printf("Going forward\n");
+                ros::Duration(2).sleep();
                 _controller->SendCommandToArduino(Movement::GetBackwardCommand());
-                ros::Duration(3).sleep();
+                printf("Going backward\n");
+                ros::Duration(2).sleep();
             }
         }
     }
