@@ -35,7 +35,7 @@ class WillyController
 	void SonarCallback(const sensor_msgs::LaserEcho &sonar);
 
 	//Method which handles the given feedback from the arduino.
-	void WheelCallback(const geometry_msgs::Vector3::ConstPtr &ticks);
+	//void WheelCallback(const geometry_msgs::Vector3::ConstPtr &ticks);
 
 	void GpsCallback(const std_msgs::String::ConstPtr &msg);
 
@@ -55,7 +55,7 @@ class WillyController
 	geometry_msgs::Vector3 GetLatestTicks();
 
 	//Method for returning the value by the degrees
-	int GetSonarValueByDegrees(int Degrees);
+	//int GetSonarValueByDegrees(int Degrees);
 
 	//Calculating
 	void CalculateMovingPossibilities();
@@ -100,7 +100,7 @@ class WillyController
 
 	//The publisher where commands can be given throught cmd_vel
 	ros::Publisher _commandPublisher;
-	ros::Publisher _movingPossibilitiesPublisher;
+	//ros::Publisher _movingPossibilitiesPublisher;
 };
 
 #endif

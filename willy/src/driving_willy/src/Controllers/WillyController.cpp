@@ -163,6 +163,7 @@ void WillyController::SonarCallback(const sensor_msgs::LaserEcho &sonar)
 		SonarData[i].Value = sonar.echoes[i];
 	}
 	
+	/*
 	printf("\n");
 	printf("|3: %d-------2: %d--------1: %d|\n", SonarData[3].Value, SonarData[2].Value, SonarData[1].Value);
 	printf("|                              |\n");
@@ -178,32 +179,9 @@ void WillyController::SonarCallback(const sensor_msgs::LaserEcho &sonar)
 	printf("|                              |\n");
 	printf("|6: %d-------7: %d--------8: %d|\n", SonarData[6].Value, SonarData[7].Value, SonarData[8].Value);
 	printf("\n");
+	*/
     
 	CalculateMovingPossibilities();
-}
-
-int WillyController::GetSonarValueByDegrees(int Degrees)
-{
-	for (int i = 0; i < sizeof(SonarData) / sizeof(SonarData[0]); i++)
-	{
-		if (SonarData[i].Degrees == Degrees)
-		{
-			return SonarData[i].Value;
-		}
-	}
-	return 0;
-}
-
-//Gets fired when a new wheel_encoder topic is send.
-void WillyController::WheelCallback(const geometry_msgs::Vector3::ConstPtr &ticks)
-{
-	if (!ReceivedFirstTick)
-	{
-		ReceivedFirstTick = true;
-	}
-
-	_ticks.x = ticks->x;
-	_ticks.y = ticks->y;
 }
 
 void WillyController::GpsCallback(const std_msgs::String::ConstPtr &msg)
@@ -248,7 +226,7 @@ void WillyController::setSat(int sat)
 void WillyController::SetNode(ros::NodeHandle *n)
 {
 	_commandPublisher = n->advertise<geometry_msgs::Twist>("/cmd_vel", 100);
-	_movingPossibilitiesPublisher = n->advertise<std_msgs::Int32MultiArray>("/possible_directions", 100);
+	//_movingPossibilitiesPublisher = n->advertise<std_msgs::Int32MultiArray>("/possible_directions", 100);
 }
 
 void WillyController::CalculateMovingPossibilities()
@@ -268,7 +246,7 @@ void WillyController::CalculateMovingPossibilities()
 			{
 				CanDriveForward = true;
 				MovementKnown = true;
-				//printf("Sonar: %d, Forward:%d > %d\n", ChecksDriveForward[i].SonarID, ChecksDriveForward[i].Value, SonarData[ChecksDriveForward[i].SonarID].Value);
+				printf("Sonar: %d, Forward:%d > %d\n", ChecksDriveForward[i].SonarID, ChecksDriveForward[i].Value, SonarData[ChecksDriveForward[i].SonarID].Value);
 				break;
 			}
 		}
@@ -318,9 +296,10 @@ void WillyController::CalculateMovingPossibilities()
 
 	MovementKnown = false;
 
-	std_msgs::Int32MultiArray array;
+	/*std_msgs::Int32MultiArray array;
 
 	array.data.clear();
+	array.data.push_back(CannotDrive);
 	array.data.push_back(CanDriveForward);
 	array.data.push_back(CanTurnLeft);
 	array.data.push_back(CanDriveBackward);
@@ -329,6 +308,7 @@ void WillyController::CalculateMovingPossibilities()
 	//Publish array
 	_movingPossibilitiesPublisher.publish(array);
 	//ROS_INFO("-----------------------------------------------");
+	*/
 }
 
 //This method sends the msg to the arduino. It can be controlled from the commands.
