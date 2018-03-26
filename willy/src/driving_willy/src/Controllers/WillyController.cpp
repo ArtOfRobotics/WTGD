@@ -114,7 +114,7 @@ void WillyController::SonarCallback(const sensor_msgs::LaserEcho &sonar)
 
 		SonarData[i].Value = sonar.echoes[i];
 	}
-	/*
+	
 	printf("\n");
 	printf("|8: %d-------7: %d--------6: %d|\n", SonarData[8].Value, SonarData[7].Value, SonarData[6].Value);
 	printf("|                              |\n");
@@ -130,7 +130,7 @@ void WillyController::SonarCallback(const sensor_msgs::LaserEcho &sonar)
 	printf("|                              |\n");
 	printf("|1: %d-------2: %d--------3: %d|\n", SonarData[1].Value, SonarData[2].Value, SonarData[3].Value);
 	printf("\n");
-    */
+    
 	CalculateMovingPossibilities();
 }
 
@@ -220,7 +220,7 @@ void WillyController::CalculateMovingPossibilities()
 			{
 				CanDriveForward = true;
 				MovementKnown = true;
-				printf("Sonar: %d, Forward:%d > %d\n", ChecksDriveForward[i].SonarID, ChecksDriveForward[i].Value, SonarData[ChecksDriveForward[i].SonarID].Value);
+				//printf("Sonar: %d, Forward:%d > %d\n", ChecksDriveForward[i].SonarID, ChecksDriveForward[i].Value, SonarData[ChecksDriveForward[i].SonarID].Value);
 				break;
 			}
 		}
@@ -234,7 +234,7 @@ void WillyController::CalculateMovingPossibilities()
 			{
 				CanTurnLeft = true;
 				MovementKnown = true;
-				printf("Sonar: %d, Left:%d > %d\n", ChecksTurnLeft[i].SonarID, ChecksTurnLeft[i].Value, SonarData[ChecksTurnLeft[i].SonarID].Value);
+				//printf("Sonar: %d, Left:%d > %d\n", ChecksTurnLeft[i].SonarID, ChecksTurnLeft[i].Value, SonarData[ChecksTurnLeft[i].SonarID].Value);
 				break;
 			}
 		}
@@ -248,7 +248,7 @@ void WillyController::CalculateMovingPossibilities()
 			{
 				CanTurnRight = true;
 				MovementKnown = true;
-				printf("Sonar: %d, Right:%d > %d\n", ChecksTurnRight[i].SonarID, ChecksTurnRight[i].Value, SonarData[ChecksTurnRight[i].SonarID].Value);
+				//printf("Sonar: %d, Right:%d > %d\n", ChecksTurnRight[i].SonarID, ChecksTurnRight[i].Value, SonarData[ChecksTurnRight[i].SonarID].Value);
 				break;
 			}
 		}
@@ -262,7 +262,7 @@ void WillyController::CalculateMovingPossibilities()
 			{
 				CanDriveBackward = true;
 				MovementKnown = true;
-				printf("Sonar: %d, Backward:%d > %d\n", ChecksDriveBackward[i].SonarID, ChecksDriveBackward[i].Value, SonarData[ChecksDriveBackward[i].SonarID].Value);
+				//printf("Sonar: %d, Backward:%d > %d\n", ChecksDriveBackward[i].SonarID, ChecksDriveBackward[i].Value, SonarData[ChecksDriveBackward[i].SonarID].Value);
 				break;
 			}
 		}
