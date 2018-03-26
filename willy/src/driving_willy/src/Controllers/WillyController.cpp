@@ -78,7 +78,7 @@ void WillyController::SonarCallback(const sensor_msgs::LaserEcho &sonar)
 
 		SonarData[i].Value = sonar.echoes[i];
 	}
-
+	/*
 	printf("\n");
 	printf("|8: %d-------7: %d--------6: %d|\n", SonarData[8].Value, SonarData[7].Value, SonarData[6].Value);
 	printf("|                              |\n");
@@ -94,7 +94,7 @@ void WillyController::SonarCallback(const sensor_msgs::LaserEcho &sonar)
 	printf("|                              |\n");
 	printf("|1: %d-------2: %d--------3: %d|\n", SonarData[1].Value, SonarData[2].Value, SonarData[3].Value);
 	printf("\n");
-
+    */
 	CalculateMovingPossibilities();
 }
 
@@ -169,13 +169,14 @@ void WillyController::SetNode(ros::NodeHandle *n)
 
 void WillyController::CalculateMovingPossibilities()
 {
-	CanDriveForward = false;
+	CanDriveForward = true;
 	CanDriveBackward = true;
-	CanTurnLeft = false;
-	CanTurnRight = false;
+	CanTurnLeft = true;
+	CanTurnRight = true;
 
 	for (int i = 0; i < sizeof(ChecksTurnLeft) / sizeof(ChecksTurnLeft[0]); i++)
 	{
+		
 		if (ChecksTurnLeft[i].Value != 0 && ChecksTurnLeft[i].Value > SonarData[ChecksTurnLeft[i].SonarID].Value)
 		{
 			CanTurnLeft = false;
@@ -196,6 +197,7 @@ void WillyController::CalculateMovingPossibilities()
 
 	for (int i = 0; i < sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0]); i++)
 	{
+		printf("SonarID: %d --- Sonar waarde: %d\n", ChecksDriveForward[i].SonarID, ChecksDriveForward[i].Value);
 		if (ChecksDriveForward[i].Value != 0 && ChecksDriveForward[i].Value > SonarData[ChecksDriveForward[i].SonarID].Value)
 		{
 			CanDriveForward = false;
