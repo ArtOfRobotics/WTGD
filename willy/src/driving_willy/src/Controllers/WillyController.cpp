@@ -69,34 +69,34 @@ WillyController::WillyController()
 	ChecksTurnLeft[2].SonarID = 4;
 	ChecksTurnLeft[2].Value = 30;
 	ChecksTurnLeft[3].SonarID = 8;
-	ChecksTurnLeft[3].Value = 80;
+	ChecksTurnLeft[3].Value = 100;
 	ChecksTurnLeft[3].SonarID = 9;
 	ChecksTurnLeft[3].Value = 100;
 
 	ChecksTurnRight[0].SonarID = 0;
-	ChecksTurnRight[0].Value = 30;
+	ChecksTurnRight[0].Value = 60;
 	ChecksTurnRight[1].SonarID = 1;
-	ChecksTurnRight[1].Value = 30;
+	ChecksTurnRight[1].Value = 60;
 	ChecksTurnRight[2].SonarID = 2;
-	ChecksTurnRight[2].Value = 30;
+	ChecksTurnRight[2].Value = 60;
 	ChecksTurnRight[3].SonarID = 6;
-	ChecksTurnRight[3].Value = 80;
+	ChecksTurnRight[3].Value = 100;
 	ChecksTurnRight[4].SonarID = 5;
 	ChecksTurnRight[4].Value = 100;
 
 	ChecksDriveForward[0].SonarID = 1;
-	ChecksDriveForward[0].Value = 120;
+	ChecksDriveForward[0].Value = 150;
 	ChecksDriveForward[1].SonarID = 2;
-	ChecksDriveForward[1].Value = 120;
+	ChecksDriveForward[1].Value = 150;
 	ChecksDriveForward[2].SonarID = 3;
-	ChecksDriveForward[2].Value = 120;
+	ChecksDriveForward[2].Value = 150;
 
 	ChecksDriveBackward[0].SonarID = 6;
-	ChecksDriveBackward[0].Value = 90;
+	ChecksDriveBackward[0].Value = 120;
 	ChecksDriveBackward[1].SonarID = 7;
 	ChecksDriveBackward[1].Value = 120;
 	ChecksDriveBackward[2].SonarID = 8;
-	ChecksDriveBackward[2].Value = 90;
+	ChecksDriveBackward[2].Value = 120;
 }
 
 //This method executes the command which extend the ICommand.
