@@ -220,7 +220,7 @@ void WillyController::CalculateMovingPossibilities()
 			{
 				CanDriveForward = true;
 				MovementKnown = true;
-				printf("Sonar: %d, Forward:%d > %d\n", SonarData[ChecksDriveForward[i].SonarID].SonarID, ChecksDriveForward[i].Value, SonarData[ChecksDriveForward[i].SonarID].Value);
+				printf("Sonar: %d, Forward:%d > %d\n", ChecksDriveForward[i].SonarID, ChecksDriveForward[i].Value, SonarData[ChecksDriveForward[i].SonarID].Value);
 				break;
 			}
 		}
@@ -234,7 +234,7 @@ void WillyController::CalculateMovingPossibilities()
 			{
 				CanTurnLeft = true;
 				MovementKnown = true;
-				printf("Sonar: %d, Left:%d > %d\n", SonarData[ChecksTurnLeft[i].SonarID].SonarID, ChecksTurnLeft[i].Value, SonarData[ChecksTurnLeft[i].SonarID].Value);
+				printf("Sonar: %d, Left:%d > %d\n", ChecksTurnLeft[i].SonarID, ChecksTurnLeft[i].Value, SonarData[ChecksTurnLeft[i].SonarID].Value);
 				break;
 			}
 		}
@@ -248,7 +248,7 @@ void WillyController::CalculateMovingPossibilities()
 			{
 				CanTurnRight = true;
 				MovementKnown = true;
-				printf("Sonar: %d, Right:%d > %d\n", SonarData[ChecksTurnRight[i].SonarID].SonarID, ChecksTurnRight[i].Value, SonarData[ChecksTurnRight[i].SonarID].Value);
+				printf("Sonar: %d, Right:%d > %d\n", ChecksTurnRight[i].SonarID, ChecksTurnRight[i].Value, SonarData[ChecksTurnRight[i].SonarID].Value);
 				break;
 			}
 		}
@@ -262,11 +262,13 @@ void WillyController::CalculateMovingPossibilities()
 			{
 				CanDriveBackward = true;
 				MovementKnown = true;
-				printf("Sonar: %d, Backward:%d > %d\n", SonarData[ChecksDriveBackward[i].SonarID].SonarID, ChecksDriveBackward[i].Value, SonarData[ChecksDriveBackward[i].SonarID].Value);
+				printf("Sonar: %d, Backward:%d > %d\n", ChecksDriveBackward[i].SonarID, ChecksDriveBackward[i].Value, SonarData[ChecksDriveBackward[i].SonarID].Value);
 				break;
 			}
 		}
 	}
+
+	MovementKnown = false;
 
 	std_msgs::Int32MultiArray array;
 
