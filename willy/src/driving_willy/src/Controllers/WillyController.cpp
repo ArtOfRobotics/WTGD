@@ -16,19 +16,19 @@ WillyController::WillyController()
 	CanTurnRight = true;
 
 	////
-	//// |8-------7--------6|
+	//// |3-------2--------1|
 	//// |                  |
 	//// |                  |
-	//// |9                5|
+	//// |4                0|
 	//// |                  |
 	//// |                  |
 	//// |                  |
 	//// |                  |
 	//// |                  |
-	//// |0                4|
+	//// |5                9|
 	//// |                  |
 	//// |                  |
-	//// |1-------2--------3|
+	//// |6-------7--------8|
 	////
 
 	//Sonar array data
@@ -62,25 +62,25 @@ WillyController::WillyController()
 	SonarData[9].Degrees = 270;
 	SonarData[9].Value = 0;
 
-	ChecksTurnLeft[0].SonarID = 3;
-	ChecksTurnLeft[0].Value = 40;
-	ChecksTurnLeft[1].SonarID = 4;
-	ChecksTurnLeft[1].Value = 60;
-	ChecksTurnLeft[2].SonarID = 5;
-	ChecksTurnLeft[2].Value = 40;
-	ChecksTurnLeft[3].SonarID = 0;
-	ChecksTurnLeft[3].Value = 100;
+	ChecksTurnLeft[0].SonarID = 2;
+	ChecksTurnLeft[0].Value = 30;
+	ChecksTurnLeft[1].SonarID = 3;
+	ChecksTurnLeft[1].Value = 30;
+	ChecksTurnLeft[2].SonarID = 4;
+	ChecksTurnLeft[2].Value = 30;
+	ChecksTurnLeft[3].SonarID = 8;
+	ChecksTurnLeft[3].Value = 80;
 	ChecksTurnLeft[3].SonarID = 9;
 	ChecksTurnLeft[3].Value = 100;
 
 	ChecksTurnRight[0].SonarID = 0;
-	ChecksTurnRight[0].Value = 60;
+	ChecksTurnRight[0].Value = 30;
 	ChecksTurnRight[1].SonarID = 1;
-	ChecksTurnRight[1].Value = 40;
-	ChecksTurnRight[2].SonarID = 9;
-	ChecksTurnRight[2].Value = 60;
-	ChecksTurnRight[3].SonarID = 4;
-	ChecksTurnRight[3].Value = 100;
+	ChecksTurnRight[1].Value = 30;
+	ChecksTurnRight[2].SonarID = 2;
+	ChecksTurnRight[2].Value = 30;
+	ChecksTurnRight[3].SonarID = 6
+	ChecksTurnRight[3].Value = 80;
 	ChecksTurnRight[4].SonarID = 5;
 	ChecksTurnRight[4].Value = 100;
 
