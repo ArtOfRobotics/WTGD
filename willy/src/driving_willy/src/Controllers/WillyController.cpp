@@ -74,9 +74,27 @@ void WillyController::SonarCallback(const sensor_msgs::LaserEcho &sonar)
 {
 	for (int i = 0; i < 10; i++)
 	{
-		printf("%d\n", SonarData[i].Value);
+		//printf("%d\n", SonarData[i].Value);
+
 		SonarData[i].Value = sonar.echoes[i];
 	}
+
+	printf("\n");
+	printf("|8: %d-------7: %d--------6: %d|\n", SonarData[8].Value, SonarData[7].Value, SonarData[6].Value);
+	printf("|                              |\n");
+	printf("|                              |\n");
+	printf("|9: %d                    5: %d|\n", SonarData[9].Value, SonarData[5].Value);
+	printf("|                              |\n");
+	printf("|                              |\n");
+	printf("|                              |\n");
+	printf("|                              |\n");
+	printf("|                              |\n");
+	printf("|0: %d                    4: %d|\n", SonarData[0].Value, SonarData[4].Value);
+	printf("|                              |\n");
+	printf("|                              |\n");
+	printf("|1: %d-------2: %d--------3: %d|\n", SonarData[1].Value, SonarData[2].Value, SonarData[3].Value);
+	printf("\n");
+
 	CalculateMovingPossibilities();
 }
 
