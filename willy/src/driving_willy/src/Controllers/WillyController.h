@@ -72,6 +72,7 @@ class WillyController
 	bool CanDriveBackward;
 	bool CanTurnLeft;
 	bool CanTurnRight;
+	bool MovementKnown;
 
 	//Array where the pointers in the array are where he reads the depth
 	int ReadPointsInImage[10][2];
