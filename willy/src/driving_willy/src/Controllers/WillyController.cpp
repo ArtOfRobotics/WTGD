@@ -79,7 +79,7 @@ WillyController::WillyController()
 	ChecksTurnRight[1].Value = 30;
 	ChecksTurnRight[2].SonarID = 2;
 	ChecksTurnRight[2].Value = 30;
-	ChecksTurnRight[3].SonarID = 6
+	ChecksTurnRight[3].SonarID = 6;
 	ChecksTurnRight[3].Value = 80;
 	ChecksTurnRight[4].SonarID = 5;
 	ChecksTurnRight[4].Value = 100;
