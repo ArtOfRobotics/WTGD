@@ -9,7 +9,7 @@ if git fetch; then
     catkin_make
     source devel/setup.bash
     cd ..
-    chmod 777 bin
+    chmod 777 bin/gitsync.sh
 else
     echo "No remote changes found in WTDG"
 fi
