@@ -103,8 +103,8 @@ int main(int argc, char **argv)
 
     //AutonomousDrivingController autonomouseDriving = AutonomousDrivingController(&controller, &n);
     //autonomouseDriving.Start();
-    JoyController joyController = JoyController(&controller, argc, argv);
-    joyController.Start();
+    //JoyController joyController = JoyController(&controller, argc, argv);
+    //joyController.Start();
 
     // Wait
     ros::waitForShutdown();
