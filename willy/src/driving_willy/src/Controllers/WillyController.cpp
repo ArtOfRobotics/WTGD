@@ -61,6 +61,42 @@ WillyController::WillyController()
 
 	SonarData[9].Degrees = 270;
 	SonarData[9].Value = 0;
+
+	ChecksTurnLeft[0].SonarID = 3;
+	ChecksTurnLeft[0].Value = 40;
+	ChecksTurnLeft[1].SonarID = 4;
+	ChecksTurnLeft[1].Value = 60;
+	ChecksTurnLeft[2].SonarID = 5;
+	ChecksTurnLeft[2].Value = 40;
+	ChecksTurnLeft[3].SonarID = 0;
+	ChecksTurnLeft[3].Value = 100;
+	ChecksTurnLeft[3].SonarID = 9;
+	ChecksTurnLeft[3].Value = 100;
+
+	ChecksTurnRight[0].SonarID = 0;
+	ChecksTurnRight[0].Value = 60;
+	ChecksTurnRight[1].SonarID = 1;
+	ChecksTurnRight[1].Value = 40;
+	ChecksTurnRight[2].SonarID = 9;
+	ChecksTurnRight[2].Value = 60;
+	ChecksTurnRight[3].SonarID = 4;
+	ChecksTurnRight[3].Value = 100;
+	ChecksTurnRight[4].SonarID = 5;
+	ChecksTurnRight[4].Value = 100;
+
+	ChecksDriveForward[0].SonarID = 6;
+	ChecksDriveForward[0].Value = 120;
+	ChecksDriveForward[1].SonarID = 7;
+	ChecksDriveForward[1].Value = 120;
+	ChecksDriveForward[2].SonarID = 8;
+	ChecksDriveForward[2].Value = 120;
+
+	ChecksDriveBackward[0].SonarID = 1;
+	ChecksDriveBackward[0].Value = 90;
+	ChecksDriveBackward[1].SonarID = 2;
+	ChecksDriveBackward[1].Value = 120;
+	ChecksDriveBackward[2].SonarID = 3;
+	ChecksDriveBackward[2].Value = 90;
 }
 
 //This method executes the command which extend the ICommand.
@@ -176,7 +212,7 @@ void WillyController::CalculateMovingPossibilities()
 
 	for (int i = 0; i < sizeof(ChecksTurnLeft) / sizeof(ChecksTurnLeft[0]); i++)
 	{
-		
+
 		if (ChecksTurnLeft[i].Value != 0 && ChecksTurnLeft[i].Value > SonarData[ChecksTurnLeft[i].SonarID].Value)
 		{
 			CanTurnLeft = false;

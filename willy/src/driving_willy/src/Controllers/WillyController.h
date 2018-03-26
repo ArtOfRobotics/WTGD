@@ -86,10 +86,10 @@ class WillyController
 	SonarCheck ChecksTurnRight[5];
 
 	int ChecksDriveForwardElements;
-	SonarCheck ChecksDriveForward[5];
+	SonarCheck ChecksDriveForward[3];
 
 	int ChecksDriveBackwardElements;
-	SonarCheck ChecksDriveBackward[5];
+	SonarCheck ChecksDriveBackward[3];
 
   private:
 	//Latitude and longitude
