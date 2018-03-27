@@ -63,7 +63,7 @@ WillyController::WillyController()
 	SonarData[9].Value = 0;
 
 	ChecksTurnLeft[0].SonarID = 2;
-	ChecksTurnLeft[0].Value = 60;
+	ChecksTurnLeft[0].Value = 10; // Was 60
 	ChecksTurnLeft[1].SonarID = 3;
 	ChecksTurnLeft[1].Value = 60;
 	ChecksTurnLeft[2].SonarID = 4;
@@ -88,7 +88,7 @@ WillyController::WillyController()
 	ChecksTurnRight[1].SonarID = 1;
 	ChecksTurnRight[1].Value = 60;
 	ChecksTurnRight[2].SonarID = 2;
-	ChecksTurnRight[2].Value = 60;
+	ChecksTurnRight[2].Value = 10; // Was 60
 	ChecksTurnRight[3].SonarID = 6;
 	ChecksTurnRight[3].Value = 100;
 	ChecksTurnRight[4].SonarID = 5;
@@ -107,7 +107,7 @@ WillyController::WillyController()
 	ChecksDriveForward[0].SonarID = 1;
 	ChecksDriveForward[0].Value = 120;
 	ChecksDriveForward[1].SonarID = 2;
-	ChecksDriveForward[1].Value = 150;
+	ChecksDriveForward[1].Value = 10; // Was 150
 	ChecksDriveForward[2].SonarID = 3;
 	ChecksDriveForward[2].Value = 120;
 	ChecksDriveForward[3].SonarID = 4;
@@ -138,7 +138,7 @@ WillyController::WillyController()
 	ChecksDriveBackward[5].SonarID = 1;
 	ChecksDriveBackward[5].Value = 30;
 	ChecksDriveBackward[6].SonarID = 2;
-	ChecksDriveBackward[6].Value = 30;
+	ChecksDriveBackward[6].Value = 10; // Was 30
 	ChecksDriveBackward[7].SonarID = 3;
 	ChecksDriveBackward[7].Value = 30;
 	ChecksDriveBackward[8].SonarID = 4;
