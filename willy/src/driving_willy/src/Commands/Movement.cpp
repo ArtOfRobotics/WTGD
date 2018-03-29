@@ -71,7 +71,7 @@ geometry_msgs::Twist Movement::GetRightCommand() {
 	rightDriving.linear.z = 0;
 	rightDriving.angular.x = 0;
 	rightDriving.angular.y = 0;
-	rightDriving.angular.z = -0.20;
+	rightDriving.angular.z = -0.40;
 
 	return rightDriving;
 }
