@@ -242,7 +242,7 @@ void WillyController::CalculateMovingPossibilities()
 		if (ChecksDriveForward[i].Value != 0 && SonarData[ChecksDriveForward[i].SonarID].Value < ChecksDriveForward[i].Value)
 		{
 			CanDriveForward = false;
-			printf("Sonar: %d, can't drive forward:%d < %d\n", ChecksDriveForward[i].SonarID, SonarData[ChecksDriveForward[i].SonarID].Value, ChecksDriveForward[i].Value);
+			//printf("Sonar: %d, can't drive forward:%d < %d\n", ChecksDriveForward[i].SonarID, SonarData[ChecksDriveForward[i].SonarID].Value, ChecksDriveForward[i].Value);
 			break;
 		}
 	}
@@ -253,7 +253,7 @@ void WillyController::CalculateMovingPossibilities()
 		{
 			CanTurnLeft = false;
 			//MovementKnown = true;
-			printf("Sonar: %d, can't turn left:%d < %d\n", ChecksTurnLeft[i].SonarID, SonarData[ChecksTurnLeft[i].SonarID].Value, ChecksTurnLeft[i].Value);
+			//printf("Sonar: %d, can't turn left:%d < %d\n", ChecksTurnLeft[i].SonarID, SonarData[ChecksTurnLeft[i].SonarID].Value, ChecksTurnLeft[i].Value);
 			break;
 		}
 	}
@@ -264,7 +264,7 @@ void WillyController::CalculateMovingPossibilities()
 		{
 			CanTurnRight = false;
 			//MovementKnown = true;
-			printf("Sonar: %d, can't turn right:%d < %d\n", ChecksTurnRight[i].SonarID, SonarData[ChecksTurnRight[i].SonarID].Value, ChecksTurnRight[i].Value);
+			//printf("Sonar: %d, can't turn right:%d < %d\n", ChecksTurnRight[i].SonarID, SonarData[ChecksTurnRight[i].SonarID].Value, ChecksTurnRight[i].Value);
 			break;
 		}
 	}
@@ -275,10 +275,12 @@ void WillyController::CalculateMovingPossibilities()
 		{
 			CanDriveBackward = false;
 			//MovementKnown = true;
-			printf("Sonar: %d, can't drive backward:%d < %d\n", ChecksDriveBackward[i].SonarID, SonarData[ChecksDriveBackward[i].SonarID].Value, ChecksDriveBackward[i].Value);
+			//printf("Sonar: %d, can't drive backward:%d < %d\n", ChecksDriveBackward[i].SonarID, SonarData[ChecksDriveBackward[i].SonarID].Value, ChecksDriveBackward[i].Value);
 			break;
 		}
 	}
+
+
 	
 	/*std_msgs::Int32MultiArray array;
 
