@@ -58,6 +58,7 @@ WillyController::WillyController()
 			}
 			else if (tool.attribute("type").value() == "DriveForward")
 			{
+				printf("Hoi ik ben vooruid aan het vullen");
 				ChecksDriveForward[((sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0])) + 1)].SonarID = tool.attribute("SonarID").as_int();
 				ChecksDriveForward[((sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0])) + 1)].Value = tool.attribute("Value").as_int();
 			}
