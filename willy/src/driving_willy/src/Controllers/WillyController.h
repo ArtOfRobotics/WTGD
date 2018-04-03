@@ -67,6 +67,12 @@ class WillyController
 	//Depth mm in front of the robot.
 	int DepthInFront;
 
+	//Sensor counters
+	int ForwardSensorCount = 0;
+	int BackwardSensorCount = 0;
+	int LeftSensorCount = 0;
+	int RightSensorCount = 0;
+
 	//Property which stores if he can drive forward
 	bool CanDriveForward;
 	bool CanDriveBackward;
