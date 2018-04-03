@@ -35,8 +35,8 @@ WillyController::WillyController()
 	pugi::xml_document doc;
 	pugi::xml_parse_result result = doc.load_file("tree.xml");
 
-	printf("%c", const char_t *xml_node::name() const);
-	printf("%c", const char_t *xml_node::value() const);
+	printf("%c", *xml_node::name());
+	printf("%c", *xml_node::value());
 
 	//Sonar array data
 	SonarData[0].Degrees = 270;
