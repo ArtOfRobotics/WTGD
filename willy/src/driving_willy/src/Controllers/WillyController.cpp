@@ -33,7 +33,7 @@ WillyController::WillyController()
 
 	//Load sonar array data from xml
 	pugi::xml_document doc;
-	pugi::xml_parse_result result = doc.load_file("/home/Documents/WTGD/willy/src/driving_willy/src/tree.xml");
+	pugi::xml_parse_result result = doc.load_file("/src/driving_willy/src/tree.xml");
 	if (result.status != 0)
 	{
 		printf("%d", result.status);
