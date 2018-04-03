@@ -66,7 +66,7 @@ WillyController::WillyController()
 			}
 			else if (tool.attribute("type").value() == "DriveBackward")
 			{
-				ChecksDriveBackward[((sizeof(ChecksDriveBackward) / sizeof(ChecksDriveBackward])) + 1)].SonarID = tool.attribute("SonarID").as_int();
+				ChecksDriveBackward[((sizeof(ChecksDriveBackward) / sizeof(ChecksDriveBackward[0])) + 1)].SonarID = tool.attribute("SonarID").as_int();
 				ChecksDriveBackward[((sizeof(ChecksDriveBackward) / sizeof(ChecksDriveBackward[0])) + 1)].Value = tool.attribute("Value").as_int();
 			}
 			ChecksCounter++;
