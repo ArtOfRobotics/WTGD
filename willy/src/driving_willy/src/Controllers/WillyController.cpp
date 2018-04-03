@@ -47,11 +47,8 @@ WillyController::WillyController()
 		std::cout << std::endl;
 	}
 
-	printf("%c", char_t)
-
-		//Sonar array data
-		SonarData[0]
-			.Degrees = 270;
+	//Sonar array data
+	SonarData[0].Degrees = 270;
 	SonarData[0].Value = 0;
 
 	SonarData[1].Degrees = 220;
