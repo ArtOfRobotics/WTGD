@@ -41,52 +41,39 @@ WillyController::WillyController()
 		printf(get_current_dir_name());
 	}
 
+	ChecksCounter = 0;
 	pugi::xml_node tools = doc.child("Willy").child("SonarChecks");
 
 	for (pugi::xml_node tool = tools.first_child(); tool; tool = tool.next_sibling())
 	{
-		printf("SonarCheck");
-		std::cout << "SonarCheck:";
-
 		for (pugi::xml_attribute attr = tool.first_attribute(); attr; attr = attr.next_attribute())
 		{
-			std::cout << " " << attr.name() << "=" << attr.value();
-			printf("data");
+			//std::cout << " " << attr.name() << "=" << attr.value();
+			if (tool.attribute("type").value() == "TurnLeft")
+			{
+				ChecksTurnLeft[(sizeof(ChecksTurnLeft) / sizeof(ChecksTurnLeft[0]) + 1)].SonarID = tool.attribute("SonarID").as_int();
+				ChecksTurnLeft[(sizeof(ChecksTurnLeft) / sizeof(ChecksTurnLeft[0]) + 1)].Value = tool.attribute("Value").as_int();
+			}
+			else if (tool.attribute("type").value() == "TurnRight")
+			{
+				ChecksTurnRight[(sizeof(ChecksTurnRight) / sizeof(ChecksTurnRight[0]) + 1)].SonarID = tool.attribute("SonarID").as_int();
+				ChecksTurnRight[(sizeof(ChecksTurnRight) / sizeof(ChecksTurnRight[0]) + 1)].Value = tool.attribute("Value").as_int();
+			}
+			else if (tool.attribute("type").value() == "DriveForward")
+			{
+				ChecksDriveForward[(sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0]) + 1)].SonarID = tool.attribute("SonarID").as_int();
+				ChecksDriveForward[(sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0]) + 1)].Value = tool.attribute("Value").as_int();
+			}
+			else if (tool.attribute("type").value() == "DriveBackward")
+			{
+				ChecksDriveBackward[(sizeof(ChecksDriveBackward) / sizeof(ChecksDriveBackward]) + 1)].SonarID = tool.attribute("SonarID").as_int();
+				ChecksDriveBackward[(sizeof(ChecksDriveBackward) / sizeof(ChecksDriveBackward[0]) + 1)].Value = tool.attribute("Value").as_int();
+			}
+			ChecksCounter++;
 		}
 
 		std::cout << std::endl;
 	}
-
-	//Sonar array data
-	SonarData[0].Degrees = 270;
-	SonarData[0].Value = 0;
-
-	SonarData[1].Degrees = 220;
-	SonarData[1].Value = 0;
-
-	SonarData[2].Degrees = 180;
-	SonarData[2].Value = 0;
-
-	SonarData[3].Degrees = 140;
-	SonarData[3].Value = 0;
-
-	SonarData[4].Degrees = 90;
-	SonarData[4].Value = 0;
-
-	SonarData[5].Degrees = 90;
-	SonarData[5].Value = 0;
-
-	SonarData[6].Degrees = 45;
-	SonarData[6].Value = 0;
-
-	SonarData[7].Degrees = 0;
-	SonarData[7].Value = 0;
-
-	SonarData[8].Degrees = 315;
-	SonarData[8].Value = 0;
-
-	SonarData[9].Degrees = 270;
-	SonarData[9].Value = 0;
 
 	ChecksTurnLeft[0].SonarID = 2;
 	ChecksTurnLeft[0].Value = 10; // Was 30

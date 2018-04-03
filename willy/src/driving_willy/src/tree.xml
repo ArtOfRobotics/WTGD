@@ -1,23 +1,47 @@
 <Willy>
 	<SonarChecks>
-		<Sonar type="TurnLeft" SonarID="3" Value="40"></Sonar>
-		<Sonar type="TurnLeft" SonarID="4" Value="60"></Sonar>
-		<Sonar type="TurnLeft" SonarID="5" Value="40"></Sonar>
-		<Sonar type="TurnLeft" SonarID="0" Value="100"></Sonar>
-		<Sonar type="TurnLeft" SonarID="9" Value="100"></Sonar>
+		<Sonar type="TurnLeft" SonarID="0" Value="20"></Sonar>
+		<Sonar type="TurnLeft" SonarID="1" Value="20"></Sonar>
+		<Sonar type="TurnLeft" SonarID="2" Value="10"></Sonar>
+		<Sonar type="TurnLeft" SonarID="3" Value="30"></Sonar>
+		<Sonar type="TurnLeft" SonarID="4" Value="30"></Sonar>
+		<Sonar type="TurnLeft" SonarID="5" Value="20"></Sonar>
+		<Sonar type="TurnLeft" SonarID="6" Value="20"></Sonar>
+		<Sonar type="TurnLeft" SonarID="7" Value="20"></Sonar>
+		<Sonar type="TurnLeft" SonarID="8" Value="50"></Sonar>
+		<Sonar type="TurnLeft" SonarID="9" Value="70"></Sonar>
 
-		<Sonar type="TurnRight" SonarID="0" Value="60"></Sonar>
-		<Sonar type="TurnRight" SonarID="1" Value="40"></Sonar>
-		<Sonar type="TurnRight" SonarID="9" Value="60"></Sonar>
-		<Sonar type="TurnRight" SonarID="4" Value="100"></Sonar>
-		<Sonar type="TurnRight" SonarID="5" Value="100"></Sonar>
+		<Sonar type="TurnRight" SonarID="0" Value="30"></Sonar>
+		<Sonar type="TurnRight" SonarID="1" Value="30"></Sonar>
+		<Sonar type="TurnRight" SonarID="2" Value="10"></Sonar>
+		<Sonar type="TurnRight" SonarID="3" Value="20"></Sonar>
+		<Sonar type="TurnRight" SonarID="4" Value="20"></Sonar>
+		<Sonar type="TurnRight" SonarID="5" Value="50"></Sonar>
+		<Sonar type="TurnRight" SonarID="6" Value="70"></Sonar>
+		<Sonar type="TurnRight" SonarID="7" Value="20"></Sonar>
+		<Sonar type="TurnRight" SonarID="8" Value="20"></Sonar>
+		<Sonar type="TurnRight" SonarID="9" Value="20"></Sonar>
 
-		<Sonar type="DriveForward" SonarID="6" Value="120"></Sonar>
-		<Sonar type="DriveForward" SonarID="7" Value="120"></Sonar>
-		<Sonar type="DriveForward" SonarID="8" Value="120"></Sonar>
+		<Sonar type="DriveForward" SonarID="0" Value="20"></Sonar>
+		<Sonar type="DriveForward" SonarID="1" Value="100"></Sonar>
+		<Sonar type="DriveForward" SonarID="2" Value="10"></Sonar>
+		<Sonar type="DriveForward" SonarID="3" Value="100"></Sonar>
+		<Sonar type="DriveForward" SonarID="4" Value="20"></Sonar>
+		<Sonar type="DriveForward" SonarID="5" Value="20"></Sonar>
+		<Sonar type="DriveForward" SonarID="6" Value="0"></Sonar>
+		<Sonar type="DriveForward" SonarID="7" Value="0"></Sonar>
+		<Sonar type="DriveForward" SonarID="8" Value="0"></Sonar>
+		<Sonar type="DriveForward" SonarID="9" Value="20"></Sonar>
 
-		<Sonar type="DriveBackward" SonarID="1" Value="90"></Sonar>
-		<Sonar type="DriveBackward" SonarID="2" Value="120"></Sonar>
-		<Sonar type="DriveBackward" SonarID="3" Value="90"></Sonar>
+		<Sonar type="DriveBackward" SonarID="0" Value="20"></Sonar>
+		<Sonar type="DriveBackward" SonarID="1" Value="0"></Sonar>
+		<Sonar type="DriveBackward" SonarID="2" Value="0"></Sonar>
+		<Sonar type="DriveBackward" SonarID="3" Value="0"></Sonar>
+		<Sonar type="DriveBackward" SonarID="4" Value="20"></Sonar>
+		<Sonar type="DriveBackward" SonarID="5" Value="20"></Sonar>
+		<Sonar type="DriveBackward" SonarID="6" Value="80"></Sonar>
+		<Sonar type="DriveBackward" SonarID="7" Value="100"></Sonar>
+		<Sonar type="DriveBackward" SonarID="8" Value="80"></Sonar>
+		<Sonar type="DriveBackward" SonarID="9" Value="20"></Sonar>
 	</SonarChecks>
 </Willy>

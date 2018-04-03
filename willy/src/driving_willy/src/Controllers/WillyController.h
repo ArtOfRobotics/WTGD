@@ -67,6 +67,9 @@ class WillyController
 	//Depth mm in front of the robot.
 	int DepthInFront;
 
+	//Counter for sonar checkcs
+	int ChecksCounter;
+
 	//Property which stores if he can drive forward
 	bool CanDriveForward;
 	bool CanDriveBackward;
