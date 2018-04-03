@@ -36,12 +36,9 @@ WillyController::WillyController()
 	pugi::xml_parse_result result = doc.load_file("src/driving_willy/src/tree.xml");
 	if (result.status != 0)
 	{
-		printf("%d", result.status);
-		printf("Laden van bestand is mislukt\n");
-		printf(get_current_dir_name());
+		printf("404 - Laden van bestand is mislukt\n");
 	}
 
-	ChecksCounter = 0;
 	pugi::xml_node tools = doc.child("Willy").child("SonarChecks");
 
 	for (pugi::xml_node tool = tools.first_child(); tool; tool = tool.next_sibling())
