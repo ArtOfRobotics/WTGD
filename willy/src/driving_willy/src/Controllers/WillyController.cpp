@@ -61,7 +61,7 @@ WillyController::WillyController()
 			}
 			else if ((strcmp(attr.name(),"type") == 0) && (strcmp(attr.value(),"DriveForward") == 0))
 			{
-				printf("Hoi ik ben vooruid aan het vullen");
+				printf("Sensor: %d, Waarde: %d\n", tool.attribute("SonarID").as_int(), tool.attribute("Value").as_int());
 				ChecksDriveForward[((sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0])) + 1)].SonarID = tool.attribute("SonarID").as_int();
 				ChecksDriveForward[((sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0])) + 1)].Value = tool.attribute("Value").as_int();
 			}
