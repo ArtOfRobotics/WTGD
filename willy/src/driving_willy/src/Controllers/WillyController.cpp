@@ -49,7 +49,7 @@ WillyController::WillyController()
 			//attr.value()
 
 			//printf("Attribuut naam: %c, Attribuut waarde: %c\n", attr.name(), attr.value());
-			if (attr.name() == "type" && attr.value() == "TurnLeft")
+			if ((strcmp(attr.name(),"type") == 0) && (strcmp(attr.value(),"TurnLeft") == 0))
 			{
 				printf("hoihoi");
 				ChecksTurnLeft[((sizeof(ChecksTurnLeft) / sizeof(ChecksTurnLeft[0])) + 1)].SonarID = tool.attribute("SonarID").as_int();
