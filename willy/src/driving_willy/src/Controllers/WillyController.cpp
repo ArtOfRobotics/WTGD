@@ -69,95 +69,10 @@ WillyController::WillyController()
 				ChecksDriveBackward[((sizeof(ChecksDriveBackward) / sizeof(ChecksDriveBackward[0])) + 1)].SonarID = tool.attribute("SonarID").as_int();
 				ChecksDriveBackward[((sizeof(ChecksDriveBackward) / sizeof(ChecksDriveBackward[0])) + 1)].Value = tool.attribute("Value").as_int();
 			}
-			ChecksCounter++;
 		}
 
 		std::cout << std::endl;
 	}
-
-	ChecksTurnLeft[0].SonarID = 2;
-	ChecksTurnLeft[0].Value = 10; // Was 30
-	ChecksTurnLeft[1].SonarID = 3;
-	ChecksTurnLeft[1].Value = 30;
-	ChecksTurnLeft[2].SonarID = 4;
-	ChecksTurnLeft[2].Value = 30;
-	ChecksTurnLeft[3].SonarID = 8;
-	ChecksTurnLeft[3].Value = 50;
-	ChecksTurnLeft[4].SonarID = 9;
-	ChecksTurnLeft[4].Value = 70;
-	ChecksTurnLeft[5].SonarID = 0;
-	ChecksTurnLeft[5].Value = 20;
-	ChecksTurnLeft[6].SonarID = 1;
-	ChecksTurnLeft[6].Value = 20;
-	ChecksTurnLeft[7].SonarID = 5;
-	ChecksTurnLeft[7].Value = 20;
-	ChecksTurnLeft[8].SonarID = 6;
-	ChecksTurnLeft[8].Value = 20;
-	ChecksTurnLeft[9].SonarID = 7;
-	ChecksTurnLeft[9].Value = 20;
-
-	ChecksTurnRight[0].SonarID = 0;
-	ChecksTurnRight[0].Value = 30;
-	ChecksTurnRight[1].SonarID = 1;
-	ChecksTurnRight[1].Value = 30;
-	ChecksTurnRight[2].SonarID = 2;
-	ChecksTurnRight[2].Value = 10; // Was 30
-	ChecksTurnRight[3].SonarID = 6;
-	ChecksTurnRight[3].Value = 70;
-	ChecksTurnRight[4].SonarID = 5;
-	ChecksTurnRight[4].Value = 50;
-	ChecksTurnRight[5].SonarID = 3;
-	ChecksTurnRight[5].Value = 20;
-	ChecksTurnRight[6].SonarID = 4;
-	ChecksTurnRight[6].Value = 20;
-	ChecksTurnRight[7].SonarID = 7;
-	ChecksTurnRight[7].Value = 20;
-	ChecksTurnRight[8].SonarID = 8;
-	ChecksTurnRight[8].Value = 20;
-	ChecksTurnRight[9].SonarID = 9;
-	ChecksTurnRight[9].Value = 20;
-
-	ChecksDriveForward[0].SonarID = 1;
-	ChecksDriveForward[0].Value = 100;
-	ChecksDriveForward[1].SonarID = 2;
-	ChecksDriveForward[1].Value = 10; // Was 150
-	ChecksDriveForward[2].SonarID = 3;
-	ChecksDriveForward[2].Value = 100;
-	ChecksDriveForward[3].SonarID = 4;
-	ChecksDriveForward[3].Value = 20;
-	ChecksDriveForward[4].SonarID = 5;
-	ChecksDriveForward[4].Value = 20;
-	ChecksDriveForward[5].SonarID = 6;
-	ChecksDriveForward[5].Value = 0;
-	ChecksDriveForward[6].SonarID = 7;
-	ChecksDriveForward[6].Value = 0;
-	ChecksDriveForward[7].SonarID = 8;
-	ChecksDriveForward[7].Value = 0;
-	ChecksDriveForward[8].SonarID = 9;
-	ChecksDriveForward[8].Value = 20;
-	ChecksDriveForward[9].SonarID = 0;
-	ChecksDriveForward[9].Value = 20;
-
-	ChecksDriveBackward[0].SonarID = 6;
-	ChecksDriveBackward[0].Value = 80;
-	ChecksDriveBackward[1].SonarID = 7;
-	ChecksDriveBackward[1].Value = 100;
-	ChecksDriveBackward[2].SonarID = 8;
-	ChecksDriveBackward[2].Value = 80;
-	ChecksDriveBackward[3].SonarID = 9;
-	ChecksDriveBackward[3].Value = 20;
-	ChecksDriveBackward[4].SonarID = 0;
-	ChecksDriveBackward[4].Value = 20;
-	ChecksDriveBackward[5].SonarID = 1;
-	ChecksDriveBackward[5].Value = 0;
-	ChecksDriveBackward[6].SonarID = 2;
-	ChecksDriveBackward[6].Value = 0; // Was 30
-	ChecksDriveBackward[7].SonarID = 3;
-	ChecksDriveBackward[7].Value = 0;
-	ChecksDriveBackward[8].SonarID = 4;
-	ChecksDriveBackward[8].Value = 20;
-	ChecksDriveBackward[9].SonarID = 5;
-	ChecksDriveBackward[9].Value = 20;
 }
 
 //This method executes the command which extend the ICommand.
@@ -251,7 +166,7 @@ void WillyController::CalculateMovingPossibilities()
 
 	for (int i = 0; i < sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0]); i++)
 	{
-		//printf("SonarID: %d --- Sonar waarde: %d\n", ChecksDriveForward[i].SonarID, ChecksDriveForward[i].Value);
+		printf("SonarID: %d --- Sonar waarde: %d\n", ChecksDriveForward[i].SonarID, ChecksDriveForward[i].Value);
 		if (ChecksDriveForward[i].Value != 0 && SonarData[ChecksDriveForward[i].SonarID].Value < ChecksDriveForward[i].Value)
 		{
 			CanDriveForward = false;
