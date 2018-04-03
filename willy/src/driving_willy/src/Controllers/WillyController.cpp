@@ -45,13 +45,13 @@ WillyController::WillyController()
 	{
 		for (pugi::xml_attribute attr = tool.first_attribute(); attr; attr = attr.next_attribute())
 		{
-			std::cout << " " << attr.name() << "=" << attr.value();
+			//std::cout << " " << attr.name() << "=" << attr.value();
 			//attr.value()
 
 			//printf("Attribuut naam: %c, Attribuut waarde: %c\n", attr.name(), attr.value());
 			if ((strcmp(attr.name(),"type") == 0) && (strcmp(attr.value(),"TurnLeft") == 0))
 			{
-				printf("hoihoi");
+				printf("%d", tool.attribute("SonarID").as_int());
 				ChecksTurnLeft[((sizeof(ChecksTurnLeft) / sizeof(ChecksTurnLeft[0])) + 1)].SonarID = tool.attribute("SonarID").as_int();
 				ChecksTurnLeft[((sizeof(ChecksTurnLeft) / sizeof(ChecksTurnLeft[0])) + 1)].Value = tool.attribute("Value").as_int();
 			}
