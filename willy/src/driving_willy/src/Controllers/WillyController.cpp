@@ -31,6 +31,10 @@ WillyController::WillyController()
 	//// |6-------7--------8|
 	////
 
+	//Load sonar array data from xml
+	pugi::xml_document doc;
+	pugi::xml_parse_result result = doc.load_file("tree.xml");
+
 	//Sonar array data
 	SonarData[0].Degrees = 270;
 	SonarData[0].Value = 0;
@@ -235,7 +239,7 @@ void WillyController::CalculateMovingPossibilities()
 	CanDriveBackward = true;
 	CanTurnLeft = true;
 	CanTurnRight = true;
-	
+
 	for (int i = 0; i < sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0]); i++)
 	{
 		//printf("SonarID: %d --- Sonar waarde: %d\n", ChecksDriveForward[i].SonarID, ChecksDriveForward[i].Value);
@@ -246,7 +250,7 @@ void WillyController::CalculateMovingPossibilities()
 			break;
 		}
 	}
-	
+
 	for (int i = 0; i < sizeof(ChecksTurnLeft) / sizeof(ChecksTurnLeft[0]); i++)
 	{
 		if (ChecksTurnLeft[i].Value != 0 && SonarData[ChecksTurnLeft[i].SonarID].Value < ChecksTurnLeft[i].Value)
@@ -257,7 +261,7 @@ void WillyController::CalculateMovingPossibilities()
 			break;
 		}
 	}
-	
+
 	for (int i = 0; i < sizeof(ChecksTurnRight) / sizeof(ChecksTurnRight[0]); i++)
 	{
 		if (ChecksTurnRight[i].Value != 0 && SonarData[ChecksTurnRight[i].SonarID].Value < ChecksTurnRight[i].Value)
@@ -268,7 +272,7 @@ void WillyController::CalculateMovingPossibilities()
 			break;
 		}
 	}
-	
+
 	for (int i = 0; i < sizeof(ChecksDriveBackward) / sizeof(ChecksDriveBackward[0]); i++)
 	{
 		if (ChecksDriveBackward[i].Value != 0 && SonarData[ChecksDriveBackward[i].SonarID].Value < ChecksDriveBackward[i].Value)
@@ -280,8 +284,6 @@ void WillyController::CalculateMovingPossibilities()
 		}
 	}
 
-
-	
 	/*std_msgs::Int32MultiArray array;
 
 	array.data.clear();
