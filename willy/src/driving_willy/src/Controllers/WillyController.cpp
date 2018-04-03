@@ -51,24 +51,28 @@ WillyController::WillyController()
 			//printf("Attribuut naam: %c, Attribuut waarde: %c\n", attr.name(), attr.value());
 			if ((strcmp(attr.name(),"type") == 0) && (strcmp(attr.value(),"TurnLeft") == 0))
 			{
-				ChecksTurnLeft[((sizeof(ChecksTurnLeft) / sizeof(ChecksTurnLeft[0])) + 1)].SonarID = tool.attribute("SonarID").as_int();
-				ChecksTurnLeft[((sizeof(ChecksTurnLeft) / sizeof(ChecksTurnLeft[0])) + 1)].Value = tool.attribute("Value").as_int();
+				ChecksTurnLeft[LeftSensorCount].SonarID = tool.attribute("SonarID").as_int();
+				ChecksTurnLeft[LeftSensorCount].Value = tool.attribute("Value").as_int();
+				LeftSensorCount++;
 			}
 			else if ((strcmp(attr.name(),"type") == 0) && (strcmp(attr.value(),"TurnRight") == 0))
 			{
-				ChecksTurnRight[((sizeof(ChecksTurnRight) / sizeof(ChecksTurnRight[0])) + 1)].SonarID = tool.attribute("SonarID").as_int();
-				ChecksTurnRight[((sizeof(ChecksTurnRight) / sizeof(ChecksTurnRight[0])) + 1)].Value = tool.attribute("Value").as_int();
+				ChecksTurnRight[RightSensorCount].SonarID = tool.attribute("SonarID").as_int();
+				ChecksTurnRight[RightSensorCount].Value = tool.attribute("Value").as_int();
+				RightSensorCount++;
 			}
 			else if ((strcmp(attr.name(),"type") == 0) && (strcmp(attr.value(),"DriveForward") == 0))
 			{
 				printf("Sensor: %d, Waarde: %d\n", tool.attribute("SonarID").as_int(), tool.attribute("Value").as_int());
-				ChecksDriveForward[((sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0])) + 1)].SonarID = tool.attribute("SonarID").as_int();
-				ChecksDriveForward[((sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0])) + 1)].Value = tool.attribute("Value").as_int();
+				ChecksDriveForward[ForwardSensorCount].SonarID = tool.attribute("SonarID").as_int();
+				ChecksDriveForward[ForwardSensorCount].Value = tool.attribute("Value").as_int();
+				ForwardSensorCount++;
 			}
 			else if ((strcmp(attr.name(),"type") == 0) && (strcmp(attr.value(),"DriveBackward") == 0))
 			{
-				ChecksDriveBackward[((sizeof(ChecksDriveBackward) / sizeof(ChecksDriveBackward[0])) + 1)].SonarID = tool.attribute("SonarID").as_int();
-				ChecksDriveBackward[((sizeof(ChecksDriveBackward) / sizeof(ChecksDriveBackward[0])) + 1)].Value = tool.attribute("Value").as_int();
+				ChecksDriveBackward[BackwardSensorCount].SonarID = tool.attribute("SonarID").as_int();
+				ChecksDriveBackward[BackwardSensorCount].Value = tool.attribute("Value").as_int();
+				BackwardSensorCount++;
 			}
 		}
 
