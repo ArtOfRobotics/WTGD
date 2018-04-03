@@ -51,23 +51,23 @@ WillyController::WillyController()
 			//std::cout << " " << attr.name() << "=" << attr.value();
 			if (tool.attribute("type").value() == "TurnLeft")
 			{
-				ChecksTurnLeft[(sizeof(ChecksTurnLeft) / sizeof(ChecksTurnLeft[0]) + 1)].SonarID = tool.attribute("SonarID").as_int();
-				ChecksTurnLeft[(sizeof(ChecksTurnLeft) / sizeof(ChecksTurnLeft[0]) + 1)].Value = tool.attribute("Value").as_int();
+				ChecksTurnLeft[((sizeof(ChecksTurnLeft) / sizeof(ChecksTurnLeft[0])) + 1)].SonarID = tool.attribute("SonarID").as_int();
+				ChecksTurnLeft[((sizeof(ChecksTurnLeft) / sizeof(ChecksTurnLeft[0])) + 1)].Value = tool.attribute("Value").as_int();
 			}
 			else if (tool.attribute("type").value() == "TurnRight")
 			{
-				ChecksTurnRight[(sizeof(ChecksTurnRight) / sizeof(ChecksTurnRight[0]) + 1)].SonarID = tool.attribute("SonarID").as_int();
-				ChecksTurnRight[(sizeof(ChecksTurnRight) / sizeof(ChecksTurnRight[0]) + 1)].Value = tool.attribute("Value").as_int();
+				ChecksTurnRight[((sizeof(ChecksTurnRight) / sizeof(ChecksTurnRight[0])) + 1)].SonarID = tool.attribute("SonarID").as_int();
+				ChecksTurnRight[((sizeof(ChecksTurnRight) / sizeof(ChecksTurnRight[0])) + 1)].Value = tool.attribute("Value").as_int();
 			}
 			else if (tool.attribute("type").value() == "DriveForward")
 			{
-				ChecksDriveForward[(sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0]) + 1)].SonarID = tool.attribute("SonarID").as_int();
-				ChecksDriveForward[(sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0]) + 1)].Value = tool.attribute("Value").as_int();
+				ChecksDriveForward[((sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0])) + 1)].SonarID = tool.attribute("SonarID").as_int();
+				ChecksDriveForward[((sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0])) + 1)].Value = tool.attribute("Value").as_int();
 			}
 			else if (tool.attribute("type").value() == "DriveBackward")
 			{
-				ChecksDriveBackward[(sizeof(ChecksDriveBackward) / sizeof(ChecksDriveBackward]) + 1)].SonarID = tool.attribute("SonarID").as_int();
-				ChecksDriveBackward[(sizeof(ChecksDriveBackward) / sizeof(ChecksDriveBackward[0]) + 1)].Value = tool.attribute("Value").as_int();
+				ChecksDriveBackward[((sizeof(ChecksDriveBackward) / sizeof(ChecksDriveBackward])) + 1)].SonarID = tool.attribute("SonarID").as_int();
+				ChecksDriveBackward[((sizeof(ChecksDriveBackward) / sizeof(ChecksDriveBackward[0])) + 1)].Value = tool.attribute("Value").as_int();
 			}
 			ChecksCounter++;
 		}
