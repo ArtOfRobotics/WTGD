@@ -57,8 +57,6 @@ class WillyController
 	//Method for returning the value by the degrees
 	//int GetSonarValueByDegrees(int Degrees);
 
-	std::string GetCurrentWorkingDir(void);
-
 	//Calculating
 	void CalculateMovingPossibilities();
 

@@ -38,7 +38,7 @@ WillyController::WillyController()
 	{
 		printf("%d", result.status);
 		printf("Laden van bestand is mislukt\n");
-		std::cout << GetCurrentWorkingDir() << std::endl;
+		printf(get_current_dir_name());
 	}
 
 	pugi::xml_node tools = doc.child("Willy").child("SonarChecks");
@@ -319,14 +319,6 @@ void WillyController::CalculateMovingPossibilities()
 	_movingPossibilitiesPublisher.publish(array);
 	//ROS_INFO("-----------------------------------------------");
 	*/
-}
-
-std::string GetCurrentWorkingDir(void)
-{
-	char buff[FILENAME_MAX];
-	GetCurrentDir(buff, FILENAME_MAX);
-	std::string current_working_dir(buff);
-	return current_working_dir;
 }
 
 //This method sends the msg to the arduino. It can be controlled from the commands.
