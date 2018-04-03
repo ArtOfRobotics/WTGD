@@ -9,12 +9,10 @@
 	#include <stdlib.h>
 	#include <cmath>
 	#include <list>
-
+	//Movement includes & sensor messages
 	#include <geometry_msgs/Vector3.h>
 	#include <geometry_msgs/Twist.h>
 	#include <std_msgs/String.h>
-
-
 	// ROS includes
 	#include <termios.h>
 	#include <ros/ros.h>
@@ -23,50 +21,20 @@
 	#include <std_msgs/UInt8.h>
 	#include <std_msgs/UInt8.h>
 	#include <sensor_msgs/LaserEcho.h>
-	//#include <sensor_msgs/image_encodings.h>
-	//#include <sensor_msgs/Image.h>
 	#include <std_msgs/Int32MultiArray.h>
-
-	// const sensor_msgs::LaserEcho& sonar
-	// PCL includes
-	//#include <pcl/conversions.h>
-	//#include <pcl_ros/point_cloud.h>
-	//#include <pcl/point_types.h>
-
-	// People Detection Includes
-	//#include <image_transport/image_transport.h>
-	//#include <cv_bridge/cv_bridge.h>
-
-	//OpenCV
-	//#include <opencv2/opencv.hpp>
-	//#include <opencv2/imgproc/imgproc.hpp>
-	//#include <opencv2/highgui/highgui.hpp>
-
-
 	//Projects scripts
 	#include "Interfaces/ICommand.h"
-
 	#include "Controllers/WillyController.h"
 	#include "Controllers/JoyController.h"
 	#include "Controllers/AutonomousDrivingController.h"
-	//#include "Controllers/PeopleDetectorController.h"
-
+	//Commandos
 	#include "Commands/Turn.h"
 	#include "Commands/Forward.h"
 	#include "Commands/Backward.h"
 	#include "Commands/Stop.h"
 	#include "Commands/Movement.h"
 	#include "Commands/ForwardUntilHit.h"
-	//#include "peopledetect.h"
-
-	//odometry includes
-	//nclude "Odometry/odometry.h"
-	//#include "Odometry/Transform.h"
-
 	#include <fstream>
-
-	//#include <gtk/gtk.h>
-	  
-
-
+	//XML includes
+	#include "Includes/PUGIXML/pugixml.hpp"
 #endif
