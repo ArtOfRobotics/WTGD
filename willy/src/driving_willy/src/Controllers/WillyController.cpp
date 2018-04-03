@@ -169,7 +169,7 @@ void WillyController::CalculateMovingPossibilities()
 	CanTurnLeft = true;
 	CanTurnRight = true;
 
-	printf("%d", sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0]);
+	printf("%d", sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0]));
 
 	for (int i = 0; i < sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0]); i++)
 	{
