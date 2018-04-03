@@ -39,16 +39,13 @@ WillyController::WillyController()
 		printf("404 - Laden van bestand is mislukt\n");
 	}
 
+	//Loop through all XML nodes
 	pugi::xml_node tools = doc.child("Willy").child("SonarChecks");
 
 	for (pugi::xml_node tool = tools.first_child(); tool; tool = tool.next_sibling())
 	{
 		for (pugi::xml_attribute attr = tool.first_attribute(); attr; attr = attr.next_attribute())
 		{
-			//std::cout << " " << attr.name() << "=" << attr.value();
-			//attr.value()
-
-			//printf("Attribuut naam: %c, Attribuut waarde: %c\n", attr.name(), attr.value());
 			if ((strcmp(attr.name(),"type") == 0) && (strcmp(attr.value(),"TurnLeft") == 0))
 			{
 				ChecksTurnLeft[LeftSensorCount].SonarID = tool.attribute("SonarID").as_int();
@@ -63,7 +60,6 @@ WillyController::WillyController()
 			}
 			else if ((strcmp(attr.name(),"type") == 0) && (strcmp(attr.value(),"DriveForward") == 0))
 			{
-				printf("Sensor: %d, Waarde: %d\n", tool.attribute("SonarID").as_int(), tool.attribute("Value").as_int());
 				ChecksDriveForward[ForwardSensorCount].SonarID = tool.attribute("SonarID").as_int();
 				ChecksDriveForward[ForwardSensorCount].Value = tool.attribute("Value").as_int();
 				ForwardSensorCount++;
@@ -89,29 +85,8 @@ void WillyController::SonarCallback(const sensor_msgs::LaserEcho &sonar)
 {
 	for (int i = 0; i < 10; i++)
 	{
-		//printf("%d\n", SonarData[i].Value);
-
 		SonarData[i].Value = sonar.echoes[i];
 	}
-
-	/*
-	printf("\n");
-	printf("|3: %d-------2: %d--------1: %d|\n", SonarData[3].Value, SonarData[2].Value, SonarData[1].Value);
-	printf("|                              |\n");
-	printf("|                              |\n");
-	printf("|4: %d                    0: %d|\n", SonarData[4].Value, SonarData[0].Value);
-	printf("|                              |\n");
-	printf("|                              |\n");
-	printf("|                              |\n");
-	printf("|                              |\n");
-	printf("|                              |\n");
-	printf("|5: %d                    9: %d|\n", SonarData[5].Value, SonarData[9].Value);
-	printf("|                              |\n");
-	printf("|                              |\n");
-	printf("|6: %d-------7: %d--------8: %d|\n", SonarData[6].Value, SonarData[7].Value, SonarData[8].Value);
-	printf("\n");
-	*/
-
 	CalculateMovingPossibilities();
 }
 
@@ -157,7 +132,6 @@ void WillyController::setSat(int sat)
 void WillyController::SetNode(ros::NodeHandle *n)
 {
 	_commandPublisher = n->advertise<geometry_msgs::Twist>("/cmd_vel", 100);
-	//_movingPossibilitiesPublisher = n->advertise<std_msgs::Int32MultiArray>("/possible_directions", 100);
 }
 
 void WillyController::CalculateMovingPossibilities()
@@ -167,15 +141,11 @@ void WillyController::CalculateMovingPossibilities()
 	CanTurnLeft = true;
 	CanTurnRight = true;
 
-	printf("%d", sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0]));
-
 	for (int i = 0; i < sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0]); i++)
 	{
-		printf("SonarID: %d --- Sonar waarde: %d\n", ChecksDriveForward[i].SonarID, ChecksDriveForward[i].Value);
 		if (ChecksDriveForward[i].Value != 0 && SonarData[ChecksDriveForward[i].SonarID].Value < ChecksDriveForward[i].Value)
 		{
 			CanDriveForward = false;
-			//printf("Sonar: %d, can't drive forward:%d < %d\n", ChecksDriveForward[i].SonarID, SonarData[ChecksDriveForward[i].SonarID].Value, ChecksDriveForward[i].Value);
 			break;
 		}
 	}
@@ -185,8 +155,6 @@ void WillyController::CalculateMovingPossibilities()
 		if (ChecksTurnLeft[i].Value != 0 && SonarData[ChecksTurnLeft[i].SonarID].Value < ChecksTurnLeft[i].Value)
 		{
 			CanTurnLeft = false;
-			//MovementKnown = true;
-			//printf("Sonar: %d, can't turn left:%d < %d\n", ChecksTurnLeft[i].SonarID, SonarData[ChecksTurnLeft[i].SonarID].Value, ChecksTurnLeft[i].Value);
 			break;
 		}
 	}
@@ -196,8 +164,6 @@ void WillyController::CalculateMovingPossibilities()
 		if (ChecksTurnRight[i].Value != 0 && SonarData[ChecksTurnRight[i].SonarID].Value < ChecksTurnRight[i].Value)
 		{
 			CanTurnRight = false;
-			//MovementKnown = true;
-			//printf("Sonar: %d, can't turn right:%d < %d\n", ChecksTurnRight[i].SonarID, SonarData[ChecksTurnRight[i].SonarID].Value, ChecksTurnRight[i].Value);
 			break;
 		}
 	}
@@ -207,25 +173,9 @@ void WillyController::CalculateMovingPossibilities()
 		if (ChecksDriveBackward[i].Value != 0 && SonarData[ChecksDriveBackward[i].SonarID].Value < ChecksDriveBackward[i].Value)
 		{
 			CanDriveBackward = false;
-			//MovementKnown = true;
-			//printf("Sonar: %d, can't drive backward:%d < %d\n", ChecksDriveBackward[i].SonarID, SonarData[ChecksDriveBackward[i].SonarID].Value, ChecksDriveBackward[i].Value);
 			break;
 		}
 	}
-
-	/*std_msgs::Int32MultiArray array;
-
-	array.data.clear();
-	array.data.push_back(CannotDrive);
-	array.data.push_back(CanDriveForward);
-	array.data.push_back(CanTurnLeft);
-	array.data.push_back(CanDriveBackward);
-	array.data.push_back(CanTurnRight);
-
-	//Publish array
-	_movingPossibilitiesPublisher.publish(array);
-	//ROS_INFO("-----------------------------------------------");
-	*/
 }
 
 //This method sends the msg to the arduino. It can be controlled from the commands.
