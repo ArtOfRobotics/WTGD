@@ -33,7 +33,8 @@ WillyController::WillyController()
 
 	//Load sonar array data from xml
 	pugi::xml_document doc;
-	pugi::xml_parse_result result = doc.load_file("tree.xml");
+	pugi::xml_parse_result result = doc.load_file("../tree.xml");
+	//printf(doc.error);
 
 	pugi::xml_node tools = doc.child("Willy").child("SonarChecks");
 
