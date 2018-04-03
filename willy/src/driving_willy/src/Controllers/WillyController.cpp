@@ -35,9 +35,11 @@ WillyController::WillyController()
 	pugi::xml_document doc;
 	pugi::xml_parse_result result = doc.load_file("tree.xml");
 
+	pugi::xml_node tools = doc.child("Willy").child("SonarChecks");
+
 	for (pugi::xml_node tool = tools.first_child(); tool; tool = tool.next_sibling())
 	{
-		std::cout << "Tool:";
+		std::cout << "SonarCheck:";
 
 		for (pugi::xml_attribute attr = tool.first_attribute(); attr; attr = attr.next_attribute())
 		{
