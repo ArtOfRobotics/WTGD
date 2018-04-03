@@ -40,11 +40,13 @@ WillyController::WillyController()
 
 	for (pugi::xml_node tool = tools.first_child(); tool; tool = tool.next_sibling())
 	{
+		printf("SonarCheck");
 		std::cout << "SonarCheck:";
 
 		for (pugi::xml_attribute attr = tool.first_attribute(); attr; attr = attr.next_attribute())
 		{
 			std::cout << " " << attr.name() << "=" << attr.value();
+			printf("data");
 		}
 
 		std::cout << std::endl;
