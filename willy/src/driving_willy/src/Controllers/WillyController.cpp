@@ -51,22 +51,21 @@ WillyController::WillyController()
 			//printf("Attribuut naam: %c, Attribuut waarde: %c\n", attr.name(), attr.value());
 			if ((strcmp(attr.name(),"type") == 0) && (strcmp(attr.value(),"TurnLeft") == 0))
 			{
-				printf("%d", tool.attribute("SonarID").as_int());
 				ChecksTurnLeft[((sizeof(ChecksTurnLeft) / sizeof(ChecksTurnLeft[0])) + 1)].SonarID = tool.attribute("SonarID").as_int();
 				ChecksTurnLeft[((sizeof(ChecksTurnLeft) / sizeof(ChecksTurnLeft[0])) + 1)].Value = tool.attribute("Value").as_int();
 			}
-			else if (tool.attribute("type").value() == "TurnRight")
+			else if ((strcmp(attr.name(),"type") == 0) && (strcmp(attr.value(),"TurnRight") == 0))
 			{
 				ChecksTurnRight[((sizeof(ChecksTurnRight) / sizeof(ChecksTurnRight[0])) + 1)].SonarID = tool.attribute("SonarID").as_int();
 				ChecksTurnRight[((sizeof(ChecksTurnRight) / sizeof(ChecksTurnRight[0])) + 1)].Value = tool.attribute("Value").as_int();
 			}
-			else if (tool.attribute("type").value() == "DriveForward")
+			else if ((strcmp(attr.name(),"type") == 0) && (strcmp(attr.value(),"DriveForward") == 0))
 			{
 				printf("Hoi ik ben vooruid aan het vullen");
 				ChecksDriveForward[((sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0])) + 1)].SonarID = tool.attribute("SonarID").as_int();
 				ChecksDriveForward[((sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0])) + 1)].Value = tool.attribute("Value").as_int();
 			}
-			else if (tool.attribute("type").value() == "DriveBackward")
+			else if ((strcmp(attr.name(),"type") == 0) && (strcmp(attr.value(),"DriveBackward") == 0))
 			{
 				ChecksDriveBackward[((sizeof(ChecksDriveBackward) / sizeof(ChecksDriveBackward[0])) + 1)].SonarID = tool.attribute("SonarID").as_int();
 				ChecksDriveBackward[((sizeof(ChecksDriveBackward) / sizeof(ChecksDriveBackward[0])) + 1)].Value = tool.attribute("Value").as_int();
