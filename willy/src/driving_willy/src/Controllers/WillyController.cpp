@@ -47,6 +47,8 @@ WillyController::WillyController()
 		{
 			//std::cout << " " << attr.name() << "=" << attr.value();
 			//attr.value()
+
+			printf("Attribuut naam: %c, Attribuut waarde: %c\n", attr.name(), attr.value());
 			if (attr.name() == "type" && attr.value() == "TurnLeft")
 			{
 				printf("hoihoi");
