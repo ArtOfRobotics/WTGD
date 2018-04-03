@@ -75,8 +75,6 @@ WillyController::WillyController()
 				BackwardSensorCount++;
 			}
 		}
-
-		std::cout << std::endl;
 	}
 }
 
