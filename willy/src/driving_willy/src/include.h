@@ -37,5 +37,4 @@
 	#include <fstream>
 	//XML includes
 	#include "Includes/PUGIXML/pugixml.hpp"
-	#include "tree.xml"
 #endif
