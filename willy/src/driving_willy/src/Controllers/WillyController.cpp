@@ -35,11 +35,23 @@ WillyController::WillyController()
 	pugi::xml_document doc;
 	pugi::xml_parse_result result = doc.load_file("tree.xml");
 
-	printf("%c", *xml_node::name());
-	printf("%c", *xml_node::value());
+	for (pugi::xml_node tool = tools.first_child(); tool; tool = tool.next_sibling())
+	{
+		std::cout << "Tool:";
 
-	//Sonar array data
-	SonarData[0].Degrees = 270;
+		for (pugi::xml_attribute attr = tool.first_attribute(); attr; attr = attr.next_attribute())
+		{
+			std::cout << " " << attr.name() << "=" << attr.value();
+		}
+
+		std::cout << std::endl;
+	}
+
+	printf("%c", char_t)
+
+		//Sonar array data
+		SonarData[0]
+			.Degrees = 270;
 	SonarData[0].Value = 0;
 
 	SonarData[1].Degrees = 220;
