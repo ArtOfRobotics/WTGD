@@ -169,6 +169,8 @@ void WillyController::CalculateMovingPossibilities()
 	CanTurnLeft = true;
 	CanTurnRight = true;
 
+	printf("%d", sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0]);
+
 	for (int i = 0; i < sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0]); i++)
 	{
 		printf("SonarID: %d --- Sonar waarde: %d\n", ChecksDriveForward[i].SonarID, ChecksDriveForward[i].Value);
