@@ -46,8 +46,10 @@ WillyController::WillyController()
 		for (pugi::xml_attribute attr = tool.first_attribute(); attr; attr = attr.next_attribute())
 		{
 			//std::cout << " " << attr.name() << "=" << attr.value();
-			if (tool.attribute("type").value() == "TurnLeft")
+			//attr.value()
+			if (attr.name() == "type" && attr.value() == "TurnLeft")
 			{
+				printf("hoihoi");
 				ChecksTurnLeft[((sizeof(ChecksTurnLeft) / sizeof(ChecksTurnLeft[0])) + 1)].SonarID = tool.attribute("SonarID").as_int();
 				ChecksTurnLeft[((sizeof(ChecksTurnLeft) / sizeof(ChecksTurnLeft[0])) + 1)].Value = tool.attribute("Value").as_int();
 			}
