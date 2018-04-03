@@ -34,9 +34,11 @@ WillyController::WillyController()
 	//Load sonar array data from xml
 	pugi::xml_document doc;
 	pugi::xml_parse_result result = doc.load_file("/home/Documents/WTGD/willy/src/driving_willy/src/tree.xml");
-	if (result.status != 0) {
+	if (result.status != 0)
+	{
 		printf("%d", result.status);
-		printf("Laden van bestand is mislukt");
+		printf("Laden van bestand is mislukt\n");
+		std::cout << GetCurrentWorkingDir() << std::endl;
 	}
 
 	pugi::xml_node tools = doc.child("Willy").child("SonarChecks");
@@ -317,6 +319,14 @@ void WillyController::CalculateMovingPossibilities()
 	_movingPossibilitiesPublisher.publish(array);
 	//ROS_INFO("-----------------------------------------------");
 	*/
+}
+
+std::string GetCurrentWorkingDir(void)
+{
+	char buff[FILENAME_MAX];
+	GetCurrentDir(buff, FILENAME_MAX);
+	std::string current_working_dir(buff);
+	return current_working_dir;
 }
 
 //This method sends the msg to the arduino. It can be controlled from the commands.
