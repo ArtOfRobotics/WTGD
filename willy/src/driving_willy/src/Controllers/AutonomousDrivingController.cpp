@@ -35,22 +35,25 @@ void AutonomousDrivingController::Start()
 		if (_controller->CanDriveForward == true)
 		{
 			_controller->SendCommandToArduino(Movement::GetForwardCommand());
-			//printf("forward\n");
+			printf("forward\n");
 		}
 		else if (_controller->CanTurnRight == true && turningRight == false)
 		{
 			_controller->SendCommandToArduino(Movement::GetRightCommand());
 			turningRight = true;
+			printf("Right\n");
 		}
 		else if (_controller->CanTurnLeft == true && turningLeft == false)
 		{
 			_controller->SendCommandToArduino(Movement::GetLeftCommand());
 			turningLeft = true;
+			printf("Left\n");
 		}
 		else if (_controller->CanDriveBackward == true)
 		{
 			_controller->SendCommandToArduino(Movement::GetBackwardCommand());
 			backward = true;
+			printf("Backward\n");
 		}
 		else
 		{
