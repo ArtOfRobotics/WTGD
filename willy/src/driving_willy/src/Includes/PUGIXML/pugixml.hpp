@@ -925,9 +925,9 @@ namespace pugi
 	{
 		status_ok = 0,				// No error
 
-		status_file_not_found = "File not found",		// File was not found during load_file()
-		status_io_error = "IO error",			// Error reading from file/stream
-		status_out_of_memory = "No memory left",		// Could not allocate memory
+		status_file_not_found = 404,		// File was not found during load_file()
+		status_io_error = 100,			// Error reading from file/stream
+		status_out_of_memory = 30,		// Could not allocate memory
 		status_internal_error,		// Internal error occurred
 
 		status_unrecognized_tag,	// Parser could not determine tag type
