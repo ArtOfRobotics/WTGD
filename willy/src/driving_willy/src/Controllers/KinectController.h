@@ -5,16 +5,15 @@
 
 class KinectController
 {
-  public:
-    //Constructor
-    KinectController(int argc, char **argv);
-    void Start();
+public:
+  //Constructor
+  KinectController(int argc, char **argv, ros::NodeHandle *n);
+  void Start();
 
-  private:
-    volatile bool running = true;
-    void depth_cb(freenect_device *dev, void *data, uint32_t timestamp);
-    void video_cb(freenect_device *dev, void *data, uint32_t timestamp);
-    void signalHandler(int signal);
+private:
+  static const uint32_t MY_ROS_QUEUE_SIZE = 1000;
+  ros::NodeHandle *nh;
+  void imgcb(const sensor_msgs::Image::ConstPtr &msg);
 };
 
 #endif

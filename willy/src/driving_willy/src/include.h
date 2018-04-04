@@ -21,6 +21,8 @@
 #include <termios.h>
 #include <ros/ros.h>
 #include <sensor_msgs/PointCloud2.h>
+#include <sensor_msgs/Image.h>
+#include <sensor_msgs/image_encodings.h>
 #include <std_msgs/Float64.h>
 #include <std_msgs/UInt8.h>
 #include <std_msgs/UInt8.h>
@@ -38,8 +40,7 @@
 //XML includes
 #include "Includes/PUGIXML/pugixml.hpp"
 //Kinect includes
-#include "Includes/OpenKinect/include/libfreenect.h"
-#include "Includes/OpenKinect/include/libfreenect_registration.h"
-#include "Includes/OpenKinect/include/libfreenect_audio.h"
+#include <cv_bridge/cv_bridge.h>
+#include <opencv2/highgui/highgui.hpp>
 
 #endif

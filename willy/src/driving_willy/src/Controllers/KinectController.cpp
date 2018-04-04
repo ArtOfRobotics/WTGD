@@ -1,108 +1,38 @@
 #include "../include.h"
 
-KinectController::KinectController(int argc, char **argv)
+KinectController::KinectController(int argc, char **argv, ros::NodeHandle *n)
 {
+    nh = n;
 }
 
 void KinectController::Start()
 {
-    // Handle signals gracefully.
-    signal(SIGINT, signalHandler);
-    signal(SIGTERM, signalHandler);
-    signal(SIGQUIT, signalHandler);
+    std::cout << "Oh hai there!" << std::endl;
 
-    // Initialize libfreenect.
-    freenect_context *fn_ctx;
-    int ret = freenect_init(&fn_ctx, NULL);
-    if (ret < 0)
-        return ret;
+    // ros::Subscriber sub = nh.subscribe("camera/rgb/image_raw", MY_ROS_QUEUE_SIZE, imgcb);
+    ros::Subscriber sub = nh.subscribe("camera/rgb/image_color", MY_ROS_QUEUE_SIZE, imgcb);
 
-    // Show debug messages and use camera only.
-    freenect_set_log_level(fn_ctx, FREENECT_LOG_DEBUG);
-    freenect_select_subdevices(fn_ctx, FREENECT_DEVICE_CAMERA);
+    cv::namedWindow("DrivingWilly");
+    ros::spin();
+    cv::destroyWindow("DrivingWilly");
 
-    // Find out how many devices are connected.
-    int num_devices = ret = freenect_num_devices(fn_ctx);
-    if (ret < 0)
-        return ret;
-    if (num_devices == 0)
-    {
-        printf("No device found!\n");
-        freenect_shutdown(fn_ctx);
-        return 1;
-    }
-
-    // Open the first device.
-    freenect_device *fn_dev;
-    ret = freenect_open_device(fn_ctx, &fn_dev, 0);
-    if (ret < 0)
-    {
-        freenect_shutdown(fn_ctx);
-        return ret;
-    }
-
-    // Set depth and video modes.
-    ret = freenect_set_depth_mode(fn_dev, freenect_find_depth_mode(FREENECT_RESOLUTION_MEDIUM, FREENECT_DEPTH_MM));
-    if (ret < 0)
-    {
-        freenect_shutdown(fn_ctx);
-        return ret;
-    }
-    ret = freenect_set_video_mode(fn_dev, freenect_find_video_mode(FREENECT_RESOLUTION_MEDIUM, FREENECT_VIDEO_RGB));
-    if (ret < 0)
-    {
-        freenect_shutdown(fn_ctx);
-        return ret;
-    }
-
-    // Set frame callbacks.
-    freenect_set_depth_callback(fn_dev, depth_cb);
-    freenect_set_video_callback(fn_dev, video_cb);
-
-    // Start depth and video.
-    ret = freenect_start_depth(fn_dev);
-    if (ret < 0)
-    {
-        freenect_shutdown(fn_ctx);
-        return ret;
-    }
-    ret = freenect_start_video(fn_dev);
-    if (ret < 0)
-    {
-        freenect_shutdown(fn_ctx);
-        return ret;
-    }
-
-    // Run until interruption or failure.
-    while (running && freenect_process_events(fn_ctx) >= 0)
-    {
-    }
-
-    printf("Shutting down\n");
-
-    // Stop everything and shutdown.
-    freenect_stop_depth(fn_dev);
-    freenect_stop_video(fn_dev);
-    freenect_close_device(fn_dev);
-    freenect_shutdown(fn_ctx);
-
-    printf("Done!\n");
+    std::cout << "byebye my friend" << std::endl;
 }
 
-void depth_cb(freenect_device *dev, void *data, uint32_t timestamp)
+void imgcb(const sensor_msgs::Image::ConstPtr &msg)
 {
-    printf("Received depth frame at %d\n", timestamp);
-}
+    std::cout << "Hey, listen!" << std::endl;
 
-void video_cb(freenect_device *dev, void *data, uint32_t timestamp)
-{
-    printf("Received video frame at %d\n", timestamp);
-}
-
-void signalHandler(int signal)
-{
-    if (signal == SIGINT || signal == SIGTERM || signal == SIGQUIT)
+    try
     {
-        running = false;
+        cv_bridge::CvImageConstPtr cv_ptr;
+        cv_ptr = cv_bridge::toCvShare(msg);
+
+        cv::imshow("DrivingWilly", cv_ptr->image);
+        cv::waitKey(1); // Update screen
+    }
+    catch (const cv_bridge::Exception &e)
+    {
+        ROS_ERROR("cv_bridge exception: %s", e.what());
     }
 }
