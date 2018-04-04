@@ -30,12 +30,7 @@
 #include "Controllers/JoyController.h"
 #include "Controllers/AutonomousDrivingController.h"
 //Commandos
-#include "Commands/Turn.h"
-#include "Commands/Forward.h"
-#include "Commands/Backward.h"
-#include "Commands/Stop.h"
 #include "Commands/Movement.h"
-#include "Commands/ForwardUntilHit.h"
 #include <fstream>
 //XML includes
 #include "Includes/PUGIXML/pugixml.hpp"
