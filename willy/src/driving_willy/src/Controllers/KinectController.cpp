@@ -1,8 +1,7 @@
 #include "../include.h"
 
-KinectController::KinectController(WillyController *Controller, int argc, char **argv)
+KinectController::KinectController(int argc, char **argv)
 {
-    _controller = Controller;
 }
 
 void KinectController::Start()
