@@ -42,7 +42,7 @@ int main(int argc, char **argv)
     //autonomouseDriving.Start();
     //JoyController joyController = JoyController(&willyController, argc, argv);
     //joyController.Start();
-    KinectController kinectController = KinectController(argc, argv);
+    KinectController kinectController = KinectController();
     kinectController.Start();
 
     // Wait
