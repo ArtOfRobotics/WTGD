@@ -9,60 +9,6 @@
 //Set the controller as a global variable.
 WillyController controller;
 
-// tag::impl[]
-struct ConfigIterator : TreeWalker
-{
-    virtual bool for_each(Node node)
-    {
-        string type = node.attribute("type").value();
-
-        if (type == "TurnLeft")
-        {
-            SonarCheck check;
-
-            check.SonarID = node.attribute("SonarID").as_int();
-            check.Value = node.attribute("Value").as_int();
-
-            controller.ChecksTurnLeft[controller.ChecksTurnLeftElements] = check;
-            controller.ChecksTurnLeftElements++;
-        }
-
-        if (type == "TurnRight")
-        {
-            SonarCheck check;
-
-            check.SonarID = node.attribute("SonarID").as_int();
-            check.Value = node.attribute("Value").as_int();
-
-            controller.ChecksTurnRight[controller.ChecksTurnRightElements] = check;
-            controller.ChecksTurnRightElements++;
-        }
-
-        if (type == "DriveForward")
-        {
-            SonarCheck check;
-
-            check.SonarID = node.attribute("SonarID").as_int();
-            check.Value = node.attribute("Value").as_int();
-
-            controller.ChecksDriveForward[controller.ChecksDriveForwardElements] = check;
-            controller.ChecksDriveForwardElements++;
-        }
-
-        if (type == "DriveBackward")
-        {
-            SonarCheck check;
-
-            check.SonarID = node.attribute("SonarID").as_int();
-            check.Value = node.attribute("Value").as_int();
-
-            controller.ChecksDriveBackward[controller.ChecksDriveBackwardElements] = check;
-            controller.ChecksDriveBackwardElements++;
-        }
-        return true;
-    }
-};
-
 int main(int argc, char **argv)
 {
 
