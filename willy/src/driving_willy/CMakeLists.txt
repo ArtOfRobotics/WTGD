@@ -210,12 +210,27 @@ link_directories(${PCL_LIBRARY_DIRS})
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
+## old stuff
+#add_executable(odometry src/Odometry/odometry.cpp)
+#target_link_libraries(odometry ${catkin_LIBRARIES})
+
+#add_executable(odometry1 src/Odometry/odometry1.cpp)
+#target_link_libraries(odometry1 ${catkin_LIBRARIES})
+
+#add_executable(odometry2 src/Odometry/odometry2.cpp)
+#target_link_libraries(odometry2 ${catkin_LIBRARIES})
+
+#add_executable(odometry3 src/Odometry/odometry3.cpp)
+#target_link_libraries(odometry3 ${catkin_LIBRARIES})
+
+#add_executable(transform src/Odometry/transform.cpp)
+#target_link_libraries(transform ${catkin_LIBRARIES})
+
+
 add_executable(main
 
 	src/main.cpp
-
 	src/Commands/Movement.cpp
-
 	src/Controllers/KinectController.cpp
     src/Controllers/JoyController.cpp
 	src/Controllers/WillyController.cpp
