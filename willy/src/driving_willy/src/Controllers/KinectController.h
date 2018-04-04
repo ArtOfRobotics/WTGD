@@ -6,11 +6,10 @@ class KinectController
 {
   public:
     //Constructor
-    KinectController(WillyController *Controller, int argc, char **argv);
+    KinectController(int argc, char **argv);
     void Start();
 
   private:
-    WillyController *_controller;
     volatile bool running = true;
     void depth_cb(freenect_device *dev, void *data, uint32_t timestamp);
     void video_cb(freenect_device *dev, void *data, uint32_t timestamp);
