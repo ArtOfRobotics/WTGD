@@ -5,13 +5,12 @@ class KinectController
 {
 public:
   //Constructor
-  KinectController(int argc, char **argv);
+  KinectController();
   void KinectCallback(const sensor_msgs::Image::ConstPtr &msg);
   void Start();
 
 private:
   static const uint32_t MY_ROS_QUEUE_SIZE = 1000;
-  ros::NodeHandle *nh;
 };
 
 #endif
