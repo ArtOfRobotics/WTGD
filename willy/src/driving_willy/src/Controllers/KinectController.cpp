@@ -1,4 +1,5 @@
 #include "../include.h"
+#include <opencv2/highgui.hpp>
 
 KinectController::KinectController()
 {
