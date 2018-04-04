@@ -1,8 +1,6 @@
 #ifndef _AUTONOMOUS_DRIVING_CONTROLLER_
 #define _AUTONOMOUS_DRIVING_CONTROLLER_
 
-using namespace std;
-
 class AutonomousDrivingController
 {
   public:

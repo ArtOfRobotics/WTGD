@@ -1,7 +1,6 @@
+#pragma once
 #ifndef _WILLY_CONTROLLER_H_
 #define _WILLY_CONTROLLER_H_
-
-using namespace std;
 
 struct Sonar
 {
