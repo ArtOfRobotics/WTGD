@@ -10,6 +10,10 @@
 #include <stdlib.h>
 #include <cmath>
 #include <list>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <string.h>
 //Movement includes & sensor messages
 #include <geometry_msgs/Vector3.h>
 #include <geometry_msgs/Twist.h>
