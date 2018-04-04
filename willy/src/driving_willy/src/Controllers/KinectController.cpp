@@ -1,7 +1,5 @@
 #include "../include.h"
 
-using namespace std;
-
 KinectController::KinectController(WillyController *Controller, int argc, char **argv)
 {
     _controller = Controller;
@@ -102,7 +100,6 @@ void video_cb(freenect_device *dev, void *data, uint32_t timestamp)
     printf("Received video frame at %d\n", timestamp);
 }
 
-volatile bool running = true;
 void signalHandler(int signal)
 {
     if (signal == SIGINT || signal == SIGTERM || signal == SIGQUIT)

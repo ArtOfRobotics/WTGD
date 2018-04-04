@@ -1,7 +1,6 @@
+#pragma once
 #ifndef _JOY_CONTROLLER_H_
 #define _JOY_CONTROLLER_H_
-
-using namespace std;
 
 class JoyController
 {

@@ -105,7 +105,7 @@ int main(int argc, char **argv)
     autonomouseDriving.Start();
     //JoyController joyController = JoyController(&controller, argc, argv);
     //joyController.Start();
-    KinectController kinectController = KinectController(&controller);
+    KinectController kinectController = KinectController(&controller, argc, argv);
     kinectController.Start();
 
     // Wait
