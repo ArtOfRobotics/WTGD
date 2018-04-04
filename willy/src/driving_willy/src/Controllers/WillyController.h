@@ -1,4 +1,3 @@
-#pragma once
 #ifndef _WILLY_CONTROLLER_H_
 #define _WILLY_CONTROLLER_H_
 
