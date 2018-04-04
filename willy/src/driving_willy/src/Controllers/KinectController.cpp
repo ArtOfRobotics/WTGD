@@ -18,7 +18,7 @@ void KinectController::Start()
     std::cout << "byebye my friend" << std::endl;
 }
 
-void KinectCallback(const sensor_msgs::Image::ConstPtr &msg)
+void KinectController::KinectCallback(const sensor_msgs::Image::ConstPtr &msg)
 {
     std::cout << "Hey, listen!" << std::endl;
     try
