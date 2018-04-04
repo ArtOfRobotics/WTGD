@@ -39,6 +39,8 @@
 #include <fstream>
 //XML includes
 #include "Includes/PUGIXML/pugixml.hpp"
+#include "Includes/PUGIXML/pugiconfig.hpp"
+#include "Includes/PUGIXML/pugixml.cpp"
 //Kinect includes
 #include <cv_bridge/cv_bridge.h>
 #include <opencv2/highgui/highgui.hpp>
