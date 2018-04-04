@@ -2,9 +2,6 @@
 
 using namespace std;
 
-//Author: Henk-Jan Leusink
-//Description: This class contains only static methods which returns default commands. 
-
 //Method for returning the forward command.
 geometry_msgs::Twist Movement::GetForwardCommand() {
 	geometry_msgs::Twist goForwardDriving;
