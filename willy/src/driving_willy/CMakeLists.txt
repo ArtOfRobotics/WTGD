@@ -232,11 +232,6 @@ add_executable(main
 	src/main.cpp
 
 	src/Commands/Movement.cpp
-	src/Commands/Forward.cpp
-	src/Commands/Backward.cpp
-	src/Commands/Stop.cpp
-	src/Commands/Turn.cpp
-	src/Commands/ForwardUntilHit.cpp
 
 	src/Controllers/KinectController.cpp
     src/Controllers/JoyController.cpp
