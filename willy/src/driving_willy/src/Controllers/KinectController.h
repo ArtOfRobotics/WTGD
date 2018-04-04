@@ -1,4 +1,3 @@
-#pragma once
 #ifndef _KINECT_CONTROLLER_H_
 #define _KINECT_CONTROLLER_H_
 
