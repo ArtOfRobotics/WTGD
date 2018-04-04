@@ -1,7 +1,5 @@
 #ifndef _KINECT_CONTROLLER_H_
-#define _KINECT_CONTROLLER_H_
-
-#include "../Includes/OpenKinect/include/libfreenect.h"
+#define _KINECT_CONTROLLER_H_s
 
 class KinectController
 {
