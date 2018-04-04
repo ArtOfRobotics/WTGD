@@ -46,25 +46,25 @@ WillyController::WillyController()
 	{
 		for (pugi::xml_attribute attr = tool.first_attribute(); attr; attr = attr.next_attribute())
 		{
-			if ((strcmp(attr.name(),"type") == 0) && (strcmp(attr.value(),"TurnLeft") == 0))
+			if ((strcmp(attr.name(), "type") == 0) && (strcmp(attr.value(), "TurnLeft") == 0))
 			{
 				ChecksTurnLeft[LeftSensorCount].SonarID = tool.attribute("SonarID").as_int();
 				ChecksTurnLeft[LeftSensorCount].Value = tool.attribute("Value").as_int();
 				LeftSensorCount++;
 			}
-			else if ((strcmp(attr.name(),"type") == 0) && (strcmp(attr.value(),"TurnRight") == 0))
+			else if ((strcmp(attr.name(), "type") == 0) && (strcmp(attr.value(), "TurnRight") == 0))
 			{
 				ChecksTurnRight[RightSensorCount].SonarID = tool.attribute("SonarID").as_int();
 				ChecksTurnRight[RightSensorCount].Value = tool.attribute("Value").as_int();
 				RightSensorCount++;
 			}
-			else if ((strcmp(attr.name(),"type") == 0) && (strcmp(attr.value(),"DriveForward") == 0))
+			else if ((strcmp(attr.name(), "type") == 0) && (strcmp(attr.value(), "DriveForward") == 0))
 			{
 				ChecksDriveForward[ForwardSensorCount].SonarID = tool.attribute("SonarID").as_int();
 				ChecksDriveForward[ForwardSensorCount].Value = tool.attribute("Value").as_int();
 				ForwardSensorCount++;
 			}
-			else if ((strcmp(attr.name(),"type") == 0) && (strcmp(attr.value(),"DriveBackward") == 0))
+			else if ((strcmp(attr.name(), "type") == 0) && (strcmp(attr.value(), "DriveBackward") == 0))
 			{
 				ChecksDriveBackward[BackwardSensorCount].SonarID = tool.attribute("SonarID").as_int();
 				ChecksDriveBackward[BackwardSensorCount].Value = tool.attribute("Value").as_int();
@@ -88,6 +88,11 @@ void WillyController::SonarCallback(const sensor_msgs::LaserEcho &sonar)
 		SonarData[i].Value = sonar.echoes[i];
 	}
 	CalculateMovingPossibilities();
+}
+
+void WillyController::KinectCallback(const sensor_msgs::Image::ConstPtr &msg)
+{
+	
 }
 
 void WillyController::GpsCallback(const std_msgs::String::ConstPtr &msg)

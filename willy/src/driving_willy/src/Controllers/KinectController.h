@@ -11,7 +11,7 @@ public:
 private:
   static const uint32_t MY_ROS_QUEUE_SIZE = 1000;
   ros::NodeHandle *nh;
-  void imgcb(const sensor_msgs::Image::ConstPtr &msg);
+  void KinectCallback(const sensor_msgs::Image::ConstPtr &msg);
 };
 
 #endif
