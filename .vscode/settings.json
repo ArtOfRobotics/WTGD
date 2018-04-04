@@ -3,6 +3,7 @@
         "fstream": "cpp",
         "system_error": "cpp",
         "iostream": "cpp",
-        "xlocale": "cpp"
+        "xlocale": "cpp",
+        "signal.h": "c"
     }
 }

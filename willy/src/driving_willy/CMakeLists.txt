@@ -238,11 +238,10 @@ add_executable(main
 	src/Commands/Turn.cpp
 	src/Commands/ForwardUntilHit.cpp
 
+	src/Controllers/KinectController.cpp
     src/Controllers/JoyController.cpp
 	src/Controllers/WillyController.cpp
 	src/Controllers/AutonomousDrivingController.cpp
-
-
 )
 
 target_link_libraries(main ${catkin_LIBRARIES} ${PCL_LIBRARIES})
