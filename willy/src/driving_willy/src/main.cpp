@@ -1,23 +1,11 @@
 #include "include.h"
 
-#include "Includes/PUGIXML/pugixml.hpp"
-#include "Includes/PUGIXML/pugixml.cpp"
-#include "Includes/PUGIXML/pugiconfig.hpp"
-#define Node pugi::xml_node &
-#define TreeWalker pugi::xml_tree_walker
-
 //Set the controller as a global variable.
-WillyController controller;
+WillyController willyController;
+KinectController kinectController
 
 int main(int argc, char **argv)
 {
-
-    pugi::xml_document ConfigFile;
-    ConfigFile.load_file("/home/willy/Documents/driving-willy/WTGD/willy/src/driving_willy/src/tree.xml");
-
-    ConfigIterator walker;
-    ConfigFile.traverse(walker);
-
     //Ros initation.
     ros::init(argc, argv, "DrivingWilly");
     ros::NodeHandle n;
@@ -36,23 +24,23 @@ int main(int argc, char **argv)
     //ros::Subscriber subWheelEncoderWillyController = n.subscribe("/wheel_encoder", 200, &Transform::WheelCallback, &odometryController);
 
     //Set up the subscriber for the GPS
-    ros::Subscriber gpsSubscriber = n.subscribe("/gps", 200, &WillyController::GpsCallback, &controller);
+    ros::Subscriber gpsSubscriber = n.subscribe("/gps", 200, &WillyController::GpsCallback, &willyController);
 
     //Set up the subscriber for the sonar
-    ros::Subscriber subSonar = n.subscribe("/sonar", 100, &WillyController::SonarCallback, &controller);
+    ros::Subscriber subSonar = n.subscribe("/sonar", 100, &WillyController::SonarCallback, &willyController);
 
-    ros::Subscriber kinectSubscriber = n.subscribe("/camera/rgb/image_color", 100, &KinectController::KinectCallback, &controller);
+    ros::Subscriber kinectSubscriber = n.subscribe("/camera/rgb/image_color", 100, &KinectController::KinectCallback, &kinectController);
     
     //Gives the node to the controller.
-    controller.SetNode(&n);
+    willyController.SetNode(&n);
 
     //Set the asynchronised spinner for ros.
     ros::AsyncSpinner spinner(4);
     spinner.start();
 
-    //AutonomousDrivingController autonomouseDriving = AutonomousDrivingController(&controller, &n);
+    //AutonomousDrivingController autonomouseDriving = AutonomousDrivingController(&willyController, &n);
     //autonomouseDriving.Start();
-    //JoyController joyController = JoyController(&controller, argc, argv);
+    //JoyController joyController = JoyController(&willyController, argc, argv);
     //joyController.Start();
     KinectController kinectController = KinectController(argc, argv);
     kinectController.Start();
