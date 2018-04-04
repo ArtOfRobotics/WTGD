@@ -2,7 +2,7 @@
 
 //Set the controller as a global variable.
 WillyController willyController;
-KinectController kinectController
+KinectController kinectController;
 
 int main(int argc, char **argv)
 {
