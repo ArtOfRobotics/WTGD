@@ -40,6 +40,9 @@ int main(int argc, char **argv)
 
     //Set up the subscriber for the sonar
     ros::Subscriber subSonar = n.subscribe("/sonar", 100, &WillyController::SonarCallback, &controller);
+
+    ros::Subscriber kinectSubscriber = n.subscribe("/camera/rgb/image_color", 100, &KinectController::KinectCallback, &controller);
+    
     //Gives the node to the controller.
     controller.SetNode(&n);
 
@@ -51,7 +54,7 @@ int main(int argc, char **argv)
     //autonomouseDriving.Start();
     //JoyController joyController = JoyController(&controller, argc, argv);
     //joyController.Start();
-    KinectController kinectController = KinectController(argc, argv, &n);
+    KinectController kinectController = KinectController(argc, argv);
     kinectController.Start();
 
     // Wait

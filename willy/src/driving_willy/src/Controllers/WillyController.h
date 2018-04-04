@@ -32,8 +32,7 @@ class WillyController
 	//Method which handles the given sonar feedback.
 	void SonarCallback(const sensor_msgs::LaserEcho &sonar);
 
-	//Method which handles the given feedback from the arduino.
-	//void WheelCallback(const geometry_msgs::Vector3::ConstPtr &ticks);
+	void KinectCallback(const sensor_msgs::Image::ConstPtr &msg);
 
 	void GpsCallback(const std_msgs::String::ConstPtr &msg);
 

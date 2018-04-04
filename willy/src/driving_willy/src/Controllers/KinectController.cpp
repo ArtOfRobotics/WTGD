@@ -1,8 +1,7 @@
 #include "../include.h"
 
-KinectController::KinectController(int argc, char **argv, ros::NodeHandle *n)
+KinectController::KinectController(int argc, char **argv)
 {
-    nh = n;
 }
 
 void KinectController::Start()
@@ -10,7 +9,7 @@ void KinectController::Start()
     std::cout << "Oh hai there!" << std::endl;
 
     // ros::Subscriber sub = nh.subscribe("camera/rgb/image_raw", MY_ROS_QUEUE_SIZE, imgcb);
-    ros::Subscriber sub = nh->subscribe("camera/rgb/image_color", MY_ROS_QUEUE_SIZE, imgcb);
+    //ros::Subscriber sub = nh->subscribe("camera/rgb/image_color", MY_ROS_QUEUE_SIZE, imgcb);
 
     cv::namedWindow("DrivingWilly");
     ros::spin();
@@ -19,7 +18,7 @@ void KinectController::Start()
     std::cout << "byebye my friend" << std::endl;
 }
 
-void imgcb(const sensor_msgs::Image::ConstPtr &msg)
+void KinectCallback(const sensor_msgs::Image::ConstPtr &msg)
 {
     std::cout << "Hey, listen!" << std::endl;
     try
