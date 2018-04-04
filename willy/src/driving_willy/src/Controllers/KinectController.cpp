@@ -1,7 +1,4 @@
 #include "../include.h"
-#ifndef SIGQUIT // win32 compat
-#define SIGQUIT SIGTERM
-#endif
 
 using namespace std;
 

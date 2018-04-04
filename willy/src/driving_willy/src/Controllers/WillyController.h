@@ -68,10 +68,10 @@ class WillyController
 	int DepthInFront;
 
 	//Sensor counters
-	int ForwardSensorCount = 0;
-	int BackwardSensorCount = 0;
-	int LeftSensorCount = 0;
-	int RightSensorCount = 0;
+	int ForwardSensorCount;
+	int BackwardSensorCount;
+	int LeftSensorCount;
+	int RightSensorCount;
 
 	//Property which stores if he can drive forward
 	bool CanDriveForward;
