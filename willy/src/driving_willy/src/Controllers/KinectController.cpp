@@ -1,6 +1,6 @@
 #include "../include.h"
 
-KinectController::KinectController(int argc, char **argv)
+KinectController::KinectController()
 {
 }
 
