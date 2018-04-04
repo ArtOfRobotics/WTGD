@@ -42,7 +42,7 @@
 #include "Includes/PUGIXML/pugiconfig.hpp"
 //Kinect includes
 #include <cv_bridge/cv_bridge.h>
-#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/highgui.hpp>
 #include <opencv2/core/core.hpp>
 
 #endif
