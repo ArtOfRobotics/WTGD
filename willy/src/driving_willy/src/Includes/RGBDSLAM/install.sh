@@ -13,7 +13,7 @@ if test ! -d /opt/ros/kinetic; then
   exit 1
 fi
 
-SUBDIR=~/
+SUBDIR=~/Documents/WTGD/willy/src/driving_willy/src/Includes/RGBDSLAM
 echo "This script puts all code into '$SUBDIR'. Edit this script to change the location."
 echo "Press enter to continue, Ctrl-C to cancel"
 read
