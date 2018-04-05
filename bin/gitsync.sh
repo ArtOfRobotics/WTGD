@@ -2,7 +2,7 @@
 
 cd /home/willy/Documents/WTGD
 changed=0
-git remote update && git status -uno | grep -q 'Your branch is behind' && changed=1
+git remote update 2>&1 >/dev/null && git status -uno | grep -q 'Your branch is behind' && changed=1
 if [ $changed = 1 ]; then    
 	echo "Remote changes found in WTGD"
     git pull origin test
@@ -17,7 +17,7 @@ fi
 
 cd /home/willy/Documents/WWEB
 changed=0
-git remote update && git status -uno | grep -q 'Your branch is behind' && changed=1
+git remote update 2>&1 >/dev/null && git status -uno | grep -q 'Your branch is behind' && changed=1
 if [ $changed = 1 ]; then
     
 	echo "Remote changes found in WWEB"
