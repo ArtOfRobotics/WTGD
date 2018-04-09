@@ -5,7 +5,7 @@ class KeyboardController
 {
   public:
     //Constructor
-    KeyboardController(int argc, char **argv);
+    KeyboardController();
     void Start();
 
   private:

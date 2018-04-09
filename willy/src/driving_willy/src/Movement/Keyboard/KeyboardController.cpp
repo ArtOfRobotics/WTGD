@@ -1,6 +1,6 @@
 #include "../include.h"
 
-KeyboardController::KeyboardController(int argc, char **argv)
+KeyboardController::KeyboardController()
 {
 }
 
