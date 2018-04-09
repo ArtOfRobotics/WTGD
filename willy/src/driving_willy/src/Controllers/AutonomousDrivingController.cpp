@@ -8,12 +8,13 @@ AutonomousDrivingController::AutonomousDrivingController(ros::NodeHandle *n)
 	nh = n;
 	visionController = VisionController();
 	movementController = MovementController();
+
+	bool turningLeft = false;
+	bool turningRight = false;
+	bool backward = false;
 }
 
-bool turningLeft = false;
-bool turningRight = false;
-bool backward = false;
-
+//Execute an command
 void AutonomousDrivingController::Execute(ICommand &command)
 {
 	command.Execute();
@@ -25,6 +26,7 @@ void AutonomousDrivingController::SetNode(ros::NodeHandle *n)
 	_commandPublisher = n->advertise<geometry_msgs::Twist>("/cmd_vel", 100);
 }
 
+//Send movement command to arduino
 void AutonomousDrivingController::SendCommandToArduino(geometry_msgs::Twist msg)
 {
 	_commandPublisher.publish(msg);
@@ -66,45 +68,45 @@ void AutonomousDrivingController::Start()
 
 		if (turningLeft == true)
 		{
-			if (_controller->CanDriveForward == true)
+			if (movementController.CanDriveForward == true)
 			{
 				ros::Duration(2).sleep();
-				_controller->SendCommandToArduino(Movement::GetForwardCommand());
+				movementController->SendCommandToArduino(MovementController::GetForwardCommand());
 			}
-			if (_controller->CanTurnLeft == false)
+			if (movementController.CanTurnLeft == false)
 			{
-				_controller->SendCommandToArduino(Movement::GetStopCommand());
+				movementController->SendCommandToArduino(MovementController::GetStopCommand());
 			}
 			turningLeft = false;
 		}
 
 		if (turningRight == true)
 		{
-			if (_controller->CanDriveForward == true)
+			if (movementController.CanDriveForward == true)
 			{
 				ros::Duration(2).sleep();
-				_controller->SendCommandToArduino(Movement::GetForwardCommand());
+				movementController->SendCommandToArduino(MovementController::GetForwardCommand());
 			}
-			if (_controller->CanTurnRight == false)
+			if (movementController.CanTurnRight == false)
 			{
-				_controller->SendCommandToArduino(Movement::GetStopCommand());
+				movementController->SendCommandToArduino(MovementController::GetStopCommand());
 			}
 			turningRight = false;
 		}
 
 		if (backward == true)
 		{
-			if (_controller->CanTurnLeft == true)
+			if (movementController.CanTurnLeft == true)
 			{
 				ros::Duration(3).sleep();
-				_controller->SendCommandToArduino(Movement::GetLeftCommand());
+				movementController->SendCommandToArduino(MovementController::GetLeftCommand());
 				turningLeft = true;
 				backward = false;
 			}
-			if (_controller->CanTurnRight == true)
+			if (movementController.CanTurnRight == true)
 			{
 				ros::Duration(3).sleep();
-				_controller->SendCommandToArduino(Movement::GetRightCommand());
+				movementController->SendCommandToArduino(MovementController::GetRightCommand());
 				turningRight = true;
 				backward = false;
 			}
