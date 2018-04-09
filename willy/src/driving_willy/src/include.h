@@ -33,18 +33,18 @@
 #include <std_msgs/Int32MultiArray.h>
 
 //Vision controllers
-#include "Vision/VisionController.h"
 #include "Vision/Kinect/KinectController.h"
 #include "Vision/Lidar/LidarController.h"
 #include "Vision/Sonar/SonarController.h"
 
 //Movement controllers
-#include "Movement/MovementController.h"
 #include "Movement/GPS/GPSController.h"
 #include "Movement/Keyboard/KeyboardController.h"
 #include "Movement/Joystick/JoystickController.h"
 
 //Controllers
+#include "Vision/VisionController.h"
+#include "Movement/MovementController.h"
 #include "Controllers/AutonomousDrivingController.h"
 
 //Commandos
