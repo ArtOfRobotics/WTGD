@@ -1,4 +1,5 @@
 #include "../../include.h"
+#define earthRadiusMeters 6371000 //meters
 
 GPSController::GPSController()
 {

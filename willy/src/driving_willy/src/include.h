@@ -49,6 +49,8 @@
 
 //Commandos
 #include <fstream>
+#include <math.h>
+#include <cmath>
 
 //XML includes
 #include "Includes/PUGIXML/pugixml.hpp"

@@ -1,7 +1,4 @@
 #include "../include.h"
-#include <math.h>
-#include <cmath>
-#define earthRadiusMeters 6371000 //meters
 
 AutonomousDrivingController::AutonomousDrivingController(ros::NodeHandle *n)
 {
