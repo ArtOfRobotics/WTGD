@@ -2,7 +2,10 @@
 
 //Set the controller as a global variable.
 
-AutonomousDrivingController *autonomousDrivingController;
+GPSController *gpsController;
+SonarController *sonarController;
+KinectController *kinectController;
+LidarController *lidarController;
 
 int main(int argc, char **argv)
 {
@@ -40,7 +43,7 @@ int main(int argc, char **argv)
     AutonomousDrivingController autonomouseDriving = AutonomousDrivingController(&n);
 
     //Gives the node to the controller.
-    SetNode(&n);
+    autonomouseDriving.SetNode(&n);
 
     autonomouseDriving.Start();
     //JoyController joyController = JoyController(&willyController, argc, argv);
