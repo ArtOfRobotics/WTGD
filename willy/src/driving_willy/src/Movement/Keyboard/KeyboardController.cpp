@@ -2,9 +2,8 @@
 
 using namespace std;
 
-KeyboardController::KeyboardController(*MovementController controller)
+KeyboardController::KeyboardController()
 {
-    movementController = controller;
 }
 
 void KeyboardController::Start()
