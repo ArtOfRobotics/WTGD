@@ -35,33 +35,33 @@ void AutonomousDrivingController::Start()
 	getRouteFromParam();
 	while (true)
 	{
-		_controller->CalculateMovingPossibilities();
-		if (_controller->CanDriveForward == true)
+		movementController.GetSonarController->CalculateMovingPossibilities();
+		if (movementController.CanDriveForward == true)
 		{
-			_controller->SendCommandToArduino(Movement::GetForwardCommand());
+			movementController->SendCommandToArduino(MovementController::GetForwardCommand());
 			printf("forward\n");
 		}
-		else if (_controller->CanTurnRight == true && turningRight == false)
+		else if (movementController.CanTurnRight == true && turningRight == false)
 		{
-			_controller->SendCommandToArduino(Movement::GetRightCommand());
+			movementController->SendCommandToArduino(MovementController::GetRightCommand());
 			turningRight = true;
 			printf("Right\n");
 		}
-		else if (_controller->CanTurnLeft == true && turningLeft == false)
+		else if (movementController.CanTurnLeft == true && turningLeft == false)
 		{
-			_controller->SendCommandToArduino(Movement::GetLeftCommand());
+			movementController->SendCommandToArduino(MovementController::GetLeftCommand());
 			turningLeft = true;
 			printf("Left\n");
 		}
-		else if (_controller->CanDriveBackward == true)
+		else if (movementController.CanDriveBackward == true)
 		{
-			_controller->SendCommandToArduino(Movement::GetBackwardCommand());
+			movementController->SendCommandToArduino(MovementController::GetBackwardCommand());
 			backward = true;
 			printf("Backward\n");
 		}
 		else
 		{
-			_controller->SendCommandToArduino(Movement::GetStopCommand());
+			movementController->SendCommandToArduino(MovementController::GetStopCommand());
 		}
 
 		if (turningLeft == true)
