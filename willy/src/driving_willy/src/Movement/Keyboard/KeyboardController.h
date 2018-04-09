@@ -9,6 +9,7 @@ class KeyboardController
     void Start();
 
   private:
+    AutonomousDrivingController* autonomousDrivingController;
     char getch();
 };
 

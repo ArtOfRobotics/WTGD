@@ -2,8 +2,9 @@
 
 using namespace std;
 
-KeyboardController::KeyboardController()
+KeyboardController::KeyboardController(*AutonomousDrivingController controller)
 {
+    autonomousDrivingController = controller;
 }
 
 void KeyboardController::Start()
@@ -21,27 +22,27 @@ void KeyboardController::Start()
 
         if (input == 'w' && inMenu == false)
         {
-            _controller->SendCommandToArduino(Movement::GetForwardCommand());
+            autonomousDrivingController->SendCommandToArduino(MovementController::GetForwardCommand());
             printf("vooruit");
         }
         else if (input == 'a' && inMenu == false)
         {
-            _controller->SendCommandToArduino(Movement::GetLeftCommand());
+            autonomousDrivingController->SendCommandToArduino(MovementController::GetLeftCommand());
             printf("links");
         }
         else if (input == 'd' && inMenu == false)
         {
-            _controller->SendCommandToArduino(Movement::GetRightCommand());
+            autonomousDrivingController->SendCommandToArduino(MovementController::GetRightCommand());
             printf("Rechts");
         }
         else if (input == 's' && inMenu == false)
         {
-            _controller->SendCommandToArduino(Movement::GetBackwardCommand());
+            autonomousDrivingController->SendCommandToArduino(MovementController::GetBackwardCommand());
             printf("Achteruit");
         }
         else if (input == 'q' && inMenu == false)
         {
-            _controller->SendCommandToArduino(Movement::GetStopCommand());
+            autonomousDrivingController->SendCommandToArduino(MovementController::GetStopCommand());
             printf("Stoppen");
         }
         else if (input == 'm' && inMenu == false)
@@ -57,78 +58,78 @@ void KeyboardController::Start()
         }
         else if (input == '1' && inMenu == true)
         {
-            _controller->SendCommandToArduino(Movement::GetStopCommand());
+            autonomousDrivingController->SendCommandToArduino(MovementController::GetStopCommand());
             menuItem = 1;
             printf("Menu 1 selected");
         }
-        //_controller->SendCommandToArduino(Movement::GetForwardCommand());
+        //autonomousDrivingController->SendCommandToArduino(MovementController::GetForwardCommand());
 
         if (inMenu && menuItem > 0)
         {
             if (menuItem == 1)
             {
                 printf("Running menu 1");
-                _controller->SendCommandToArduino(Movement::GetForwardCommand());
+                autonomousDrivingController->SendCommandToArduino(MovementController::GetForwardCommand());
                 printf("Going forward\n");
                 ros::Duration(2).sleep();
-                _controller->SendCommandToArduino(Movement::GetBackwardCommand());
+                autonomousDrivingController->SendCommandToArduino(MovementController::GetBackwardCommand());
                 printf("Going backward\n");
                 ros::Duration(2).sleep();
             }
         }
     }
     /*
-        _controller->SendCommandToArduino(Movement::GetForwardCommand());
+        autonomousDrivingController->SendCommandToArduino(MovementController::GetForwardCommand());
 
-        _controller->SendCommandToArduino(Movement::GetRightCommand());
+        autonomousDrivingController->SendCommandToArduino(MovementController::GetRightCommand());
 
-        _controller->SendCommandToArduino(Movement::GetLeftCommand());
+        autonomousDrivingController->SendCommandToArduino(MovementController::GetLeftCommand());
 
-        _controller->SendCommandToArduino(Movement::GetBackwardCommand());
+        autonomousDrivingController->SendCommandToArduino(MovementController::GetBackwardCommand());
 
-        _controller->SendCommandToArduino(Movement::GetStopCommand());
+        autonomousDrivingController->SendCommandToArduino(MovementController::GetStopCommand());
 
         if (turningLeft == true)
         {
-            if (_controller->CanDriveForward == true)
+            if (autonomousDrivingController->CanDriveForward == true)
             {
                 ros::Duration(2).sleep();
-                _controller->SendCommandToArduino(Movement::GetForwardCommand());
+                autonomousDrivingController->SendCommandToArduino(MovementController::GetForwardCommand());
             }
-            if (_controller->CanTurnLeft == false)
+            if (autonomousDrivingController->CanTurnLeft == false)
             {
-                _controller->SendCommandToArduino(Movement::GetStopCommand());
+                autonomousDrivingController->SendCommandToArduino(MovementController::GetStopCommand());
             }
             turningLeft = false;
         }
 
         if (turningRight == true)
         {
-            if (_controller->CanDriveForward == true)
+            if (autonomousDrivingController->CanDriveForward == true)
             {
                 ros::Duration(2).sleep();
-                _controller->SendCommandToArduino(Movement::GetForwardCommand());
+                autonomousDrivingController->SendCommandToArduino(MovementController::GetForwardCommand());
             }
-            if (_controller->CanTurnRight == false)
+            if (autonomousDrivingController->CanTurnRight == false)
             {
-                _controller->SendCommandToArduino(Movement::GetStopCommand());
+                autonomousDrivingController->SendCommandToArduino(MovementController::GetStopCommand());
             }
             turningRight = false;
         }
 
         if (backward == true)
         {
-            if (_controller->CanTurnLeft == true)
+            if (autonomousDrivingController->CanTurnLeft == true)
             {
                 ros::Duration(3).sleep();
-                _controller->SendCommandToArduino(Movement::GetLeftCommand());
+                autonomousDrivingController->SendCommandToArduino(MovementController::GetLeftCommand());
                 turningLeft = true;
                 backward = false;
             }
-            if (_controller->CanTurnRight == true)
+            if (autonomousDrivingController->CanTurnRight == true)
             {
                 ros::Duration(3).sleep();
-                _controller->SendCommandToArduino(Movement::GetRightCommand());
+                autonomousDrivingController->SendCommandToArduino(MovementController::GetRightCommand());
                 turningRight = true;
                 backward = false;
             }
