@@ -1,5 +1,5 @@
 #ifndef _KINECT_CONTROLLER_H_
-#define _KINECT_CONTROLLER_H_s
+#define _KINECT_CONTROLLER_H_
 
 class KinectController
 {

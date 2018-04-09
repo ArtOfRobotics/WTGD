@@ -3,23 +3,26 @@
 
 class AutonomousDrivingController
 {
-  public:
+public:
 	//Constructor
-	AutonomousDrivingController(WillyController *Controller, ros::NodeHandle *n);
-
+	AutonomousDrivingController(ros::NodeHandle *n);
+	MovementController *getMovementController();
+	VisionController *getVisionController();
 	void Start();
-	double GPSLatA, GPSLongA, GPSLatB, GPSLongB, GPSLatC, GPSLongC, GPSLatD, GPSLongD, GPSCurrentLat, GPSCurrentLong;
-	std::vector<double> routeLat;
-	std::vector<double> routeLong;
-	void getRouteFromParam();
 
-  private:
-	WillyController *_controller;
+private:
+	//Method where the ROS Node can be given.
+	void SetNode(ros::NodeHandle *n);
+	void Execute(ICommand &);
+	void SendCommandToArduino(geometry_msgs::Twist msg);
 	ros::NodeHandle *nh;
-	double distanceBetweenGPS(double lat1d, double lon1d, double lat2d, double lon2d);
-	double bearingBetweenGPS(double lat1d, double lon1d, double lat2d, double lon2d);
-	double rad2deg(double rad);
-	double deg2rad(double deg);
+
+	//All controllers for autonomous driving
+	MovementController movementController;
+	VisionController visionController;
+
+	//The publisher where commands can be given throught cmd_vel
+	ros::Publisher _commandPublisher;
 };
 
 #endif

@@ -1,11 +1,35 @@
-#include "../include.h"
+#include "../../include.h"
 
 using namespace std;
 
+MovementController::MovementController()
+{
+	useKeyboard = false;
+	useGPS = false;
+	useJoystick = false;
+
+	//Call movement controllers if enabled
+	if (useKeyboard)
+	{
+		KeyboardController keyboardController = KeyboardController();
+	}
+
+	if (useGPS)
+	{
+		GPSController gpsController = GPSController();
+	}
+
+	if (useJoystick)
+	{
+		JoystickController joystickController = JoystickController();
+	}
+}
+
 //Method for returning the forward command.
-geometry_msgs::Twist Movement::GetForwardCommand() {
+geometry_msgs::Twist MovementController::GetForwardCommand()
+{
 	geometry_msgs::Twist goForwardDriving;
-	
+
 	goForwardDriving.linear.x = 0.30;
 	goForwardDriving.linear.y = 0;
 	goForwardDriving.linear.z = 0;
@@ -17,9 +41,10 @@ geometry_msgs::Twist Movement::GetForwardCommand() {
 }
 
 //Method for returning the backward command.
-geometry_msgs::Twist Movement::GetBackwardCommand() {
+geometry_msgs::Twist MovementController::GetBackwardCommand()
+{
 	geometry_msgs::Twist goBackwardDriving;
-	
+
 	goBackwardDriving.linear.x = -0.30;
 	goBackwardDriving.linear.y = 0;
 	goBackwardDriving.linear.z = 0;
@@ -31,9 +56,10 @@ geometry_msgs::Twist Movement::GetBackwardCommand() {
 }
 
 //Method for returning the stop command.
-geometry_msgs::Twist Movement::GetStopCommand() {
+geometry_msgs::Twist MovementController::GetStopCommand()
+{
 	geometry_msgs::Twist stopDriving;
-	
+
 	stopDriving.linear.x = 0;
 	stopDriving.linear.y = 0;
 	stopDriving.linear.z = 0;
@@ -44,11 +70,11 @@ geometry_msgs::Twist Movement::GetStopCommand() {
 	return stopDriving;
 }
 
-
 //Method for returning the left command.
-geometry_msgs::Twist Movement::GetLeftCommand() {
+geometry_msgs::Twist MovementController::GetLeftCommand()
+{
 	geometry_msgs::Twist leftDriving;
-	
+
 	leftDriving.linear.x = 0;
 	leftDriving.linear.y = 0;
 	leftDriving.linear.z = 0;
@@ -60,9 +86,10 @@ geometry_msgs::Twist Movement::GetLeftCommand() {
 }
 
 //Method for returning the right command.
-geometry_msgs::Twist Movement::GetRightCommand() {
+geometry_msgs::Twist MovementController::GetRightCommand()
+{
 	geometry_msgs::Twist rightDriving;
-	
+
 	rightDriving.linear.x = 0;
 	rightDriving.linear.y = 0;
 	rightDriving.linear.z = 0;
@@ -71,4 +98,19 @@ geometry_msgs::Twist Movement::GetRightCommand() {
 	rightDriving.angular.z = -0.40;
 
 	return rightDriving;
+}
+
+KeyboardController *MovementController::GetKeyboardController()
+{
+	return &keyboardController;
+}
+
+GPSController *MovementController::GetGPSController()
+{
+	return &gpsController;
+}
+
+JoystickController *MovementController::GetJoystickController()
+{
+	return &joystickController;
 }

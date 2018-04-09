@@ -1,11 +1,10 @@
 #include "../include.h"
 
-JoyController::JoyController(WillyController *Controller, int argc, char **argv)
+KeyboardController::KeyboardController(int argc, char **argv)
 {
-    _controller = Controller;
 }
 
-void JoyController::Start()
+void KeyboardController::Start()
 {
     char input;
     bool inMenu;
@@ -136,7 +135,7 @@ void JoyController::Start()
     ros::Duration(1).sleep();
 }
 
-char JoyController::getch()
+char KeyboardController::getch()
 {
     fd_set set;
     struct timeval timeout;
