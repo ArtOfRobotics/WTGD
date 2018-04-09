@@ -5,8 +5,8 @@ class KeyboardController
 {
   public:
     //Constructor
-    KeyboardController();
-    void Start();
+    KeyboardController(MovementController);
+    void Start(MovementController);
 
   private:
     char getch();

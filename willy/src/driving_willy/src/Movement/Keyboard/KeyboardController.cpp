@@ -2,11 +2,12 @@
 
 using namespace std;
 
-KeyboardController::KeyboardController()
+KeyboardController::KeyboardController(MovementController controller)
 {
+    Start(controller);
 }
 
-void KeyboardController::Start()
+void KeyboardController::Start(MovementController movementController)
 {
     char input;
     bool inMenu;
