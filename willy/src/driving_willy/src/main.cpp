@@ -2,10 +2,10 @@
 
 //Set the controller as a global variable.
 
-GPSController *gpsController;
-SonarController *sonarController;
-KinectController *kinectController;
-LidarController *lidarController;
+GPSController gpsController;
+SonarController sonarController;
+KinectController kinectController;
+LidarController lidarController;
 
 int main(int argc, char **argv)
 {
