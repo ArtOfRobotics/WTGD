@@ -36,15 +36,11 @@
 #include "Vision/Kinect/KinectController.h"
 #include "Vision/Lidar/LidarController.h"
 #include "Vision/Sonar/SonarController.h"
-
-//Movement controllers
 #include "Movement/GPS/GPSController.h"
-#include "Movement/Keyboard/KeyboardController.h"
 #include "Movement/Joystick/JoystickController.h"
-
-//Controllers
 #include "Vision/VisionController.h"
 #include "Movement/MovementController.h"
+#include "Movement/Keyboard/KeyboardController.h"
 #include "Controllers/AutonomousDrivingController.h"
 
 //Commandos
