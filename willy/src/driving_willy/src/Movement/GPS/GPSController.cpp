@@ -57,19 +57,6 @@ double GPSController::bearingBetweenGPS(double lat1d, double lon1d, double lat2d
     return rad2deg(atan2(v, u));
 }
 
-//this function gets the gps route data stored on the ros parameter server.
-void GPSController::getRouteFromParam()
-{
-    if (!nh->getParam("gpsLat", routeLat))
-    {
-        ROS_INFO("Getting gpsLat from parameter server failed!");
-    }
-    if (!nh->getParam("gpsLong", routeLong))
-    {
-        ROS_INFO("Getting gpsLong from parameter server failed");
-    }
-}
-
 //This function converts decimal degrees to radians
 double GPSController::deg2rad(double deg)
 {

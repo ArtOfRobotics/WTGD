@@ -10,7 +10,6 @@ class GPSController
     double GPSLatA, GPSLongA, GPSLatB, GPSLongB, GPSLatC, GPSLongC, GPSLatD, GPSLongD, GPSCurrentLat, GPSCurrentLong;
     std::vector<double> routeLat;
     std::vector<double> routeLong;
-    void getRouteFromParam();
 
   private:
     double distanceBetweenGPS(double lat1d, double lon1d, double lat2d, double lon2d);
