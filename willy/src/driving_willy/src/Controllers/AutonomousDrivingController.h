@@ -3,16 +3,16 @@
 
 class AutonomousDrivingController
 {
-public:
+  public:
 	//Constructor
 	AutonomousDrivingController(ros::NodeHandle *n);
 	MovementController *getMovementController();
 	VisionController *getVisionController();
-	void Start();
-
-private:
 	//Method where the ROS Node can be given.
 	void SetNode(ros::NodeHandle *n);
+	void Start();
+
+  private:
 	void SendCommandToArduino(geometry_msgs::Twist msg);
 	ros::NodeHandle *nh;
 
