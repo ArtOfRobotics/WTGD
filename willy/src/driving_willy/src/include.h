@@ -41,9 +41,9 @@
 //Movement controllers
 #include "Movement/GPS/GPSController.h"
 #include "Movement/Joystick/JoystickController.h"
-#include "Controllers/AutonomousDrivingController.h"
-#include "Movement/Keyboard/KeyboardController.h"
 #include "Movement/MovementController.h"
+#include "Movement/Keyboard/KeyboardController.h"
+#include "Controllers/AutonomousDrivingController.h"
 
 //Commandos
 #include <fstream>

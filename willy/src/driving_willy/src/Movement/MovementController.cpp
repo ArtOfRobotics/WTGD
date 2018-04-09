@@ -11,7 +11,7 @@ MovementController::MovementController()
 	//Call movement controllers if enabled
 	if (useKeyboard)
 	{
-		KeyboardController keyboardController = KeyboardController();
+		KeyboardController keyboardController = KeyboardController(*this);
 	}
 
 	if (useGPS)
@@ -23,6 +23,11 @@ MovementController::MovementController()
 	{
 		JoystickController joystickController = JoystickController();
 	}
+}
+
+void MovementController::SendCommandToArduino(geometry_msgs::Twist msg)
+{
+	 _commandPublisher.publish(msg);
 }
 
 //Method for returning the forward command.

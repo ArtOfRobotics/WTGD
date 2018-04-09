@@ -5,11 +5,11 @@ class KeyboardController
 {
   public:
     //Constructor
-    KeyboardController();
+    KeyboardController(*MovementController);
     void Start();
 
   private:
-    AutonomousDrivingController* autonomousDrivingController;
+    MovementController* movementController;
     char getch();
 };
 

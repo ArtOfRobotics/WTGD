@@ -21,6 +21,7 @@ class MovementController
 	static geometry_msgs::Twist GetRightCommand();
 
   private:
+	void SendCommandToArduino(geometry_msgs::Twist msg);
 	KeyboardController keyboardController;
 	GPSController gpsController;
 	JoystickController joystickController;
@@ -28,6 +29,9 @@ class MovementController
 	bool useKeyboard;
 	bool useGPS;	  //Not working yet
 	bool useJoystick; //Not working yet
+
+	//The publisher where commands can be given throught cmd_vel
+	ros::Publisher _commandPublisher;
 };
 
 #endif

@@ -12,15 +12,11 @@ class AutonomousDrivingController
 	void Start();
 
   private:
-	void SendCommandToArduino(geometry_msgs::Twist msg);
 	ros::NodeHandle *nh;
 
 	//All controllers for autonomous driving
 	MovementController movementController;
 	VisionController visionController;
-
-	//The publisher where commands can be given throught cmd_vel
-	ros::Publisher _commandPublisher;
 };
 
 #endif

@@ -16,7 +16,7 @@ AutonomousDrivingController::AutonomousDrivingController(ros::NodeHandle *n)
 //This method receives the ROS NodeHandle and creates a new publisher
 void AutonomousDrivingController::SetNode(ros::NodeHandle *n)
 {
-	_commandPublisher = n->advertise<geometry_msgs::Twist>("/cmd_vel", 100);
+	movementController._commandPublisher = n->advertise<geometry_msgs::Twist>("/cmd_vel", 100);
 }
 
 //Send movement command to arduino
