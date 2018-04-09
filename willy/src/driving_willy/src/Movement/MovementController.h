@@ -22,9 +22,6 @@ class MovementController
 
   private:
 	void SendCommandToArduino(geometry_msgs::Twist msg);
-	KeyboardController keyboardController;
-	GPSController gpsController;
-	JoystickController joystickController;
 
 	bool useKeyboard;
 	bool useGPS;	  //Not working yet
