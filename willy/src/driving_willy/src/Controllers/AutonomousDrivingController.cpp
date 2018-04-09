@@ -1,5 +1,7 @@
 #include "../include.h"
 
+using namespace std;
+
 AutonomousDrivingController::AutonomousDrivingController(ros::NodeHandle *n)
 {
 	nh = n;
@@ -107,12 +109,12 @@ void AutonomousDrivingController::Start()
 	}
 }
 
-MovementController *AutonomousDrivingController::getMovementController()
+MovementController& AutonomousDrivingController::getMovementController()
 {
 	return &movementController;
 }
 
-VisionController *AutonomousDrivingController::getVisionController()
+VisionController& AutonomousDrivingController::getVisionController()
 {
 	return &visionController;
 }

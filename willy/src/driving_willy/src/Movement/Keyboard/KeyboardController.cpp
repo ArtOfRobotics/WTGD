@@ -1,5 +1,7 @@
 #include "../include.h"
 
+using namespace std;
+
 KeyboardController::KeyboardController()
 {
 }
