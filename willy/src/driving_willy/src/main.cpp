@@ -1,5 +1,7 @@
 #include "include.h"
 
+using namespace std;
+
 //Set the controller as a global variable.
 
 GPSController gpsController;

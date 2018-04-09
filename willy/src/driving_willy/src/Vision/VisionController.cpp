@@ -25,17 +25,17 @@ VisionController::VisionController()
     }
 }
 
-KinectController *VisionController::GetKinectController()
+KinectController VisionController::GetKinectController()
 {
-    return &kinectController;
+    return kinectController;
 }
 
-LidarController *VisionController::GetLidarController()
+LidarController VisionController::GetLidarController()
 {
-    return &lidarController;
+    return lidarController;
 }
 
-SonarController *VisionController::GetSonarController()
+SonarController VisionController::GetSonarController()
 {
-    return &joystickController;
+    return joystickController;
 }

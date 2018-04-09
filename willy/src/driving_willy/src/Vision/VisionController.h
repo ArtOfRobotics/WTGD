@@ -5,9 +5,9 @@ class VisionController
 {
   public:
     VisionController();
-    KinectController *GetKinectController();
-    LidarController *GetLidarController();
-    SonarController *GetSonarController();
+    KinectController GetKinectController();
+    LidarController GetLidarController();
+    SonarController GetSonarController();
 
   private:
     KinectController kinectController;
