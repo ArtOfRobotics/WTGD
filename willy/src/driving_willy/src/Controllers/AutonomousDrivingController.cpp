@@ -14,12 +14,6 @@ AutonomousDrivingController::AutonomousDrivingController(ros::NodeHandle *n)
 	bool backward = false;
 }
 
-//Execute an command
-void AutonomousDrivingController::Execute(ICommand &command)
-{
-	command.Execute();
-}
-
 //This method receives the ROS NodeHandle and creates a new publisher
 void AutonomousDrivingController::SetNode(ros::NodeHandle *n)
 {

@@ -13,7 +13,6 @@ public:
 private:
 	//Method where the ROS Node can be given.
 	void SetNode(ros::NodeHandle *n);
-	void Execute(ICommand &);
 	void SendCommandToArduino(geometry_msgs::Twist msg);
 	ros::NodeHandle *nh;
 
