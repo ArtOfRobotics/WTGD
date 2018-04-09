@@ -230,10 +230,17 @@ link_directories(${PCL_LIBRARY_DIRS})
 add_executable(main
 
 	src/main.cpp
-	src/Commands/Movement.cpp
-	src/Controllers/KinectController.cpp
-    src/Controllers/JoyController.cpp
-	src/Controllers/WillyController.cpp
+
+	src/Movement/MovementController.cpp
+	src/Movement/GPS/GPSController.cpp
+	src/Movement/Joystick/JoystickController.cpp
+	src/Movement/Keyboard/KeyboardController.cpp
+
+	src/Vision/VisionController.cpp
+	src/Vision/Kinect/KinectController.cpp
+	src/Vision/Lidar/LidarController.cpp
+	src/Vision/Sonar/SonarController.cpp
+
 	src/Controllers/AutonomousDrivingController.cpp
 )
 
