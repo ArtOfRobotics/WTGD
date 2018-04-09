@@ -6,8 +6,7 @@ class AutonomousDrivingController
   public:
 	//Constructor
 	AutonomousDrivingController(ros::NodeHandle *n);
-	MovementController *getMovementController();
-	VisionController *getVisionController();
+	
 	//Method where the ROS Node can be given.
 	void SetNode(ros::NodeHandle *n);
 	void Start();

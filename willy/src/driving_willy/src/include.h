@@ -32,9 +32,6 @@
 #include <sensor_msgs/LaserEcho.h>
 #include <std_msgs/Int32MultiArray.h>
 
-//Autonomous driving controller
-#include "Controllers/AutonomousDrivingController.h"
-
 //Vision controllers
 #include "Vision/Kinect/KinectController.h"
 #include "Vision/Lidar/LidarController.h"
@@ -48,6 +45,7 @@
 //Controllers
 #include "Vision/VisionController.h"
 #include "Movement/MovementController.h"
+#include "Controllers/AutonomousDrivingController.h"
 
 //Commandos
 #include <fstream>

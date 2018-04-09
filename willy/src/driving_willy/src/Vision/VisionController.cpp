@@ -24,18 +24,3 @@ VisionController::VisionController()
         SonarController sonarController = SonarController();
     }
 }
-
-KinectController VisionController::GetKinectController()
-{
-    return kinectController;
-}
-
-LidarController VisionController::GetLidarController()
-{
-    return lidarController;
-}
-
-SonarController VisionController::GetSonarController()
-{
-    return joystickController;
-}

@@ -108,13 +108,3 @@ void AutonomousDrivingController::Start()
 		ros::Duration(1).sleep();
 	}
 }
-
-MovementController& AutonomousDrivingController::getMovementController()
-{
-	return &movementController;
-}
-
-VisionController& AutonomousDrivingController::getVisionController()
-{
-	return &visionController;
-}
