@@ -20,10 +20,6 @@ class MovementController
 	//Method which returns the right command
 	static geometry_msgs::Twist GetRightCommand();
 
-	KeyboardController *GetKeyboardController();
-	GPSController *GetGPSController();
-	JoystickController *GetJoystickController();
-
   private:
 	KeyboardController keyboardController;
 	GPSController gpsController;

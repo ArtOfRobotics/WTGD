@@ -99,18 +99,3 @@ geometry_msgs::Twist MovementController::GetRightCommand()
 
 	return rightDriving;
 }
-
-KeyboardController *MovementController::GetKeyboardController()
-{
-	return &keyboardController;
-}
-
-GPSController *MovementController::GetGPSController()
-{
-	return &gpsController;
-}
-
-JoystickController *MovementController::GetJoystickController()
-{
-	return &joystickController;
-}
