@@ -11,7 +11,7 @@ MovementController::MovementController()
 	//Call movement controllers if enabled
 	if (useKeyboard)
 	{
-		KeyboardController keyboardController = KeyboardController(*this);
+		KeyboardController keyboardController = KeyboardController();
 	}
 
 	if (useGPS)
