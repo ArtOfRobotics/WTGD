@@ -14,14 +14,16 @@ class AutonomousDrivingController
   private:
 	ros::NodeHandle *nh;
 
+	bool turningLeft;
+	bool turningRight;
+	bool backward;
+
 	//All controllers for autonomous driving
 	KinectController kinectController;
 	LidarController lidarController;
 	GPSController gpsController;
 	JoystickController joystickController;
 	KeyboardController keyboardController;
-	
-
 	MovementController movementController;
 	VisionController visionController;
 };

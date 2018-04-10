@@ -8,9 +8,9 @@ AutonomousDrivingController::AutonomousDrivingController(ros::NodeHandle *n)
 	visionController = VisionController();
 	movementController = MovementController();
 
-	bool turningLeft = false;
-	bool turningRight = false;
-	bool backward = false;
+	turningLeft = false;
+	turningRight = false;
+	backward = false;
 }
 
 //This method receives the ROS NodeHandle and creates a new publisher
@@ -21,7 +21,6 @@ void AutonomousDrivingController::SetNode(ros::NodeHandle *n)
 
 void AutonomousDrivingController::Start()
 {
-	getRouteFromParam();
 	while (true)
 	{
 		sonarController->CalculateMovingPossibilities();
