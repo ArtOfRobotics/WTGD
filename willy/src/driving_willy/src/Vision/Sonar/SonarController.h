@@ -18,10 +18,9 @@ class SonarController
   public:
     SonarController();
     void SonarCallback(const sensor_msgs::LaserEcho &sonar);
-
-  private:
     void CalculateMovingPossibilities();
 
+  private:
     //Sensor counters
     int ForwardSensorCount;
     int BackwardSensorCount;
