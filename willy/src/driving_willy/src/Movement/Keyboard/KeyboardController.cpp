@@ -5,7 +5,7 @@ using namespace std;
 KeyboardController::KeyboardController()
 {
     ros::NodeHandle nh;
-    nh.advertise(keyboard);
+    //nh.advertise(keyboard);
     //ros::Publisher keyboard("keyboard", &key);
 }
 
@@ -100,7 +100,7 @@ void KeyboardController::getch(ros::NodeHandle *nh)
         ROS_ERROR("tcsetattr ~ICANON");
     }
 
-    message.echoes = buff;
-    message.echoes_length = 1;
-    keyboard.publish(&message);
+    //message.echoes = buff;
+    //message.echoes_length = 1;
+    //keyboard.publish(&message);
 }

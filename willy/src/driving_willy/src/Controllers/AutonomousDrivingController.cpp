@@ -5,8 +5,8 @@ using namespace std;
 AutonomousDrivingController::AutonomousDrivingController(ros::NodeHandle *n, GPSController *gpsController, JoystickController *joystickController, KeyboardController *keyboardController, KinectController *kinectController, LidarController *lidarController, SonarController *sonarController)
 {
 	nh = n;
-	movementController = MovementController(n, &gpsController, &joystickController, &keyboardController, &this);
-	visionController = VisionController(n, &kinectController, &lidarController, &sonarController, &this);
+	MovementController movementController = MovementController(n, &gpsController, &joystickController, &keyboardController, &this);
+	VisionController visionController = VisionController(n, &kinectController, &lidarController, &sonarController, &this);
 
 	turningLeft = false;
 	turningRight = false;

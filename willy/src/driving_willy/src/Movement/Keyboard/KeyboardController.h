@@ -9,7 +9,7 @@ public:
   void Start(char input);
   ros::NodeHandle nh;
   char message;
-  ros::Publisher keyboard("keyboard", &message);
+  //ros::Publisher keyboard("keyboard", &message);
 
 private:
   void getch();
