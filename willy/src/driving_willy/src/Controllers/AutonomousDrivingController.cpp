@@ -2,7 +2,7 @@
 
 using namespace std;
 
-AutonomousDrivingController::AutonomousDrivingController(ros::NodeHandle *n)
+AutonomousDrivingController::AutonomousDrivingController(ros::NodeHandle *n, GPSController *gpsController, JoystickController *joystickController, KeyboardController *keyboardController, MovementController *movementController, KinectController *kinectController, LidarController *lidarController, SonarController *sonarController, VisionController *visionController)
 {
 	nh = n;
 	movementController = MovementController(n, &gpsController, &joystickController, &keyboardController, &this);

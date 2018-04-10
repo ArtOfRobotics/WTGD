@@ -3,6 +3,15 @@
 using namespace std;
 
 //Set the controller as a global variable.
+GPSController gpsController;
+JoystickController joystickController;
+KeyboardController keyboardController;
+MovementController movementController;
+
+KinectController kinectController;
+LidarController lidarController;
+SonarController sonarController;
+VisionController visionController;
 
 int main(int argc, char **argv)
 {
@@ -42,7 +51,7 @@ int main(int argc, char **argv)
     ros::AsyncSpinner spinner(4);
     spinner.start();
 
-    AutonomousDrivingController autonomousDrivingController = AutonomousDrivingController(&n);
+    AutonomousDrivingController autonomousDrivingController = AutonomousDrivingController(&n, &gpsController, &keyboardController, &joystickController, &sonarController, &movementController, &kinectController, &lidarController, &sonarController, &visionController);
     autonomousDrivingController.Start();
     //JoyController joyController = JoyController(&willyController, argc, argv);
     //joyController.Start();

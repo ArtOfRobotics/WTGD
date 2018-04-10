@@ -18,16 +18,6 @@ class AutonomousDrivingController
 	bool backward;
 
 	//All controllers for autonomous driving
-
-	GPSController gpsController;
-	JoystickController joystickController;
-	KeyboardController keyboardController;
-	MovementController movementController;
-
-	KinectController kinectController;
-	LidarController lidarController;
-	SonarController sonarController;
-	VisionController visionController;
 };
 
 #endif
