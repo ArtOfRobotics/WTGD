@@ -19,18 +19,12 @@ void AutonomousDrivingController::SetNode(ros::NodeHandle *n)
 	movementController._commandPublisher = n->advertise<geometry_msgs::Twist>("/cmd_vel", 100);
 }
 
-//Send movement command to arduino
-void AutonomousDrivingController::SendCommandToArduino(geometry_msgs::Twist msg)
-{
-	_commandPublisher.publish(msg);
-}
-
 void AutonomousDrivingController::Start()
 {
 	getRouteFromParam();
 	while (true)
 	{
-		movementController.GetSonarController->CalculateMovingPossibilities();
+		sonarController->CalculateMovingPossibilities();
 		if (movementController.CanDriveForward == true)
 		{
 			movementController->SendCommandToArduino(MovementController::GetForwardCommand());

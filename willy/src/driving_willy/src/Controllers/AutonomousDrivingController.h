@@ -15,6 +15,13 @@ class AutonomousDrivingController
 	ros::NodeHandle *nh;
 
 	//All controllers for autonomous driving
+	KinectController kinectController;
+	LidarController lidarController;
+	GPSController gpsController;
+	JoystickController joystickController;
+	KeyboardController keyboardController;
+	
+
 	MovementController movementController;
 	VisionController visionController;
 };

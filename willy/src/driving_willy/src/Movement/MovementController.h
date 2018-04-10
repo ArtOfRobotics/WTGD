@@ -20,6 +20,8 @@ class MovementController
 	//Method which returns the right command
 	static geometry_msgs::Twist GetRightCommand();
 
+	ros::Publisher _commandPublisher;
+
   private:
 	void SendCommandToArduino(geometry_msgs::Twist msg);
 
@@ -28,7 +30,6 @@ class MovementController
 	bool useJoystick; //Not working yet
 
 	//The publisher where commands can be given throught cmd_vel
-	ros::Publisher _commandPublisher;
 };
 
 #endif

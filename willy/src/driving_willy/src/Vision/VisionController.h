@@ -7,10 +7,6 @@ class VisionController
     VisionController();
 
   private:
-    KinectController kinectController;
-    LidarController lidarController;
-    SonarController sonarController;
-
     bool useKinect;
     bool useLidar; //Not working yet
     bool useSonar; //Not working yet
