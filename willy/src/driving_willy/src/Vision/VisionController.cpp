@@ -18,7 +18,7 @@ VisionController::VisionController(ros::NodeHandle *nh, KinectController *kinect
     if (useLidar)
     {
         *lidarController = LidarController();
-        lidar = lidarController
+        lidar = lidarController;
     }
 
     if (useSonar)
