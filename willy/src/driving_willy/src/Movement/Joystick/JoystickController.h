@@ -6,8 +6,7 @@ class JoystickController
   public:
     //Constructor
     JoystickController();
-    
-    Start();
+    void Start();
 
   private:
 };
