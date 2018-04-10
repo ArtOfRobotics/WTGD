@@ -49,7 +49,7 @@ int main(int argc, char **argv)
     ros::AsyncSpinner spinner(4);
     spinner.start();
 
-    AutonomousDrivingController autonomousDrivingController = AutonomousDrivingController(&n, &gpsController, &keyboardController, &joystickController, &sonarController, &kinectController, &lidarController, &sonarController);
+    AutonomousDrivingController autonomousDrivingController = AutonomousDrivingController(&n, &gpsController, &keyboardController, &joystickController, &kinectController, &lidarController, &sonarController);
     autonomousDrivingController.Start();
     //JoyController joyController = JoyController(&willyController, argc, argv);
     //joyController.Start();
