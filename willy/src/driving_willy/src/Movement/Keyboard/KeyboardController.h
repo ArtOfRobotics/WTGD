@@ -6,7 +6,7 @@ class KeyboardController
 public:
   //Constructor
   KeyboardController();
-  void Start(char input);
+  void Start(sensor_msgs::Joy &msg);
   ros::NodeHandle nh;
   char message;
   //ros::Publisher keyboard("keyboard", &message);

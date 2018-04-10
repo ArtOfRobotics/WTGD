@@ -9,7 +9,7 @@ KeyboardController::KeyboardController()
     //ros::Publisher keyboard("keyboard", &key);
 }
 
-void KeyboardController::Start(char input)
+void KeyboardController::Start(sensor_msgs::Joy &msg)
 {
     bool inMenu;
     int menuItem = 0;
