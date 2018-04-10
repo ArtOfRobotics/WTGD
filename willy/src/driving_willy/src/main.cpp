@@ -6,12 +6,10 @@ using namespace std;
 GPSController gpsController;
 JoystickController joystickController;
 KeyboardController keyboardController;
-MovementController movementController;
 
 KinectController kinectController;
 LidarController lidarController;
 SonarController sonarController;
-VisionController visionController;
 
 int main(int argc, char **argv)
 {
@@ -51,7 +49,7 @@ int main(int argc, char **argv)
     ros::AsyncSpinner spinner(4);
     spinner.start();
 
-    AutonomousDrivingController autonomousDrivingController = AutonomousDrivingController(&n, &gpsController, &keyboardController, &joystickController, &sonarController, &movementController, &kinectController, &lidarController, &sonarController, &visionController);
+    AutonomousDrivingController autonomousDrivingController = AutonomousDrivingController(&n, &gpsController, &keyboardController, &joystickController, &sonarController, &kinectController, &lidarController, &sonarController);
     autonomousDrivingController.Start();
     //JoyController joyController = JoyController(&willyController, argc, argv);
     //joyController.Start();
