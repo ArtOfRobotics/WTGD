@@ -6,6 +6,7 @@ KeyboardController::KeyboardController()
 {
     nh.initNode();
     nh.advertise(keyboard);
+    //ros::Publisher keyboard("keyboard", &key);
 }
 
 void KeyboardController::Start(char input)

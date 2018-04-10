@@ -12,22 +12,16 @@ MovementController::MovementController(ros::NodeHandle *nh, GPSController *gpsCo
 	if (useKeyboard)
 	{
 		*keyboardController = KeyboardController();
-	} else {
-		*keyboardController = NULL;
 	}
 
 	if (useGPS)
 	{
 		*gpsController = GPSController();
-	} else {
-		*gpsController = NULL;
 	}
 
 	if (useJoystick)
 	{
 		*joystickController = JoystickController();
-	} else {
-		*joystickController = NULL;
 	}
 
 	_commandPublisher = nh->advertise<geometry_msgs::Twist>("/cmd_vel", 100);

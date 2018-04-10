@@ -10,7 +10,6 @@ public:
 
 private:
   char key;
-  ros::Publisher keyboard("keyboard", &key);
   ros::NodeHandle nh;
   void getch();
 };
