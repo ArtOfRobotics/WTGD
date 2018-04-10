@@ -4,7 +4,7 @@ using namespace std;
 
 KeyboardController::KeyboardController()
 {
-    nh.initNode();
+    ros::NodeHandle nh;
     nh.advertise(keyboard);
     //ros::Publisher keyboard("keyboard", &key);
 }

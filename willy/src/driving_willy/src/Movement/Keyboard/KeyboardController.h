@@ -7,10 +7,11 @@ public:
   //Constructor
   KeyboardController();
   void Start(char input);
+  ros::NodeHandle nh;
+  char message;
+  ros::Publisher keyboard("keyboard", &message);
 
 private:
-  char key;
-  ros::NodeHandle nh;
   void getch();
 };
 
