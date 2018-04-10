@@ -26,10 +26,6 @@ public:
 	ros::Publisher _commandPublisher;
 
 private:
-	GPSController *gpsController;
-	JoystickController *joystickController;
-	KeyboardController *keyboardController;
-
 	bool useKeyboard;
 	bool useGPS;			//Not working yet
 	bool useJoystick; //Not working yet
