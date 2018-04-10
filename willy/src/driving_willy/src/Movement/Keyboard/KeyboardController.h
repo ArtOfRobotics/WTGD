@@ -3,13 +3,17 @@
 
 class KeyboardController
 {
-  public:
-    //Constructor
-    KeyboardController(MovementController controller);
-    void Start(MovementController movementController);
+public:
+  //Constructor
+  KeyboardController(MovementController controller);
+  void Start(MovementController movementController);
 
-  private:
-    char getch();
+private:
+  char key;
+  ros::Publisher keyboard("keyboard", &key);
+  ros::NodeHandle nh;
+  MovementController movementController;
+  char getch();
 };
 
 #endif

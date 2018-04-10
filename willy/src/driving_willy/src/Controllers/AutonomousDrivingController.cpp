@@ -23,6 +23,7 @@ void AutonomousDrivingController::Start()
 {
 	while (true)
 	{
+		keyboardController->getch(nh);
 		sonarController->CalculateMovingPossibilities();
 		if (movementController.CanDriveForward == true)
 		{

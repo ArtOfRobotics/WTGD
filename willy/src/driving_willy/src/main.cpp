@@ -5,6 +5,9 @@ using namespace std;
 //Set the controller as a global variable.
 
 GPSController gpsController;
+JoystickController joystickController;
+KeyboardController keyboardController;
+
 SonarController sonarController;
 KinectController kinectController;
 LidarController lidarController;
@@ -27,6 +30,12 @@ int main(int argc, char **argv)
 
     //Set up the subscriber for the GPS
     ros::Subscriber gpsSubscriber = n.subscribe("/gps", 200, &GPSController::GpsCallback, &gpsController);
+
+    //Set up the subscriber for the keyboard
+    ros::Subscriber keyboardSubscriber = n.subscribe("/keyboard", 200, &KeyboardController::Start, &keyboardController);
+
+    //Set up the subscriber for the Joystick
+    ros::Subscriber joystickSubscriber = n.subscribe("/joystick", 200, &JoystickController::)
 
     //Set up the subscriber for the sonar
     ros::Subscriber subSonar = n.subscribe("/sonar", 100, &SonarController::SonarCallback, &sonarController);

@@ -4,20 +4,20 @@ using namespace std;
 
 KeyboardController::KeyboardController(MovementController controller)
 {
-    Start(controller);
+    nh.initNode();
+    nh.advertise(keyboard);
+    movementController = controller;
 }
 
-void KeyboardController::Start(MovementController movementController)
+void KeyboardController::Start(char input)
 {
-    char input;
     bool inMenu;
     int menuItem = 0;
-    printf("Starting joycontroller\n");
+    printf("Starting keyboardController\n");
 
     while (true)
     {
         //printf("Getting character...\n");
-        input = getch();
         //printf("Got a character!!!\n");
 
         if (input == 'w' && inMenu == false)
@@ -81,7 +81,7 @@ void KeyboardController::Start(MovementController movementController)
     ros::Duration(1).sleep();
 }
 
-char KeyboardController::getch()
+void KeyboardController::getch(ros::NodeHandle *nh)
 {
     fd_set set;
     struct timeval timeout;
@@ -117,6 +117,11 @@ char KeyboardController::getch()
     old.c_lflag |= ICANON;
     old.c_lflag |= ECHO;
     if (tcsetattr(filedesc, TCSADRAIN, &old) < 0)
+    {
         ROS_ERROR("tcsetattr ~ICANON");
-    return (buff);
+    }
+
+    message.echoes = buff;
+    message.echoes_length = 1;
+    keyboard.publish(&message);
 }
