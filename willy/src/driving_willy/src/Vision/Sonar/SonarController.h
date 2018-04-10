@@ -19,6 +19,12 @@ class SonarController
     SonarController();
     void SonarCallback(const sensor_msgs::LaserEcho &sonar);
     void CalculateMovingPossibilities();
+    //Property which stores if he can drive forward
+    bool CanDriveForward;
+    bool CanDriveBackward;
+    bool CanTurnLeft;
+    bool CanTurnRight;
+    bool MovementKnown;
 
   private:
     //Sensor counters
@@ -26,13 +32,6 @@ class SonarController
     int BackwardSensorCount;
     int LeftSensorCount;
     int RightSensorCount;
-
-    //Property which stores if he can drive forward
-    bool CanDriveForward;
-    bool CanDriveBackward;
-    bool CanTurnLeft;
-    bool CanTurnRight;
-    bool MovementKnown;
 
     //Array with data of sonars.
     Sonar SonarData[10];
