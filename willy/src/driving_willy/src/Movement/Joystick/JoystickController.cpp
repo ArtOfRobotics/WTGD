@@ -6,7 +6,7 @@ JoystickController::JoystickController()
 {
 }
 
-JoystickController::Start()
+void JoystickController::Start()
 {
     printf("Ik ben aangekomen bij de joystick controller");
 }
