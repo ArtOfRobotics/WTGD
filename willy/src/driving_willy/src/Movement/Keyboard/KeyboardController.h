@@ -6,7 +6,7 @@ class KeyboardController
 public:
   //Constructor
   KeyboardController();
-  void Start(MovementController *movementController, char input);
+  void Start(char input);
 
 private:
   char key;
