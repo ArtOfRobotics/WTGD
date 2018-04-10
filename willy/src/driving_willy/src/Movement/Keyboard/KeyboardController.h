@@ -8,10 +8,10 @@ public:
   KeyboardController();
   void Start();
   char input;
+  void getch();
   //ros::Publisher keyboard("keyboard", &message);
 
 private:
-  void getch();
 };
 
 #endif
