@@ -4,7 +4,7 @@
 class MovementController
 {
 public:
-	MovementController(ros::NodeHandle *nh, GPSController *gpsController, JoystickController *joystickController, KeyboardController *keyboardController, AutonomousDrivingController *autonomousDrivingController);
+	MovementController(ros::NodeHandle *nh, GPSController *gpsController, JoystickController *joystickController, KeyboardController *keyboardController);
 	//Method to send movement commands to arduino
 	void SendCommandToArduino(geometry_msgs::Twist msg);
 

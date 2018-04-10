@@ -2,7 +2,7 @@
 
 using namespace std;
 
-MovementController::MovementController(ros::NodeHandle *nh, GPSController *gpsController, JoystickController *joystickController, KeyboardController *keyboardController, AutonomousDrivingController *autonomousDrivingController)
+MovementController::MovementController(ros::NodeHandle *nh, GPSController *gpsController, JoystickController *joystickController, KeyboardController *keyboardController)
 {
 	useKeyboard = false;
 	useGPS = false;
