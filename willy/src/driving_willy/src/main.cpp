@@ -35,7 +35,7 @@ int main(int argc, char **argv)
     ros::Subscriber keyboardSubscriber = n.subscribe("/keyboard", 200, &KeyboardController::Start, &keyboardController);
 
     //Set up the subscriber for the Joystick
-    ros::Subscriber joystickSubscriber = n.subscribe("/joystick", 200, &JoystickController::)
+    ros::Subscriber joystickSubscriber = n.subscribe("/joystick", 200, &JoystickController::Start, &joystickController);
 
     //Set up the subscriber for the sonar
     ros::Subscriber subSonar = n.subscribe("/sonar", 100, &SonarController::SonarCallback, &sonarController);
