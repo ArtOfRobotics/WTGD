@@ -70,6 +70,16 @@ SonarController::SonarController()
     }
 }
 
+//This method gets fired wen there's a new message from the sonar system.
+void WillyController::SonarCallback(const sensor_msgs::LaserEcho &sonar)
+{
+	for (int i = 0; i < 10; i++)
+	{
+		SonarData[i].Value = sonar.echoes[i];
+	}
+	CalculateMovingPossibilities();
+}
+
 void SonarController::CalculateMovingPossibilities()
 {
     CanDriveForward = true;
