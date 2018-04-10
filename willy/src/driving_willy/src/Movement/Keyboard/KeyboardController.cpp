@@ -60,7 +60,7 @@ void KeyboardController::Start(char input)
     ros::Duration(1).sleep();
 }
 
-void KeyboardController::getch(ros::NodeHandle *nh)
+void KeyboardController::getch()
 {
     fd_set set;
     struct timeval timeout;
