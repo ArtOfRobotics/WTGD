@@ -5,6 +5,9 @@ class MovementController
 {
   public:
 	MovementController();
+	//Method to send movement commands to arduino
+	void SendCommandToArduino(geometry_msgs::Twist msg);
+
 	//Method which returns the forward command.
 	static geometry_msgs::Twist GetForwardCommand();
 
@@ -23,8 +26,6 @@ class MovementController
 	ros::Publisher _commandPublisher;
 
   private:
-	void SendCommandToArduino(geometry_msgs::Twist msg);
-
 	bool useKeyboard;
 	bool useGPS;	  //Not working yet
 	bool useJoystick; //Not working yet
