@@ -4,8 +4,6 @@ using namespace std;
 
 //Set the controller as a global variable.
 
-AutonomousDrivingController autonomousDrivingController;
-
 int main(int argc, char **argv)
 {
     //Ros initation.
@@ -44,12 +42,8 @@ int main(int argc, char **argv)
     ros::AsyncSpinner spinner(4);
     spinner.start();
 
-    autonomousDrivingController = AutonomousDrivingController(&n);
-
-    //Gives the node to the controller.
-    autonomouseDriving.SetNode(&n);
-
-    autonomouseDriving.Start();
+    AutonomousDrivingController autonomousDrivingController = AutonomousDrivingController(&n);
+    autonomousDrivingController.Start();
     //JoyController joyController = JoyController(&willyController, argc, argv);
     //joyController.Start();
 
