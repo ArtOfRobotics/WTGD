@@ -4,12 +4,11 @@ using namespace std;
 
 KeyboardController::KeyboardController()
 {
-    ros::NodeHandle nh;
     //nh.advertise(keyboard);
     //ros::Publisher keyboard("keyboard", &key);
 }
 
-void KeyboardController::Start(sensor_msgs::Joy &msg)
+void KeyboardController::Start()
 {
     bool inMenu;
     int menuItem = 0;
