@@ -5,15 +5,14 @@ class KeyboardController
 {
 public:
   //Constructor
-  KeyboardController(MovementController controller);
-  void Start(MovementController movementController);
+  KeyboardController();
+  void Start(MovementController *movementController, char input);
 
 private:
   char key;
   ros::Publisher keyboard("keyboard", &key);
   ros::NodeHandle nh;
-  MovementController movementController;
-  char getch();
+  void getch();
 };
 
 #endif

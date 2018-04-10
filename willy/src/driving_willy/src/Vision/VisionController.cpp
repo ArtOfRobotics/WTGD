@@ -2,7 +2,7 @@
 
 using namespace std;
 
-VisionController::VisionController()
+VisionController::VisionController(ros::NodeHandle *nh, KinectController *kinectController, LidarController *lidarController, SonarController *sonarController)
 {
     useKinect = false;
     useLidar = false;
@@ -11,16 +11,16 @@ VisionController::VisionController()
     //Call movement controllers if enabled
     if (useKinect)
     {
-        KinectController kinectController = KinectController();
+        *kinectController = KinectController();
     }
 
     if (useLidar)
     {
-        LidarController lidarController = LidarController();
+        *lidarController = LidarController();
     }
 
     if (useSonar)
     {
-        SonarController sonarController = SonarController();
+        *sonarController = SonarController();
     }
 }

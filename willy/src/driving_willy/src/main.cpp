@@ -4,13 +4,7 @@ using namespace std;
 
 //Set the controller as a global variable.
 
-GPSController gpsController;
-JoystickController joystickController;
-KeyboardController keyboardController;
-
-SonarController sonarController;
-KinectController kinectController;
-LidarController lidarController;
+AutonomousDrivingController autonomousDrivingController;
 
 int main(int argc, char **argv)
 {
@@ -50,7 +44,7 @@ int main(int argc, char **argv)
     ros::AsyncSpinner spinner(4);
     spinner.start();
 
-    AutonomousDrivingController autonomouseDriving = AutonomousDrivingController(&n);
+    autonomousDrivingController = AutonomousDrivingController(&n);
 
     //Gives the node to the controller.
     autonomouseDriving.SetNode(&n);

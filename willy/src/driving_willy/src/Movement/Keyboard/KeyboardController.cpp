@@ -2,82 +2,61 @@
 
 using namespace std;
 
-KeyboardController::KeyboardController(MovementController controller)
+KeyboardController::KeyboardController()
 {
     nh.initNode();
     nh.advertise(keyboard);
-    movementController = controller;
 }
 
-void KeyboardController::Start(char input)
+void KeyboardController::Start(MovementController *movementController, char input)
 {
     bool inMenu;
     int menuItem = 0;
     printf("Starting keyboardController\n");
 
-    while (true)
+    if (input == 'w' && inMenu == false)
     {
-        //printf("Getting character...\n");
-        //printf("Got a character!!!\n");
-
-        if (input == 'w' && inMenu == false)
-        {
-            movementController.SendCommandToArduino(MovementController::GetForwardCommand());
-            printf("vooruit");
-        }
-        else if (input == 'a' && inMenu == false)
-        {
-            movementController.SendCommandToArduino(MovementController::GetLeftCommand());
-            printf("links");
-        }
-        else if (input == 'd' && inMenu == false)
-        {
-            movementController.SendCommandToArduino(MovementController::GetRightCommand());
-            printf("Rechts");
-        }
-        else if (input == 's' && inMenu == false)
-        {
-            movementController.SendCommandToArduino(MovementController::GetBackwardCommand());
-            printf("Achteruit");
-        }
-        else if (input == 'q' && inMenu == false)
-        {
-            movementController.SendCommandToArduino(MovementController::GetStopCommand());
-            printf("Stoppen");
-        }
-        else if (input == 'm' && inMenu == false)
-        {
-            inMenu = true;
-            printf("Menu opened");
-        }
-        else if (input == 'n' && inMenu == true)
-        {
-            inMenu = false;
-            menuItem = 0;
-            printf("Menu closed");
-        }
-        else if (input == '1' && inMenu == true)
-        {
-            movementController.SendCommandToArduino(MovementController::GetStopCommand());
-            menuItem = 1;
-            printf("Menu 1 selected");
-        }
-        //movementController.SendCommandToArduino(MovementController::GetForwardCommand());
-
-        if (inMenu && menuItem > 0)
-        {
-            if (menuItem == 1)
-            {
-                printf("Running menu 1");
-                movementController.SendCommandToArduino(MovementController::GetForwardCommand());
-                printf("Going forward\n");
-                ros::Duration(2).sleep();
-                movementController.SendCommandToArduino(MovementController::GetBackwardCommand());
-                printf("Going backward\n");
-                ros::Duration(2).sleep();
-            }
-        }
+        movementController->SendCommandToArduino(MovementController::GetForwardCommand());
+        printf("vooruit");
     }
+    else if (input == 'a' && inMenu == false)
+    {
+        movementController->SendCommandToArduino(MovementController::GetLeftCommand());
+        printf("links");
+    }
+    else if (input == 'd' && inMenu == false)
+    {
+        movementController->SendCommandToArduino(MovementController::GetRightCommand());
+        printf("Rechts");
+    }
+    else if (input == 's' && inMenu == false)
+    {
+        movementController->SendCommandToArduino(MovementController::GetBackwardCommand());
+        printf("Achteruit");
+    }
+    else if (input == 'q' && inMenu == false)
+    {
+        movementController->SendCommandToArduino(MovementController::GetStopCommand());
+        printf("Stoppen");
+    }
+    else if (input == 'm' && inMenu == false)
+    {
+        inMenu = true;
+        printf("Menu opened");
+    }
+    else if (input == 'n' && inMenu == true)
+    {
+        inMenu = false;
+        menuItem = 0;
+        printf("Menu closed");
+    }
+    else if (input == '1' && inMenu == true)
+    {
+        movementController->SendCommandToArduino(MovementController::GetStopCommand());
+        menuItem = 1;
+        printf("Menu 1 selected");
+    }
+    //movementController->SendCommandToArduino(MovementController::GetForwardCommand());
     ros::Duration(1).sleep();
 }
 

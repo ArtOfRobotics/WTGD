@@ -2,7 +2,7 @@
 
 using namespace std;
 
-MovementController::MovementController()
+MovementController::MovementController(ros::NodeHandle *nh, GPSController *gpsController, JoystickController *joystickController, KeyboardController *keyboardController, AutonomousDrivingController *autonomousDrivingController)
 {
 	useKeyboard = false;
 	useGPS = false;
@@ -11,18 +11,26 @@ MovementController::MovementController()
 	//Call movement controllers if enabled
 	if (useKeyboard)
 	{
-		KeyboardController keyboardController = KeyboardController(*this);
+		*keyboardController = KeyboardController();
+	} else {
+		*keyboardController = NULL;
 	}
 
 	if (useGPS)
 	{
-		GPSController gpsController = GPSController();
+		*gpsController = GPSController();
+	} else {
+		*gpsController = NULL;
 	}
 
 	if (useJoystick)
 	{
-		JoystickController joystickController = JoystickController();
+		*joystickController = JoystickController();
+	} else {
+		*joystickController = NULL;
 	}
+
+	_commandPublisher = nh->advertise<geometry_msgs::Twist>("/cmd_vel", 100);
 }
 
 void MovementController::SendCommandToArduino(geometry_msgs::Twist msg)

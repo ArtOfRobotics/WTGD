@@ -3,8 +3,8 @@
 
 class MovementController
 {
-  public:
-	MovementController();
+public:
+	MovementController(ros::NodeHandle *nh, GPSController *gpsController, JoystickController *joystickController, KeyboardController *keyboardController, AutonomousDrivingController *autonomousDrivingController);
 	//Method to send movement commands to arduino
 	void SendCommandToArduino(geometry_msgs::Twist msg);
 
@@ -25,9 +25,9 @@ class MovementController
 
 	ros::Publisher _commandPublisher;
 
-  private:
+private:
 	bool useKeyboard;
-	bool useGPS;	  //Not working yet
+	bool useGPS;			//Not working yet
 	bool useJoystick; //Not working yet
 
 	//The publisher where commands can be given throught cmd_vel

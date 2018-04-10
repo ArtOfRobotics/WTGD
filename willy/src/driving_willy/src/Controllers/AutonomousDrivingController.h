@@ -8,7 +8,6 @@ class AutonomousDrivingController
 	AutonomousDrivingController(ros::NodeHandle *n);
 	
 	//Method where the ROS Node can be given.
-	void SetNode(ros::NodeHandle *n);
 	void Start();
 
   private:
@@ -19,12 +18,15 @@ class AutonomousDrivingController
 	bool backward;
 
 	//All controllers for autonomous driving
-	KinectController kinectController;
-	LidarController lidarController;
+
 	GPSController gpsController;
 	JoystickController joystickController;
 	KeyboardController keyboardController;
 	MovementController movementController;
+
+	KinectController kinectController;
+	LidarController lidarController;
+	SonarController sonarController;
 	VisionController visionController;
 };
 
