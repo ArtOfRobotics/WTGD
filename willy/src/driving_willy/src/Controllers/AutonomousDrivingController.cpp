@@ -29,24 +29,24 @@ void AutonomousDrivingController::Start()
 	{
 		keyboardController->getch();
 		sonarController->CalculateMovingPossibilities();
-		if (visionController->GetSonarController->CanDriveForward == true)
+		if (visionController->GetSonarController()->CanDriveForward == true)
 		{
 			movementController->SendCommandToArduino(MovementController::GetForwardCommand());
 			printf("forward\n");
 		}
-		else if (visionController->CanTurnRight == true && turningRight == false)
+		else if (visionController->GetSonarController()->CanTurnRight == true && turningRight == false)
 		{
 			movementController->SendCommandToArduino(MovementController::GetRightCommand());
 			turningRight = true;
 			printf("Right\n");
 		}
-		else if (visionController->CanTurnLeft == true && turningLeft == false)
+		else if (visionController->GetSonarController()->CanTurnLeft == true && turningLeft == false)
 		{
 			movementController->SendCommandToArduino(MovementController::GetLeftCommand());
 			turningLeft = true;
 			printf("Left\n");
 		}
-		else if (visionController->CanDriveBackward == true)
+		else if (visionController->GetSonarController()->CanDriveBackward == true)
 		{
 			movementController->SendCommandToArduino(MovementController::GetBackwardCommand());
 			backward = true;
@@ -59,12 +59,12 @@ void AutonomousDrivingController::Start()
 
 		if (turningLeft == true)
 		{
-			if (visionController->CanDriveForward == true)
+			if (visionController->GetSonarController()->CanDriveForward == true)
 			{
 				ros::Duration(2).sleep();
 				movementController->SendCommandToArduino(MovementController::GetForwardCommand());
 			}
-			if (visionController->CanTurnLeft == false)
+			if (visionController->GetSonarController()->CanTurnLeft == false)
 			{
 				movementController->SendCommandToArduino(MovementController::GetStopCommand());
 			}
@@ -73,12 +73,12 @@ void AutonomousDrivingController::Start()
 
 		if (turningRight == true)
 		{
-			if (visionController->CanDriveForward == true)
+			if (visionController->GetSonarController()->CanDriveForward == true)
 			{
 				ros::Duration(2).sleep();
 				movementController->SendCommandToArduino(MovementController::GetForwardCommand());
 			}
-			if (visionController->CanTurnRight == false)
+			if (visionController->GetSonarController()->CanTurnRight == false)
 			{
 				movementController->SendCommandToArduino(MovementController::GetStopCommand());
 			}
@@ -87,14 +87,14 @@ void AutonomousDrivingController::Start()
 
 		if (backward == true)
 		{
-			if (visionController->CanTurnLeft == true)
+			if (visionController->GetSonarController()->CanTurnLeft == true)
 			{
 				ros::Duration(3).sleep();
 				movementController->SendCommandToArduino(MovementController::GetLeftCommand());
 				turningLeft = true;
 				backward = false;
 			}
-			if (visionController->CanTurnRight == true)
+			if (visionController->GetSonarController()->CanTurnRight == true)
 			{
 				ros::Duration(3).sleep();
 				movementController->SendCommandToArduino(MovementController::GetRightCommand());
