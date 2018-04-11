@@ -6,7 +6,7 @@ AutonomousDrivingController::AutonomousDrivingController(ros::NodeHandle *n, GPS
 {
 	nh = n;
 	MovementController movingController = MovementController(n, gps, joystick, keyboard);
-	//VisionController visionControl = VisionController(n, kinect, lidar, sonar);
+	VisionController visionControl = VisionController(n, kinect, lidar, sonar);
 /*
 
 	movementController = &movingController;
