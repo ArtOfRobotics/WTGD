@@ -30,15 +30,15 @@ VisionController::VisionController(ros::NodeHandle *nh, KinectController *kinect
 
 KinectController* VisionController::GetKinectController()
 {
-    return &kinect;
+    return kinect;
 }
 
 LidarController* VisionController::GetLidarController()
 {
-    return &lidar;
+    return lidar;
 }
 
 SonarController* VisionController::GetSonarController()
 {
-    return &sonar;
+    return sonar;
 }
