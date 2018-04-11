@@ -12,19 +12,19 @@ VisionController::VisionController(ros::NodeHandle *nh, KinectController *kinect
     if (useKinect)
     {
         *kinectController = new KinectController();
-        kinect = *kinectController;
+        kinect = kinectController;
     }
 
     if (useLidar)
     {
         *lidarController = new LidarController();
-        lidar = *lidarController;
+        lidar = lidarController;
     }
 
     if (useSonar)
     {
         *sonarController = new SonarController();
-        //sonar = *sonarController;
+        sonar = sonarController;
     }
 }
 
