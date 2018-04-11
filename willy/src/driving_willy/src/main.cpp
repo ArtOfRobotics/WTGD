@@ -3,6 +3,13 @@
 using namespace std;
 
 //Set the controller as a global variable.
+GPSController gpsController;
+JoystickController joystickController;
+KeyboardController keyboardController;
+
+KinectController kinectController;
+LidarController lidarController;
+SonarController sonarController;
 
 int main(int argc, char **argv)
 {
