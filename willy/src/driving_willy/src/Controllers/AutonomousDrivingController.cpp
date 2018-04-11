@@ -4,10 +4,10 @@ using namespace std;
 
 AutonomousDrivingController::AutonomousDrivingController(ros::NodeHandle *n, GPSController *gps, JoystickController *joystick, KeyboardController *keyboard, KinectController *kinect, LidarController *lidar, SonarController *sonar)
 {
-	/*nh = n;
+	nh = n;
 	MovementController movingController = MovementController(n, gps, joystick, keyboard);
 	VisionController visionControl = VisionController(n, kinect, lidar, sonar);
-
+/*
 	movementController = &movingController;
 	visionController = &visionControl;
 
