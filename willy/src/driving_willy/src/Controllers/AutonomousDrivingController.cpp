@@ -8,11 +8,11 @@ VisionController *visionController;
 AutonomousDrivingController::AutonomousDrivingController(ros::NodeHandle *n, GPSController *gps, JoystickController *joystick, KeyboardController *keyboard, KinectController *kinect, LidarController *lidar, SonarController *sonar)
 {
 	nh = n;
-	MovementController movingController = MovementController(n, gps, joystick, keyboard);
-	VisionController visionControl = VisionController(n, kinect, lidar, sonar);
+	movementController = new MovementController(n, gps, joystick, keyboard);
+	visionController = new VisionController(n, kinect, lidar, sonar);
 
-	movementController = &movingController;
-	visionController = &visionControl;
+	//movementController = &movingController;
+	//visionController = &visionControl;
 
 	turningLeft = false;
 	turningRight = false;
