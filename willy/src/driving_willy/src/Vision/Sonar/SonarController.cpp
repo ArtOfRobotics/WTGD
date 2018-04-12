@@ -77,7 +77,6 @@ void SonarController::SonarCallback(const sensor_msgs::LaserEcho &sonar)
     {
         SonarData[i].Value = sonar.echoes[i];
     }
-    printf("Sonar data received");
     CalculateMovingPossibilities();
 }
 
@@ -90,6 +89,7 @@ void SonarController::CalculateMovingPossibilities()
 
     for (int i = 0; i < sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0]); i++)
     {
+        printf("Max value: %d Sensor value: %d", ChecksDriveForward[i].Value, SonarData[ChecksDriveForward[i].SonarID].Value);
         if (ChecksDriveForward[i].Value != 0 && SonarData[ChecksDriveForward[i].SonarID].Value < ChecksDriveForward[i].Value)
         {
             CanDriveForward = false;
