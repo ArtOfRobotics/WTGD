@@ -87,6 +87,8 @@ void SonarController::CalculateMovingPossibilities()
     CanTurnLeft = true;
     CanTurnRight = true;
 
+    printf("Calculate moving possibilities:\n");
+
     for (int i = 0; i < sizeof(ChecksDriveForward) / sizeof(ChecksDriveForward[0]); i++)
     {
         printf("Max value: %d Sensor value: %d\n", ChecksDriveForward[i].Value, SonarData[ChecksDriveForward[i].SonarID].Value);
