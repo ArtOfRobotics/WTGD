@@ -24,7 +24,7 @@ public:
 	static geometry_msgs::Twist GetRightCommand();
 
 	//Method which returns the command publisher
-	static ros::Publisher GetCommandPublisher();
+	ros::Publisher GetCommandPublisher();
 
 	//Method which returns the gps controller;
 	GPSController* GetGPSController();
@@ -35,7 +35,7 @@ public:
 	//Method which returns the keyboard controller;
 	KeyboardController* GetKeyboardController();
 
-	static ros::Publisher _commandPublisher;
+	ros::Publisher _commandPublisher;
 
 private:
 	bool useKeyboard;
