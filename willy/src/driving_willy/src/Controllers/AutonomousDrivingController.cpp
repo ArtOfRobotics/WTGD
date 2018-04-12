@@ -23,9 +23,9 @@ void AutonomousDrivingController::Start()
 {
 	while (true)
 	{
-		movementController->GetKeyboardController()->getch();
+		//movementController->GetKeyboardController()->getch();
 		visionController->GetSonarController()->CalculateMovingPossibilities();
-		
+
 		if (visionController->GetSonarController()->CanDriveForward == true)
 		{
 			movementController->SendCommandToArduino(MovementController::GetForwardCommand());
