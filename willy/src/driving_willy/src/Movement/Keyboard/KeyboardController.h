@@ -6,9 +6,9 @@ class KeyboardController
 public:
   //Constructor
   KeyboardController();
-  void Start();
+  void Start(char input);
   //char input;
-  void getch();
+  char getch();
   //ros::Publisher keyboard("keyboard", &message);
 
 private:
