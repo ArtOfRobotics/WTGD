@@ -25,20 +25,24 @@ void KeyboardController::Start(char input)
     else if (input == 'a' && inMenu == false)
     {
         //movementController->SendCommandToArduino(MovementController::GetLeftCommand());
+        MovementController::GetCommandPublisher().publish(MovementController::GetLeftCommand());
         printf("links");
     }
     else if (input == 'd' && inMenu == false)
     {
+        MovementController::GetCommandPublisher().publish(MovementController::GetRightCommand());
         //movementController->SendCommandToArduino(MovementController::GetRightCommand());
         printf("Rechts");
     }
     else if (input == 's' && inMenu == false)
     {
+        MovementController::GetCommandPublisher().publish(MovementController::GetBackwardCommand());
         //movementController->SendCommandToArduino(MovementController::GetBackwardCommand());
         printf("Achteruit");
     }
     else if (input == 'q' && inMenu == false)
     {
+        MovementController::GetCommandPublisher().publish(MovementController::GetStopCommand());
         //movementController->SendCommandToArduino(MovementController::GetStopCommand());
         printf("Stoppen");
     }
