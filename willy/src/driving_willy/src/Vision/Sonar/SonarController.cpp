@@ -56,6 +56,7 @@ SonarController::SonarController()
             }
             else if ((strcmp(attr.name(), "type") == 0) && (strcmp(attr.value(), "DriveForward") == 0))
             {
+                printf("Er is een element toegevoegd!\n");
                 ChecksDriveForward[ForwardSensorCount].SonarID = tool.attribute("SonarID").as_int();
                 ChecksDriveForward[ForwardSensorCount].Value = tool.attribute("Value").as_int();
                 ForwardSensorCount++;
