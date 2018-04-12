@@ -9,15 +9,6 @@ class AutonomousDrivingController
 
 	//Method where the ROS Node can be given.
 	void Start();
-	GPSController *gpsController;
-	JoystickController *joystickController;
-	KeyboardController *keyboardController;
-	KinectController *kinectController;
-	LidarController *lidarController;
-	SonarController *sonarController;
-
-	MovementController *movementController;
-	VisionController *visionController;
 
   private:
 	ros::NodeHandle *nh;

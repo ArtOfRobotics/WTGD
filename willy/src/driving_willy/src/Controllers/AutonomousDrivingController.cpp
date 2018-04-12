@@ -2,12 +2,21 @@
 
 using namespace std;
 
+GPSController *gpsController;
+JoystickController *joystickController;
+KeyboardController *keyboardController;
+KinectController *kinectController;
+LidarController *lidarController;
+SonarController *sonarController;
+
+MovementController *movementController;
+VisionController *visionController;
+
 AutonomousDrivingController::AutonomousDrivingController(ros::NodeHandle *n, GPSController *gps, JoystickController *joystick, KeyboardController *keyboard, KinectController *kinect, LidarController *lidar, SonarController *sonar)
 {
 	nh = n;
 	MovementController movingController = MovementController(n, gps, joystick, keyboard);
 	VisionController visionControl = VisionController(n, kinect, lidar, sonar);
-/*
 
 	movementController = &movingController;
 	visionController = &visionControl;
@@ -21,7 +30,7 @@ AutonomousDrivingController::AutonomousDrivingController(ros::NodeHandle *n, GPS
 
 	turningLeft = false;
 	turningRight = false;
-	backward = false;*/
+	backward = false;
 }
 
 void AutonomousDrivingController::Start()
