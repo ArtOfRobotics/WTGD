@@ -23,6 +23,15 @@ public:
 	//Method which returns the right command
 	static geometry_msgs::Twist GetRightCommand();
 
+	//Method which returns the gps controller;
+	GPSController* GetGPSController();
+
+	//Method which returns the joystick controller
+	JoystickController* GetJoystickController();
+
+	//Method which returns the keyboard controller;
+	KeyboardController* GetKeyboardController();
+
 	ros::Publisher _commandPublisher;
 
 private:
