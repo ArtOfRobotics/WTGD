@@ -35,7 +35,7 @@ public:
 	//Method which returns the keyboard controller;
 	KeyboardController* GetKeyboardController();
 
-	ros::Publisher _commandPublisher;
+	static ros::Publisher _commandPublisher;
 
 private:
 	bool useKeyboard;
