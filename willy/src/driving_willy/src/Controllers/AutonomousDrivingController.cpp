@@ -2,13 +2,6 @@
 
 using namespace std;
 
-GPSController *gpsController;
-JoystickController *joystickController;
-KeyboardController *keyboardController;
-KinectController *kinectController;
-LidarController *lidarController;
-SonarController *sonarController;
-
 MovementController *movementController;
 VisionController *visionController;
 
