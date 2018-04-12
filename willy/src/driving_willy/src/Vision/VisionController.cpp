@@ -24,7 +24,7 @@ VisionController::VisionController(ros::NodeHandle *nh, KinectController *kinect
     if (useSonar)
     {
         sonar = new SonarController();
-        *sonarController = *sonar;
+        //*sonarController = *sonar;
     }
 }
 
