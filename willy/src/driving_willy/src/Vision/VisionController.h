@@ -10,9 +10,9 @@ public:
   SonarController *GetSonarController();
 
 private:
-  KinectController* kinect;
-  LidarController* lidar;
-  SonarController* sonar;
+  static KinectController* kinect;
+  static LidarController* lidar;
+  static SonarController* sonar;
 
   bool useKinect;
   bool useLidar; //Not working yet
