@@ -29,7 +29,7 @@ void AutonomousDrivingController::Start()
 		if (visionController->GetSonarController()->CanDriveForward == true)
 		{
 			movementController->SendCommandToArduino(MovementController::GetForwardCommand());
-			printf("forward\n");
+			//printf("forward\n");
 		}
 		else if (visionController->GetSonarController()->CanTurnRight == true && turningRight == false)
 		{
