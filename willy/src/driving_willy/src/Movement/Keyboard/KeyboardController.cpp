@@ -61,6 +61,8 @@ void KeyboardController::Start()
 
 void KeyboardController::getch()
 {
+    ROS_INFO("Waiting for character");
+
     fd_set set;
     struct timeval timeout;
     int rv;
