@@ -6,6 +6,9 @@ KeyboardController *keyboard;
 GPSController *gps;
 JoystickController *joystick;
 
+//Command publisher
+static ros::Publisher _commandPublisher;
+
 MovementController::MovementController(ros::NodeHandle *nh, GPSController *gpsController, JoystickController *joystickController, KeyboardController *keyboardController)
 {
 	useKeyboard = true;
@@ -33,10 +36,11 @@ MovementController::MovementController(ros::NodeHandle *nh, GPSController *gpsCo
 
 void MovementController::SendCommandToArduino(geometry_msgs::Twist msg)
 {
-	 _commandPublisher.publish(msg);
+	_commandPublisher.publish(msg);
 }
 
-ros::Publisher MovementController::GetCommandPublisher() {
+ros::Publisher MovementController::GetCommandPublisher()
+{
 	return _commandPublisher;
 }
 
@@ -115,14 +119,17 @@ geometry_msgs::Twist MovementController::GetRightCommand()
 	return rightDriving;
 }
 
-GPSController* MovementController::GetGPSController() {
+GPSController *MovementController::GetGPSController()
+{
 	return gps;
 }
 
-JoystickController* MovementController::GetJoystickController() {
+JoystickController *MovementController::GetJoystickController()
+{
 	return joystick;
 }
 
-KeyboardController* MovementController::GetKeyboardController() {
+KeyboardController *MovementController::GetKeyboardController()
+{
 	return keyboard;
 }

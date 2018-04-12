@@ -23,9 +23,6 @@ class MovementController
 	//Method which returns the right command
 	static geometry_msgs::Twist GetRightCommand();
 
-	//Command publisher
-	static ros::Publisher _commandPublisher;
-
 	//Method which returns the command publisher
 	static ros::Publisher GetCommandPublisher();
 
