@@ -99,6 +99,6 @@ void AutonomousDrivingController::Start()
 				backward = false;
 			}
 		}
-		//ros::Duration(1).sleep();
+		ros::Duration(1).sleep();
 	}
 }
