@@ -11,17 +11,17 @@ VisionController::VisionController(ros::NodeHandle *nh, KinectController *kinect
     //Call movement controllers if enabled
     if (useKinect)
     {
-        this.kinect = kinectController;
+        this->kinect = kinectController;
     }
 
     if (useLidar)
     {
-        this.lidar = lidarController;
+        this->lidar = lidarController;
     }
 
     if (useSonar)
     {
-        this.sonar = sonarController;
+        this->sonar = sonarController;
     }
 }
 
