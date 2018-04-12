@@ -3,19 +3,22 @@
 using namespace std;
 
 //Set the controller as a global variable.
-GPSController gpsController;
-JoystickController joystickController;
-KeyboardController keyboardController;
+static GPSController gpsController;
+static JoystickController joystickController;
+static KeyboardController keyboardController;
+static MovementController movementController;
 
-KinectController kinectController;
-LidarController lidarController;
-SonarController sonarController;
+static KinectController kinectController;
+static LidarController lidarController;
+static SonarController sonarController;
+static VisionController visionController;
+
+static ros::NodeHandle n;
 
 int main(int argc, char **argv)
 {
     //Ros initation.
     ros::init(argc, argv, "DrivingWilly");
-    ros::NodeHandle n;
 
     //placeholder values for gps route.
     std::vector<double> gpsLat;
@@ -49,7 +52,7 @@ int main(int argc, char **argv)
     ros::AsyncSpinner spinner(4);
     spinner.start();
 
-    AutonomousDrivingController autonomousDrivingController = AutonomousDrivingController(&n, new GPSController(), new JoystickController(), new KeyboardController(), new KinectController(), new LidarController(), new SonarController());
+    AutonomousDrivingController autonomousDrivingController = AutonomousDrivingController();
     autonomousDrivingController.Start();
     //JoyController joyController = JoyController(&willyController, argc, argv);
     //joyController.Start();

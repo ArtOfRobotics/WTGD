@@ -5,13 +5,12 @@ class AutonomousDrivingController
 {
   public:
 	//Constructor
-	AutonomousDrivingController(ros::NodeHandle *n, GPSController *gps, JoystickController *joystick, KeyboardController *keyboard, KinectController *kinect, LidarController *lidar, SonarController *sonar);
+	AutonomousDrivingController();
 
 	//Method where the ROS Node can be given.
 	void Start();
 
   private:
-	ros::NodeHandle *nh;
 	bool turningLeft;
 	bool turningRight;
 	bool backward;
