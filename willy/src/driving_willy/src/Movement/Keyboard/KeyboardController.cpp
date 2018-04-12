@@ -1,5 +1,4 @@
 #include "../../include.h"
-#include "../MovementController.h"
 
 using namespace std;
 
@@ -9,7 +8,7 @@ KeyboardController::KeyboardController()
     //ros::Publisher keyboard("keyboard", &key);
 }
 
-void KeyboardController::Start(char input, MovementController* movementController)
+void KeyboardController::Start(char input)
 {
     bool inMenu;
     int menuItem = 0;
@@ -17,27 +16,26 @@ void KeyboardController::Start(char input, MovementController* movementControlle
 
     if (input == 'w' && inMenu == false)
     {
-        movementController->SendCommandToArduino(MovementController::GetForwardCommand());
+        MovementController::_commandPublisher.publish(MovementController::GetForwardCommand());
         printf("vooruit");
     }
     else if (input == 'a' && inMenu == false)
     {
-        movementController->SendCommandToArduino(MovementController::GetLeftCommand());
+        //movementController->SendCommandToArduino(MovementController::GetLeftCommand());
         printf("links");
     }
     else if (input == 'd' && inMenu == false)
     {
-        movementController->SendCommandToArduino(MovementController::GetRightCommand());
+        //movementController->SendCommandToArduino(MovementController::GetRightCommand());
         printf("Rechts");
     }
     else if (input == 's' && inMenu == false)
     {
-        movementController->SendCommandToArduino(MovementController::GetBackwardCommand());
+        //movementController->SendCommandToArduino(MovementController::GetBackwardCommand());
         printf("Achteruit");
     }
     else if (input == 'q' && inMenu == false)
     {
-        movementController->SendCommandToArduino(MovementController::GetStopCommand());
         //movementController->SendCommandToArduino(MovementController::GetStopCommand());
         printf("Stoppen");
     }
