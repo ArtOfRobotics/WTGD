@@ -2,7 +2,7 @@
 
 using namespace std;
 
-KeyboardController::KeyboardController();
+KeyboardController::KeyboardController()
 {
     //nh.advertise(keyboard);
     //ros::Publisher keyboard("keyboard", &key);
