@@ -11,6 +11,8 @@ SonarController::SonarController()
     CanTurnLeft = true;
     CanTurnRight = true;
 
+    printf("Ik ben in de sonar controller");
+
     ////
     //// |3-------2--------1|
     //// |                  |
