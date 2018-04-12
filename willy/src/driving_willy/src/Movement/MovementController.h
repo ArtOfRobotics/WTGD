@@ -1,6 +1,8 @@
 #ifndef _MOVEMENT_CONTROLLER_H_
 #define _MOVEMENT_CONTROLLER_H_
 
+#include "Keyboard/KeyboardController.h"
+
 class MovementController
 {
 public:
