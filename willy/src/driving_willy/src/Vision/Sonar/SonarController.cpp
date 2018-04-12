@@ -77,6 +77,7 @@ void SonarController::SonarCallback(const sensor_msgs::LaserEcho &sonar)
     {
         SonarData[i].Value = sonar.echoes[i];
     }
+    printf("Sonar data received");
     CalculateMovingPossibilities();
 }
 
