@@ -50,7 +50,7 @@ int main(int argc, char **argv)
     spinner.start();
 
     AutonomousDrivingController autonomousDrivingController = AutonomousDrivingController(&n, new GPSController(), new JoystickController(), new KeyboardController(), new KinectController(), new LidarController(), new SonarController());
-    //autonomousDrivingController.Start();
+    autonomousDrivingController.Start();
     //JoyController joyController = JoyController(&willyController, argc, argv);
     //joyController.Start();
 
