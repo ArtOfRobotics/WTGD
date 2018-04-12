@@ -30,18 +30,15 @@ VisionController::VisionController(ros::NodeHandle *nh, KinectController *kinect
 
 KinectController *VisionController::GetKinectController()
 {
-    void *p = reinterpret_cast<void*>(kinect);
-    return dynamic_cast<KinectController*>(p);
+    return dynamic_cast<KinectController*>(&kinect);
 }
 
 LidarController *VisionController::GetLidarController()
 {
-    void *p = reinterpret_cast<void*>(lidar);
-    return dynamic_cast<LidarController*>(p);
+    return dynamic_cast<LidarController*>(&lidar);
 }
 
 SonarController *VisionController::GetSonarController()
 {
-    void * = reinterpret_cast<void*>(sonar);
-    return dynamic_cast<SonarController*>(p);
+    return dynamic_cast<SonarController*>(&sonar);
 }
