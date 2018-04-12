@@ -21,13 +21,6 @@ AutonomousDrivingController::AutonomousDrivingController(ros::NodeHandle *n, GPS
 	movementController = &movingController;
 	visionController = &visionControl;
 
-	gpsController = gps;
-	joystickController = joystick;
-	keyboardController = keyboard;
-	kinectController = kinect;
-	lidarController = lidar;
-	sonarController = sonar;
-
 	turningLeft = false;
 	turningRight = false;
 	backward = false;
