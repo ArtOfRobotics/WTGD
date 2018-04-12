@@ -1,9 +1,9 @@
 #include "../include.h"
 
 using namespace std;
-uintptr_t kinect;
-uintptr_t lidar;
-uintptr_t sonar;
+void *kinect;
+void *lidar;
+void *sonar;
 
 VisionController::VisionController(ros::NodeHandle *nh, KinectController *kinectController, LidarController *lidarController, SonarController *sonarController)
 {
@@ -14,17 +14,17 @@ VisionController::VisionController(ros::NodeHandle *nh, KinectController *kinect
     //Call movement controllers if enabled
     if (useKinect)
     {
-        kinect = reinterpret_cast<uintptr_t>(kinectController);
+        kinect = reinterpret_cast<void*>(kinectController);
     }
 
     if (useLidar)
     {
-        lidar = reinterpret_cast<uintptr_t>(lidarController);
+        lidar = reinterpret_cast<void*>(lidarController);
     }
 
     if (useSonar)
     {
-        sonar = reinterpret_cast<uintptr_t>(sonarController);
+        sonar = reinterpret_cast<void*>(sonarController);
     }
 }
 
