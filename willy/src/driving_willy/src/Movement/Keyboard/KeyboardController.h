@@ -6,7 +6,7 @@ class KeyboardController
 public:
   //Constructor
   KeyboardController();
-  void Start(char input);
+  void Start(char input, MovementController *movementController);
   //char input;
   char getch();
   //ros::Publisher keyboard("keyboard", &message);
