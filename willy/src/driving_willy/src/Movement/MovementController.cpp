@@ -8,7 +8,7 @@ JoystickController *joystick;
 
 MovementController::MovementController(ros::NodeHandle *nh, GPSController *gpsController, JoystickController *joystickController, KeyboardController *keyboardController)
 {
-	useKeyboard = false;
+	useKeyboard = true;
 	useGPS = false;
 	useJoystick = false;
 
