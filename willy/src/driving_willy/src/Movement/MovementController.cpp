@@ -36,6 +36,10 @@ void MovementController::SendCommandToArduino(geometry_msgs::Twist msg)
 	 _commandPublisher.publish(msg);
 }
 
+ros::Publisher MovementController::GetCommandPublisher() {
+	return _commandPublisher;
+}
+
 //Method for returning the forward command.
 geometry_msgs::Twist MovementController::GetForwardCommand()
 {

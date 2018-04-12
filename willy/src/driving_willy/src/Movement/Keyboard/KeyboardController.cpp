@@ -2,10 +2,12 @@
 
 using namespace std;
 
+//char key;
+//ros::Publisher keyboard("keyboard", &key);
+
 KeyboardController::KeyboardController()
 {
     //nh.advertise(keyboard);
-    //ros::Publisher keyboard("keyboard", &key);
 }
 
 void KeyboardController::Start(char input)
@@ -16,7 +18,8 @@ void KeyboardController::Start(char input)
 
     if (input == 'w' && inMenu == false)
     {
-        MovementController::_commandPublisher.publish(MovementController::GetForwardCommand());
+        //MovementController::_commandPublisher.publish(MovementController::GetForwardCommand());
+        MovementController::GetCommandPublisher().publish(MovementController::GetForwardCommand());
         printf("vooruit");
     }
     else if (input == 'a' && inMenu == false)

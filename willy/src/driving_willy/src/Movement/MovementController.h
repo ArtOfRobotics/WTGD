@@ -23,6 +23,9 @@ public:
 	//Method which returns the right command
 	static geometry_msgs::Twist GetRightCommand();
 
+	//Method which returns the command publisher
+	static ros::Publisher GetCommandPublisher();
+
 	//Method which returns the gps controller;
 	GPSController* GetGPSController();
 
