@@ -2,40 +2,41 @@
 
 using namespace std;
 
-KeyboardController::KeyboardController()
+KeyboardController::KeyboardController();
 {
     //nh.advertise(keyboard);
     //ros::Publisher keyboard("keyboard", &key);
 }
 
-void KeyboardController::Start()
+void KeyboardController::Start(char input)
 {
     bool inMenu;
     int menuItem = 0;
-    printf("Starting keyboardController\n");
+    ROS_INFO("Starting driving on keyboard input, with input: %c\n", input);
 
     if (input == 'w' && inMenu == false)
     {
-        //movementController->SendCommandToArduino(MovementController::GetForwardCommand());
+        MovementController::SendCommandToArduino(MovementController::GetForwardCommand());
         printf("vooruit");
     }
     else if (input == 'a' && inMenu == false)
     {
-        //movementController->SendCommandToArduino(MovementController::GetLeftCommand());
+        MovementController::SendCommandToArduino(MovementController::GetLeftCommand());
         printf("links");
     }
     else if (input == 'd' && inMenu == false)
     {
-        //movementController->SendCommandToArduino(MovementController::GetRightCommand());
+        MovementController::SendCommandToArduino(MovementController::GetRightCommand());
         printf("Rechts");
     }
     else if (input == 's' && inMenu == false)
     {
-        //movementController->SendCommandToArduino(MovementController::GetBackwardCommand());
+        MovementController::SendCommandToArduino(MovementController::GetBackwardCommand());
         printf("Achteruit");
     }
     else if (input == 'q' && inMenu == false)
     {
+        MovementController::SendCommandToArduino(MovementController::GetStopCommand());
         //movementController->SendCommandToArduino(MovementController::GetStopCommand());
         printf("Stoppen");
     }
@@ -59,10 +60,8 @@ void KeyboardController::Start()
     ros::Duration(1).sleep();
 }
 
-void KeyboardController::getch()
+char KeyboardController::getch()
 {
-    ROS_INFO("Waiting for character");
-
     fd_set set;
     struct timeval timeout;
     int rv;
@@ -100,7 +99,7 @@ void KeyboardController::getch()
     {
         ROS_ERROR("tcsetattr ~ICANON");
     }
-
+    return buff;
     //message.echoes = buff;
     //message.echoes_length = 1;
     //keyboard.publish(&message);

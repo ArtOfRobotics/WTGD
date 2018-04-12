@@ -82,8 +82,6 @@ void SonarController::SonarCallback(const sensor_msgs::LaserEcho &sonar)
 
 void SonarController::CalculateMovingPossibilities()
 {
-    printf("Ik ben in de sonar controller");
-
     CanDriveForward = true;
     CanDriveBackward = true;
     CanTurnLeft = true;

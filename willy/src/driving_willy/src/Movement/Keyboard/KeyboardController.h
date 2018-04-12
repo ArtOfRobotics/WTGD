@@ -7,7 +7,7 @@ public:
   //Constructor
   KeyboardController();
   void Start();
-  char input;
+  //char input;
   void getch();
   //ros::Publisher keyboard("keyboard", &message);
 
