@@ -11,8 +11,6 @@ SonarController::SonarController()
     CanTurnLeft = true;
     CanTurnRight = true;
 
-    printf("Ik ben in de sonar controller");
-
     ////
     //// |3-------2--------1|
     //// |                  |
@@ -75,15 +73,17 @@ SonarController::SonarController()
 //This method gets fired wen there's a new message from the sonar system.
 void SonarController::SonarCallback(const sensor_msgs::LaserEcho &sonar)
 {
-	for (int i = 0; i < 10; i++)
-	{
-		SonarData[i].Value = sonar.echoes[i];
-	}
-	CalculateMovingPossibilities();
+    for (int i = 0; i < 10; i++)
+    {
+        SonarData[i].Value = sonar.echoes[i];
+    }
+    CalculateMovingPossibilities();
 }
 
 void SonarController::CalculateMovingPossibilities()
 {
+    printf("Ik ben in de sonar controller");
+
     CanDriveForward = true;
     CanDriveBackward = true;
     CanTurnLeft = true;
