@@ -27,6 +27,12 @@ SonarController::SonarController()
     //// |6-------7--------8|
     ////
 
+    pugi::xml_document doc;
+    pugi::xml_parse_result;
+    pugi::xml_node tools;
+    pugi::xml_node tool;
+    pugi::xml_attribute attr;
+
     //Load sonar array data from xml
     result = doc.load_file("src/driving_willy/src/tree.xml");
     if (result.status != 0)
