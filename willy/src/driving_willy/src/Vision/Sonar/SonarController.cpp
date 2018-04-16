@@ -52,6 +52,10 @@ SonarController::SonarController()
     pugi::xml_node tool;
     pugi::xml_attribute attr;
 
+    ChecksTurnLeft[0].SonarID = 1;
+    ChecksTurnLeft[0].Value = 2;
+
+    /*
     //Load sonar array data from xml
     result = doc.load_file("src/driving_willy/src/tree.xml");
     if (result.status != 0)
@@ -92,7 +96,7 @@ SonarController::SonarController()
                 BackwardSensorCount++;
             }
         }
-    }
+    }*/
 }
 
 //This method gets fired wen there's a new message from the sonar system.
