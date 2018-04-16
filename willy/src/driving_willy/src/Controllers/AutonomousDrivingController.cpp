@@ -23,9 +23,10 @@ void AutonomousDrivingController::Start()
 {
 	while (true)
 	{
-		movementController->GetKeyboardController()->getch();
+		//movementController->GetKeyboardController()->getch();
 		visionController->GetSonarController()->CalculateMovingPossibilities();
-		if (visionController->GetSonarController()->CanDriveForward == true)
+		
+		/*if (visionController->GetSonarController()->CanDriveForward == true)
 		{
 			movementController->SendCommandToArduino(MovementController::GetForwardCommand());
 			printf("forward\n");
@@ -97,7 +98,7 @@ void AutonomousDrivingController::Start()
 				turningRight = true;
 				backward = false;
 			}
-		}
+		}*/
 
 		ros::Duration(1).sleep();
 	}
