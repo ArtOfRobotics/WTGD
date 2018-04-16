@@ -54,8 +54,8 @@ SonarController::SonarController()
         {
             if ((strcmp(attr.name(), "type") == 0) && (strcmp(attr.value(), "TurnLeft") == 0))
             {
-                ChecksTurnLeft[LeftSensorCount].SonarID = tool.attribute("SonarID").as_int();
-                ChecksTurnLeft[LeftSensorCount].Value = tool.attribute("Value").as_int();
+                *ChecksTurnLeft[LeftSensorCount].SonarID = tool.attribute("SonarID").as_int();
+                *ChecksTurnLeft[LeftSensorCount].Value = tool.attribute("Value").as_int();
                 LeftSensorCount++;
             }
             else if ((strcmp(attr.name(), "type") == 0) && (strcmp(attr.value(), "TurnRight") == 0))
