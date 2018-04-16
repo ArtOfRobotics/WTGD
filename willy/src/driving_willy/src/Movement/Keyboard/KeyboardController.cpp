@@ -3,7 +3,7 @@
 using namespace std;
 
 std_msgs::Char message;
-ros::Publisher keyboard("/keyboard", message);
+ros::Publisher keyboard;
 
 KeyboardController::KeyboardController()
 {
