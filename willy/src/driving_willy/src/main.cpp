@@ -20,13 +20,13 @@ int main(int argc, char **argv)
     gpsLong.push_back(11.2355);
     n.setParam("gpsLong", gpsLong);
 
-    GPSController gpsController = GPSController();
-    JoystickController joystickController = JoystickController();
-    KeyboardController keyboardController = KeyboardController();
+    class GPSController * gpsController = new GPSController;
+    class JoystickController * joystickController = new JoystickController;
+    class KeyboardController * keyboardController = new KeyboardController;
 
-    KinectController kinectController = KinectController();
-    LidarController lidarController = LidarController();
-    SonarController sonarController = SonarController();
+    class KinectController * kinectController = new KinectController;
+    class LidarController * lidarController = new LidarController;
+    class SonarController * sonarController = new SonarController;
 
     //Set up the subscriber for the GPS
     //ros::Subscriber gpsSubscriber = n.subscribe("/gps", 200, &GPSController::GpsCallback, gpsController);
