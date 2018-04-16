@@ -32,21 +32,6 @@
 #include <sensor_msgs/LaserEcho.h>
 #include <std_msgs/Int32MultiArray.h>
 
-//Vision controllers
-#include "Vision/Kinect/KinectController.h"
-#include "Vision/Lidar/LidarController.h"
-#include "Vision/Sonar/SonarController.h"
-#include "Vision/VisionController.h"
-
-//Movement controllers
-#include "Movement/GPS/GPSController.h"
-#include "Movement/Joystick/JoystickController.h"
-#include "Movement/Keyboard/KeyboardController.h"
-#include "Movement/MovementController.h"
-
-//Autonomous driving controller
-#include "Controllers/AutonomousDrivingController.h"
-
 //Commandos
 #include <fstream>
 #include <math.h>
@@ -62,5 +47,20 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui/highgui.hpp>
+
+//Vision controllers
+#include "Vision/Kinect/KinectController.h"
+#include "Vision/Lidar/LidarController.h"
+#include "Vision/Sonar/SonarController.h"
+#include "Vision/VisionController.h"
+
+//Movement controllers
+#include "Movement/GPS/GPSController.h"
+#include "Movement/Joystick/JoystickController.h"
+#include "Movement/Keyboard/KeyboardController.h"
+#include "Movement/MovementController.h"
+
+//Autonomous driving controller
+#include "Controllers/AutonomousDrivingController.h"
 
 #endif
