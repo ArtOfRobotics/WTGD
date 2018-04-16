@@ -4,10 +4,24 @@
 
 using namespace std;
 
+struct Sonar
+{
+    int Degrees;
+    int Value;
+};
+
+struct SonarCheck
+{
+    int SonarID;
+    int Value;
+};
+
+
 SonarCheck ChecksTurnLeft[10];
 SonarCheck ChecksTurnRight[10];
 SonarCheck ChecksDriveBackward[10];
 SonarCheck ChecksDriveForward[10];
+Sonar SonarData[10];
 
 SonarController::SonarController()
 {
