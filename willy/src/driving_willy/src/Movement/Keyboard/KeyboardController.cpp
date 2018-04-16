@@ -3,12 +3,12 @@
 using namespace std;
 
 std_msgs::Char message;
-ros::Publisher keyboard;
+ros::Publisher keyboardPub;
 
 KeyboardController::KeyboardController()
 {
     printf("Er is een nieuwe Keyboard controller aangemaakt!\n");
-    keyboard = MovementController::GetNodeHandler()->advertise<std_msgs::Char>("/keyboard", 100);
+    keyboardPub = MovementController::GetNodeHandler()->advertise<std_msgs::Char>("/keyboard", 100);
 }
 
 void KeyboardController::KeyboardCallback(std_msgs::Char input)
@@ -108,6 +108,6 @@ char KeyboardController::ReadCharacter()
     }
 
     message.data = buff;
-    keyboard.publish(message);
+    keyboardPub.publish(message);
     return buff;
 }
