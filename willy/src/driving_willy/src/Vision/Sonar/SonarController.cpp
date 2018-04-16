@@ -43,11 +43,12 @@ SonarController::SonarController()
     //Loop through all XML nodes
     tools = doc.child("Willy").child("SonarChecks");
 
-    /*
     for (tool = tools.first_child(); tool; tool = tool.next_sibling())
     {
         for (attr = tool.first_attribute(); attr; attr = attr.next_attribute())
         {
+            printf("ik ben in de xml loop");
+            /*
             if ((strcmp(attr.name(), "type") == 0) && (strcmp(attr.value(), "TurnLeft") == 0))
             {
                 ChecksTurnLeft[LeftSensorCount].SonarID = tool.attribute("SonarID").as_int();
@@ -73,8 +74,9 @@ SonarController::SonarController()
                 ChecksDriveBackward[BackwardSensorCount].Value = tool.attribute("Value").as_int();
                 BackwardSensorCount++;
             }
+            */
         }
-    }*/
+    }
 }
 
 //This method gets fired wen there's a new message from the sonar system.
