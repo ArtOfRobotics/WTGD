@@ -37,11 +37,8 @@ class SonarController
     Sonar SonarData[10];
 
     int ChecksTurnLeftElements;
-
     int ChecksTurnRightElements;
-
     int ChecksDriveForwardElements;
-
     int ChecksDriveBackwardElements;
 };
 
