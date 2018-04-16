@@ -2,15 +2,12 @@
 
 using namespace std;
 
-//char key;
-//ros::Publisher keyboard("keyboard", &key);
-
 KeyboardController::KeyboardController()
 {
     //nh.advertise(keyboard);
 }
 
-void KeyboardController::Move(char input)
+void KeyboardController::KeyboardCallback(char input)
 {
     bool inMenu;
     int menuItem = 0;
