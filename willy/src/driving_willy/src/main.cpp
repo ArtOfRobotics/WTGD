@@ -20,7 +20,7 @@ int main(int argc, char **argv)
     gpsLong.push_back(11.2355);
     n.setParam("gpsLong", gpsLong);
 
-    GPSController gpsController = new GPSController();
+    GPSController * gpsController = new GPSController();
     //JoystickController joystickController = new JoystickController();
     //KeyboardController keyboardController = new KeyboardController();
 
