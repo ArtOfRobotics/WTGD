@@ -4,18 +4,6 @@
 
 using namespace std;
 
-struct Sonar
-{
-    int Degrees;
-    int Value;
-};
-
-struct SonarCheck
-{
-    int SonarID;
-    int Value;
-};
-
 SonarController::SonarController()
 {
     CanDriveForward = true;
@@ -61,30 +49,29 @@ SonarController::SonarController()
         {
             if ((strcmp(attr.name(), "type") == 0) && (strcmp(attr.value(), "TurnLeft") == 0))
             {
-                ChecksTurnLeft[LeftSensorCount].SonarID = tool.attribute("SonarID").as_int();
-                ChecksTurnLeft[LeftSensorCount].Value = tool.attribute("Value").as_int();
+                //ChecksTurnLeft[LeftSensorCount].SonarID = tool.attribute("SonarID").as_int();
+                //ChecksTurnLeft[LeftSensorCount].Value = tool.attribute("Value").as_int();
                 LeftSensorCount++;
             }
             else if ((strcmp(attr.name(), "type") == 0) && (strcmp(attr.value(), "TurnRight") == 0))
             {
-                ChecksTurnRight[RightSensorCount].SonarID = tool.attribute("SonarID").as_int();
-                ChecksTurnRight[RightSensorCount].Value = tool.attribute("Value").as_int();
+                //ChecksTurnRight[RightSensorCount].SonarID = tool.attribute("SonarID").as_int();
+                //ChecksTurnRight[RightSensorCount].Value = tool.attribute("Value").as_int();
                 RightSensorCount++;
             }
             else if ((strcmp(attr.name(), "type") == 0) && (strcmp(attr.value(), "DriveForward") == 0))
             {
                 //printf("Er is een element toegevoegd! SonarID: %d. Value: %d.", tool.attribute("SonarID").as_int(), tool.attribute("Value").as_int());
-                ChecksDriveForward[ForwardSensorCount].SonarID = tool.attribute("SonarID").as_int();
-                ChecksDriveForward[ForwardSensorCount].Value = tool.attribute("Value").as_int();
+                //ChecksDriveForward[ForwardSensorCount].SonarID = tool.attribute("SonarID").as_int();
+                //ChecksDriveForward[ForwardSensorCount].Value = tool.attribute("Value").as_int();
                 ForwardSensorCount++;
             }
             else if ((strcmp(attr.name(), "type") == 0) && (strcmp(attr.value(), "DriveBackward") == 0))
             {
-                ChecksDriveBackward[BackwardSensorCount].SonarID = tool.attribute("SonarID").as_int();
-                ChecksDriveBackward[BackwardSensorCount].Value = tool.attribute("Value").as_int();
+                //ChecksDriveBackward[BackwardSensorCount].SonarID = tool.attribute("SonarID").as_int();
+                //ChecksDriveBackward[BackwardSensorCount].Value = tool.attribute("Value").as_int();
                 BackwardSensorCount++;
             }
-            */
         }
     }
 }
