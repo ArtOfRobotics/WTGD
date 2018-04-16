@@ -27,10 +27,10 @@ SonarController::SonarController()
     //// |6-------7--------8|
     ////
 
-    ChecksTurnLeft = new SonarCheck;
-    ChecksTurnRight = new SonarCheck;
-    ChecksDriveBackward = new SonarCheck;
-    ChecksDriveForward = new SonarCheck;
+    ChecksTurnLeft[10] = new SonarCheck[10];
+    ChecksTurnRight[10] = new SonarCheck[10];
+    ChecksDriveBackward[10] = new SonarCheck[10];
+    ChecksDriveForward[10] = new SonarCheck[10];
 
     pugi::xml_document doc;
     pugi::xml_parse_result result;
