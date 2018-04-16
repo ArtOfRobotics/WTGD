@@ -30,6 +30,7 @@
 #include <std_msgs/UInt8.h>
 #include <std_msgs/UInt8.h>
 #include <sensor_msgs/LaserEcho.h>
+#include <sensor_msgs/LaserScan.h>
 #include <std_msgs/Int32MultiArray.h>
 
 //Commandos
