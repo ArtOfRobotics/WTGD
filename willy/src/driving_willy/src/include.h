@@ -45,7 +45,7 @@
 #include <cv_bridge/cv_bridge.h>
 #include <opencv2/highgui.hpp>
 #include <opencv2/core/core.hpp>
-#include <opencv2/imgcodecs.hpp>
+//#include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
 //Vision controllers
