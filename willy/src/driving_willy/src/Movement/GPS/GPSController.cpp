@@ -5,6 +5,7 @@ using namespace std;
 
 GPSController::GPSController()
 {
+    printf("Er is een nieuwe GPS controller aangemaakt!\n");
     //placeholder gps values.
     GPSLatA = 52.512323;
     GPSLongA = 6.092517;

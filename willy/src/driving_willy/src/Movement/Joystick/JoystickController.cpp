@@ -11,7 +11,7 @@ JoystickController::JoystickController() : linear_(1),
     //MovementController::GetNodeHandler()->param("scale_linear", l_scale_, l_scale_);
 
     //http://wiki.ros.org/joy/Tutorials/ConfiguringALinuxJoystick
-    printf("Ik ben aangekomen bij de joystick controller\n");
+    printf("Er is een nieuwe Joystick controller aangemaakt!\n");
 }
 
 void JoystickController::JoystickCallback(const sensor_msgs::Joy::ConstPtr &msg)

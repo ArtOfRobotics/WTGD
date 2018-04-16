@@ -5,6 +5,7 @@ using namespace std;
 
 KinectController::KinectController()
 {
+    printf("Er is een nieuwe Kinect controller aangemaakt!\n");
 }
 
 void KinectController::Start()
@@ -23,7 +24,11 @@ void KinectController::Start()
 
 void KinectController::KinectCallback(const sensor_msgs::Image::ConstPtr &msg)
 {
-    std::cout << "Hey, listen!" << std::endl;
+    std::cout << "Hey, listen! There is data. The length of the data is: " << std::endl;
+
+    printf("%d\n", msg->data_length);
+
+    std::cout << "Top-left corner: " << *reinterpret_cast<const float*>(&msg->data[0]) << "m" << std::endl;
     /*try
     {
         cv_bridge::CvImageConstPtr cv_ptr;

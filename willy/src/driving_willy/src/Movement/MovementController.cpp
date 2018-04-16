@@ -8,29 +8,13 @@ void *joystick;
 
 //Command publisher
 static ros::Publisher _commandPublisher;
-static ros::NodeHandle* nodeHandle;
+static ros::NodeHandle *nodeHandle;
 
 MovementController::MovementController(ros::NodeHandle *nh, GPSController *gpsController, JoystickController *joystickController, KeyboardController *keyboardController)
 {
-	useKeyboard = true;
-	useGPS = false;
-	useJoystick = false;
-
-	//Call movement controllers if enabled
-	if (useKeyboard)
-	{
-		keyboard = static_cast<void*>(keyboardController);
-	}
-
-	if (useGPS)
-	{
-		gps = static_cast<void*>(gpsController);
-	}
-
-	if (useJoystick)
-	{
-		joystick = static_cast<void*>(joystickController);
-	}
+	keyboard = static_cast<void *>(keyboardController);
+	gps = static_cast<void *>(gpsController);
+	joystick = static_cast<void *>(joystickController);
 
 	nodeHandle = nh;
 	_commandPublisher = nh->advertise<geometry_msgs::Twist>("/cmd_vel", 100);
@@ -46,7 +30,8 @@ ros::Publisher MovementController::GetCommandPublisher()
 	return _commandPublisher;
 }
 
-ros::NodeHandle* MovementController::GetNodeHandler() {
+ros::NodeHandle *MovementController::GetNodeHandler()
+{
 	return nodeHandle;
 }
 
@@ -127,15 +112,16 @@ geometry_msgs::Twist MovementController::GetRightCommand()
 
 GPSController *MovementController::GetGPSController()
 {
-	return static_cast<GPSController*>(gps);;
+	return static_cast<GPSController *>(gps);
+	;
 }
 
 JoystickController *MovementController::GetJoystickController()
 {
-	return static_cast<JoystickController*>(joystick);
+	return static_cast<JoystickController *>(joystick);
 }
 
 KeyboardController *MovementController::GetKeyboardController()
 {
-	return static_cast<KeyboardController*>(keyboard);
+	return static_cast<KeyboardController *>(keyboard);
 }
