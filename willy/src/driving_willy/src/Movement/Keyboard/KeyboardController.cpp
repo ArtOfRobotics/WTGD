@@ -4,7 +4,7 @@ using namespace std;
 
 KeyboardController::KeyboardController()
 {
-    printf("Er is een nieuwe Keyboard controller aangemaakt!\n")
+    printf("Er is een nieuwe Keyboard controller aangemaakt!\n");
 }
 
 void KeyboardController::KeyboardCallback(char input)
