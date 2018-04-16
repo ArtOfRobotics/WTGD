@@ -2,11 +2,35 @@
 
 using namespace std;
 
+void *keyboard;
+void *gps;
+void *joystick;
+
 //Command publisher
 static ros::Publisher _commandPublisher;
 
-MovementController::MovementController()
+MovementController::MovementController(ros::NodeHandle *nh, GPSController *gpsController, JoystickController *joystickController, KeyboardController *keyboardController)
 {
+	useKeyboard = true;
+	useGPS = false;
+	useJoystick = false;
+
+	//Call movement controllers if enabled
+	if (useKeyboard)
+	{
+		keyboard = static_cast<void*>(keyboardController);
+	}
+
+	if (useGPS)
+	{
+		gps = static_cast<void*>(gpsController);
+	}
+
+	if (useJoystick)
+	{
+		joystick = static_cast<void*>(joystickController);
+	}
+
 	_commandPublisher = nh->advertise<geometry_msgs::Twist>("/cmd_vel", 100);
 }
 
@@ -93,4 +117,19 @@ geometry_msgs::Twist MovementController::GetRightCommand()
 	rightDriving.angular.z = -0.40;
 
 	return rightDriving;
+}
+
+GPSController *MovementController::GetGPSController()
+{
+	return static_cast<GPSController*>(gps);;
+}
+
+JoystickController *MovementController::GetJoystickController()
+{
+	return static_cast<JoystickController*>(joystick);
+}
+
+KeyboardController *MovementController::GetKeyboardController()
+{
+	return static_cast<KeyboardController*>(keyboard);
 }
