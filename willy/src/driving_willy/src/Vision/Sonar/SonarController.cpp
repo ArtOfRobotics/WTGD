@@ -27,25 +27,20 @@ SonarController::SonarController()
     //// |6-------7--------8|
     ////
 
-    pugi::xml_document doc;
-    pugi::xml_parse_result;
-    pugi::xml_node tools;
-    pugi::xml_node tool;
-    pugi::xml_attribute attr;
-
     //Load sonar array data from xml
-    result = doc.load_file("src/driving_willy/src/tree.xml");
+    pugi::xml_document doc;
+    pugi::xml_parse_result result = doc.load_file("src/driving_willy/src/tree.xml");
     if (result.status != 0)
     {
         printf("404 - Laden van bestand is mislukt\n");
     }
 
     //Loop through all XML nodes
-    tools = doc.child("Willy").child("SonarChecks");
+    pugi::xml_node tools = doc.child("Willy").child("SonarChecks");
 
-    for (tool = tools.first_child(); tool; tool = tool.next_sibling())
+    for (pugi::xml_node tool = tools.first_child(); tool; tool = tool.next_sibling())
     {
-        for (attr = tool.first_attribute(); attr; attr = attr.next_attribute())
+        for (pugi::xml_attribute attr = tool.first_attribute(); attr; attr = attr.next_attribute())
         {
             if ((strcmp(attr.name(), "type") == 0) && (strcmp(attr.value(), "TurnLeft") == 0))
             {
