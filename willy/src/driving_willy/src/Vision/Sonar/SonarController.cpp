@@ -55,7 +55,7 @@ SonarController::SonarController()
     ChecksTurnLeft[0].SonarID = 1;
     ChecksTurnLeft[0].Value = 2;
 
-    /*
+    
     //Load sonar array data from xml
     result = doc.load_file("src/driving_willy/src/tree.xml");
     if (result.status != 0)
@@ -63,6 +63,7 @@ SonarController::SonarController()
         printf("404 - Laden van bestand is mislukt\n");
     }
 
+    /*
     //Loop through all XML nodes
     tools = doc.child("Willy").child("SonarChecks");
 
