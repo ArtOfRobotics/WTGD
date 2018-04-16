@@ -35,11 +35,6 @@ ros::Publisher MovementController::GetKeyboardPublisher()
 	return keyboardPublisher;
 }
 
-ros::NodeHandle MovementController::GetNodeHandler()
-{
-	return nodehandler;
-}
-
 //Method for returning the forward command.
 geometry_msgs::Twist MovementController::GetForwardCommand()
 {
