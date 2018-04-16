@@ -8,7 +8,7 @@ void *joystick;
 
 //Command publisher
 static ros::Publisher _commandPublisher;
-static ros::NodeHandle nodeHandle;
+static ros::NodeHandle* nodeHandle;
 
 MovementController::MovementController(ros::NodeHandle *nh, GPSController *gpsController, JoystickController *joystickController, KeyboardController *keyboardController)
 {
