@@ -4,6 +4,11 @@
 
 using namespace std;
 
+SonarCheck ChecksTurnLeft[10];
+SonarCheck ChecksTurnRight[10];
+SonarCheck ChecksDriveBackward[10];
+SonarCheck ChecksDriveForward[10];
+
 SonarController::SonarController()
 {
     CanDriveForward = true;
@@ -26,16 +31,6 @@ SonarController::SonarController()
     //// |                  |
     //// |6-------7--------8|
     ////
-
-    SonarCheck *ctl = new SonarCheck[10];
-    SonarCheck *ctr = new SonarCheck[10];
-    SonarCheck *cdb = new SonarCheck[10];
-    SonarCheck *cdf = new SonarCheck[10];
-
-    &ChecksTurnLeft = ctl;
-    &ChecksTurnRight = ctr;
-    &ChecksDriveBackward = cdb;
-    &ChecksDriveForward = cdf;
 
     pugi::xml_document doc;
     pugi::xml_parse_result result;
