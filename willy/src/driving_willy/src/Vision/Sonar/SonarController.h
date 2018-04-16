@@ -25,6 +25,11 @@ class SonarController
     bool CanTurnLeft;
     bool CanTurnRight;
     bool MovementKnown;
+    pugi::xml_document doc;
+    pugi::xml_parse_result;
+    pugi::xml_node tools;
+    pugi::xml_node tool;
+    pugi::xml_attribute attr;
 
   private:
     //Sensor counters
