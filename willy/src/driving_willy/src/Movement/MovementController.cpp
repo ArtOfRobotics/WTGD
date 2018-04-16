@@ -11,7 +11,7 @@ static ros::Publisher _commandPublisher;
 
 MovementController::MovementController(ros::NodeHandle *nh, GPSController *gpsController, JoystickController *joystickController, KeyboardController *keyboardController)
 {
-	n = *nh;
+	nodehandler = *nh;
 	keyboard = static_cast<void *>(keyboardController);
 	gps = static_cast<void *>(gpsController);
 	joystick = static_cast<void *>(joystickController);
