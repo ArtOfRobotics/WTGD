@@ -30,6 +30,11 @@ SonarController::SonarController()
     CanTurnLeft = true;
     CanTurnRight = true;
 
+    ForwardSensorCount = 0;
+    BackwardSensorCount = 0;
+    LeftSensorCount = 0;
+    RightSensorCount = 0;
+
     ////
     //// |3-------2--------1|
     //// |                  |
@@ -51,10 +56,6 @@ SonarController::SonarController()
     pugi::xml_node tools;
     pugi::xml_node tool;
     pugi::xml_attribute attr;
-
-    ChecksTurnLeft[0].SonarID = 1;
-    ChecksTurnLeft[0].Value = 2;
-
     
     //Load sonar array data from xml
     result = doc.load_file("src/driving_willy/src/tree.xml");
@@ -62,8 +63,7 @@ SonarController::SonarController()
     {
         printf("404 - Laden van bestand is mislukt\n");
     }
-
-    /*
+    
     //Loop through all XML nodes
     tools = doc.child("Willy").child("SonarChecks");
 
@@ -97,7 +97,7 @@ SonarController::SonarController()
                 BackwardSensorCount++;
             }
         }
-    }*/
+    }
 }
 
 //This method gets fired wen there's a new message from the sonar system.
