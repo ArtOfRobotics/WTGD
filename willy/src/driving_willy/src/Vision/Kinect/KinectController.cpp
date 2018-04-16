@@ -8,20 +8,6 @@ KinectController::KinectController()
     printf("Er is een nieuwe Kinect controller aangemaakt!\n");
 }
 
-void KinectController::Start()
-{
-    std::cout << "Oh hai there!" << std::endl;
-
-    // ros::Subscriber sub = nh.subscribe("camera/rgb/image_raw", MY_ROS_QUEUE_SIZE, imgcb);
-    //ros::Subscriber sub = nh->subscribe("camera/rgb/image_color", MY_ROS_QUEUE_SIZE, imgcb);
-
-    //cv::namedWindow("DrivingWilly");
-    //ros::spin();
-    //cv::destroyWindow("DrivingWilly");
-
-    std::cout << "byebye my friend" << std::endl;
-}
-
 void KinectController::KinectCallback(const sensor_msgs::Image::ConstPtr &msg)
 {
     std::cout << "Hey, listen! There is data. The length of the data is: " << std::endl;

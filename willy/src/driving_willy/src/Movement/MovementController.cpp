@@ -113,7 +113,6 @@ geometry_msgs::Twist MovementController::GetRightCommand()
 GPSController *MovementController::GetGPSController()
 {
 	return static_cast<GPSController *>(gps);
-	;
 }
 
 JoystickController *MovementController::GetJoystickController()

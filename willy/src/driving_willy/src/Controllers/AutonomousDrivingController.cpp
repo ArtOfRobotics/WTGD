@@ -23,7 +23,8 @@ void AutonomousDrivingController::Start()
 {
 	while (true)
 	{
-		//movementController->GetKeyboardController()->getch();
+		movementController->GetKeyboardController()->ReadCharacter();
+		
 		//visionController->GetSonarController()->CalculateMovingPossibilities();
 		
 		/*if (visionController->GetSonarController()->CanDriveForward == true)

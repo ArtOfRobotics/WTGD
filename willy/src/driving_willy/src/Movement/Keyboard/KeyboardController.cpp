@@ -2,12 +2,15 @@
 
 using namespace std;
 
+ros::Publisher keyboard("/keyboard", &message);
+
 KeyboardController::KeyboardController()
 {
     printf("Er is een nieuwe Keyboard controller aangemaakt!\n");
+    keyboard = MovementController::GetNodeHandler()->advertise<std_msgs::Char>("/keyboard", 100);
 }
 
-void KeyboardController::KeyboardCallback(char input)
+void KeyboardController::KeyboardCallback(std_msgs::Char input)
 {
     bool inMenu;
     int menuItem = 0;
@@ -102,8 +105,9 @@ char KeyboardController::ReadCharacter()
     {
         ROS_ERROR("tcsetattr ~ICANON");
     }
-    return buff;
+
     //message.echoes = buff;
     //message.echoes_length = 1;
-    //keyboard.publish(&message);
+    keyboard.publish(buff);
+    return buff;
 }

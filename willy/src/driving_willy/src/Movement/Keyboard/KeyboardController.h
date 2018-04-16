@@ -6,11 +6,11 @@ class KeyboardController
 public:
   //Constructor
   KeyboardController();
-  void KeyboardCallback(char input);
+  void KeyboardCallback(std_msgs::Char input);
   char ReadCharacter();
-  //ros::Publisher keyboard("keyboard", &message);
 
 private:
+
 };
 
 #endif

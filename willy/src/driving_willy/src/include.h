@@ -34,6 +34,7 @@
 #include <sensor_msgs/PointCloud2.h>
 #include <sensor_msgs/Joy.h>
 #include <std_msgs/Int32MultiArray.h>
+#include <std_msgs/Char.h>
 
 //Commandos
 #include <fstream>
