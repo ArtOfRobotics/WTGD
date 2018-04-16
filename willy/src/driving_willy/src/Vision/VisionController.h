@@ -10,10 +10,6 @@ public:
   SonarController *GetSonarController();
 
 private:
-
-  bool useKinect;
-  bool useLidar; //Not working yet
-  bool useSonar; //Not working yet
 };
 
 #endif
