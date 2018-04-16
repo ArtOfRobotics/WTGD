@@ -27,6 +27,7 @@ SonarController::SonarController()
     //// |6-------7--------8|
     ////
 
+    /*
     //Load sonar array data from xml
     pugi::xml_document doc;
     pugi::xml_parse_result result = doc.load_file("src/driving_willy/src/tree.xml");
@@ -68,7 +69,7 @@ SonarController::SonarController()
                 BackwardSensorCount++;
             }
         }
-    }
+    }*/
 }
 
 //This method gets fired wen there's a new message from the sonar system.
