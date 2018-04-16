@@ -4,6 +4,18 @@
 
 using namespace std;
 
+struct Sonar
+{
+    int Degrees;
+    int Value;
+};
+
+struct SonarCheck
+{
+    int SonarID;
+    int Value;
+};
+
 SonarController::SonarController()
 {
     CanDriveForward = true;
@@ -47,8 +59,6 @@ SonarController::SonarController()
     {
         for (attr = tool.first_attribute(); attr; attr = attr.next_attribute())
         {
-            printf("ik ben in de xml loop");
-            /*
             if ((strcmp(attr.name(), "type") == 0) && (strcmp(attr.value(), "TurnLeft") == 0))
             {
                 ChecksTurnLeft[LeftSensorCount].SonarID = tool.attribute("SonarID").as_int();

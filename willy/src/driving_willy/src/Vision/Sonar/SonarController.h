@@ -1,18 +1,6 @@
 #ifndef _SONAR_CONTROLLER_H_
 #define _SONAR_CONTROLLER_H_
 
-struct Sonar
-{
-    int Degrees;
-    int Value;
-};
-
-struct SonarCheck
-{
-    int SonarID;
-    int Value;
-};
-
 class SonarController
 {
   public:
