@@ -5,10 +5,10 @@ using namespace std;
 JoystickController::JoystickController() : linear_(1),
                                            angular_(2)
 {
-    MovementController::GetNodeHandler()->param("axis_linear", linear_, linear_);
-    MovementController::GetNodeHandler()->param("axis_angular", angular_, angular_);
-    MovementController::GetNodeHandler()->param("scale_angular", a_scale_, a_scale_);
-    MovementController::GetNodeHandler()->param("scale_linear", l_scale_, l_scale_);
+    //MovementController::GetNodeHandler()->param("axis_linear", linear_, linear_);
+    //MovementController::GetNodeHandler()->param("axis_angular", angular_, angular_);
+    //MovementController::GetNodeHandler()->param("scale_angular", a_scale_, a_scale_);
+    //MovementController::GetNodeHandler()->param("scale_linear", l_scale_, l_scale_);
 
     //http://wiki.ros.org/joy/Tutorials/ConfiguringALinuxJoystick
     printf("Ik ben aangekomen bij de joystick controller\n");
