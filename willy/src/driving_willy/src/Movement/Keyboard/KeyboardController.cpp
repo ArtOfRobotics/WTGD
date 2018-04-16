@@ -107,8 +107,8 @@ char KeyboardController::ReadCharacter()
         ROS_ERROR("tcsetattr ~ICANON");
     }
 
-    //message.echoes = buff;
-    //message.echoes_length = 1;
-    keyboard.publish(buff);
+    message.echoes = buff;
+    message.echoes_length = 1;
+    keyboard.publish(message);
     return buff;
 }
