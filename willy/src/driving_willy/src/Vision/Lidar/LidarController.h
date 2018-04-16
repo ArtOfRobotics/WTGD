@@ -6,7 +6,7 @@ class LidarController
   public:
     //Constructor
     LidarController();
-    void LidarCallback(const sensor_msgs::Image::ConstPtr &msg);
+    void LidarCallback(const sensor_msgs::LaserScan &msg);
 
   private:
 };

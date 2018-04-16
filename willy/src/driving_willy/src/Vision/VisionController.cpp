@@ -9,7 +9,7 @@ VisionController::VisionController(ros::NodeHandle *nh, KinectController *kinect
 {
     useKinect = false;
     useLidar = false;
-    useSonar = false;
+    useSonar = true;
 
     //Call movement controllers if enabled
     if (useKinect)
