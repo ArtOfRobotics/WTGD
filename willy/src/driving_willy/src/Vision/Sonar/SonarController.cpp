@@ -40,10 +40,10 @@ SonarController::SonarController()
         printf("404 - Laden van bestand is mislukt\n");
     }
 
-/*
     //Loop through all XML nodes
     tools = doc.child("Willy").child("SonarChecks");
 
+    /*
     for (tool = tools.first_child(); tool; tool = tool.next_sibling())
     {
         for (attr = tool.first_attribute(); attr; attr = attr.next_attribute())
