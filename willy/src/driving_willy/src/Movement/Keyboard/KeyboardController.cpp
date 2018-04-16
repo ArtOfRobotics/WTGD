@@ -11,54 +11,54 @@ KeyboardController::KeyboardController()
     keyboard = MovementController::GetNodeHandler()->advertise<std_msgs::Char>("/keyboard", 100);
 }
 
-void KeyboardController::KeyboardCallback(std_msgs::Char input)
+void KeyboardController::KeyboardCallback(std_msgs::Char &input)
 {
     bool inMenu;
     int menuItem = 0;
-    ROS_INFO("Starting driving on keyboard input, with input: %c\n", input);
+    ROS_INFO("Starting driving on keyboard input, with input: %c\n", input->data);
 
-    if (input == 'w' && inMenu == false)
+    if (input->data == 'w' && inMenu == false)
     {
         //MovementController::_commandPublisher.publish(MovementController::GetForwardCommand());
         MovementController::GetCommandPublisher().publish(MovementController::GetForwardCommand());
         printf("vooruit");
     }
-    else if (input == 'a' && inMenu == false)
+    else if (input->data == 'a' && inMenu == false)
     {
         //movementController->SendCommandToArduino(MovementController::GetLeftCommand());
         MovementController::GetCommandPublisher().publish(MovementController::GetLeftCommand());
         printf("links");
     }
-    else if (input == 'd' && inMenu == false)
+    else if (input->data == 'd' && inMenu == false)
     {
         MovementController::GetCommandPublisher().publish(MovementController::GetRightCommand());
         //movementController->SendCommandToArduino(MovementController::GetRightCommand());
         printf("Rechts");
     }
-    else if (input == 's' && inMenu == false)
+    else if (input->data == 's' && inMenu == false)
     {
         MovementController::GetCommandPublisher().publish(MovementController::GetBackwardCommand());
         //movementController->SendCommandToArduino(MovementController::GetBackwardCommand());
         printf("Achteruit");
     }
-    else if (input == 'q' && inMenu == false)
+    else if (input->data == 'q' && inMenu == false)
     {
         MovementController::GetCommandPublisher().publish(MovementController::GetStopCommand());
         //movementController->SendCommandToArduino(MovementController::GetStopCommand());
         printf("Stoppen");
     }
-    else if (input == 'm' && inMenu == false)
+    else if (input->data == 'm' && inMenu == false)
     {
         inMenu = true;
         printf("Menu opened");
     }
-    else if (input == 'n' && inMenu == true)
+    else if (input->data == 'n' && inMenu == true)
     {
         inMenu = false;
         menuItem = 0;
         printf("Menu closed");
     }
-    else if (input == '1' && inMenu == true)
+    else if (input->data == '1' && inMenu == true)
     {
         //movementController->SendCommandToArduino(MovementController::GetStopCommand());
         menuItem = 1;

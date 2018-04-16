@@ -6,7 +6,7 @@ class KeyboardController
 public:
   //Constructor
   KeyboardController();
-  void KeyboardCallback(std_msgs::Char input);
+  void KeyboardCallback(std_msgs::Char &input);
   char ReadCharacter();
 
 private:
