@@ -26,7 +26,7 @@ int main(int argc, char **argv)
 
     KinectController * kinectController = new KinectController();
     LidarController * lidarController = new LidarController();
-    //SonarController sonarController = new SonarController();
+    SonarController * sonarController = new SonarController();
 
     //Set up the subscriber for the GPS
     ros::Subscriber gpsSubscriber = n.subscribe("/gps", 200, &GPSController::GpsCallback, gpsController);
