@@ -8,6 +8,7 @@ void *joystick;
 
 //Command publisher
 static ros::Publisher _commandPublisher;
+static ros::NodeHandle nodehandler;
 
 MovementController::MovementController(ros::NodeHandle *nh, GPSController *gpsController, JoystickController *joystickController, KeyboardController *keyboardController)
 {
@@ -27,6 +28,11 @@ void MovementController::SendCommandToArduino(geometry_msgs::Twist msg)
 ros::Publisher MovementController::GetCommandPublisher()
 {
 	return _commandPublisher;
+}
+
+ros::NodeHandle MovementController::GetNodeHandler() 
+{
+	return nodehandler;
 }
 
 //Method for returning the forward command.
