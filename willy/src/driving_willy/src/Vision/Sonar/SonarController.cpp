@@ -17,14 +17,14 @@ struct SonarCheck
 };
 
 
-SonarCheck ChecksTurnLeft[10];
-SonarCheck ChecksTurnRight[10];
-SonarCheck ChecksDriveBackward[10];
-SonarCheck ChecksDriveForward[10];
-Sonar SonarData[10];
+struct SonarCheck ChecksTurnLeft[10];
+struct SonarCheck ChecksTurnRight[10];
+struct SonarCheck ChecksDriveBackward[10];
+struct SonarCheck ChecksDriveForward[10];
+struct Sonar SonarData[10];
 
 SonarController::SonarController()
-{
+{   
     CanDriveForward = true;
     CanDriveBackward = true;
     CanTurnLeft = true;
