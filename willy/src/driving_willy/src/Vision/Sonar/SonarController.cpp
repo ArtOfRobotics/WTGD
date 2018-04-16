@@ -40,6 +40,7 @@ SonarController::SonarController()
         printf("404 - Laden van bestand is mislukt\n");
     }
 
+/*
     //Loop through all XML nodes
     tools = doc.child("Willy").child("SonarChecks");
 
@@ -73,7 +74,7 @@ SonarController::SonarController()
                 BackwardSensorCount++;
             }
         }
-    }
+    }*/
 }
 
 //This method gets fired wen there's a new message from the sonar system.
