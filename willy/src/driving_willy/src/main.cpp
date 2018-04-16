@@ -3,13 +3,6 @@
 using namespace std;
 
 //Set the controller as a global variable.
-GPSController *gpsController;
-JoystickController *joystickController;
-KeyboardController *keyboardController;
-
-KinectController *kinectController;
-LidarController *lidarController;
-SonarController *sonarController;
 
 int main(int argc, char **argv)
 {
@@ -27,13 +20,13 @@ int main(int argc, char **argv)
     gpsLong.push_back(11.2355);
     n.setParam("gpsLong", gpsLong);
 
-    gpsController = new GPSController();
-    joystickController = new JoystickController();
-    keyboardController = new KeyboardController();
+    GPSController *gpsController = new GPSController();
+    JoystickController *joystickController = new JoystickController();
+    KeyboardController *keyboardController = new KeyboardController();
 
-    kinectController = new KinectController();
-    lidarController = new LidarController();
-    sonarController = new SonarController();
+    KinectController *kinectController = new KinectController();
+    LidarController *lidarController = new LidarController();
+    SonarController *sonarController = new SonarController();
 
     //Set up the subscriber for the GPS
     ros::Subscriber gpsSubscriber = n.subscribe("/gps", 200, &GPSController::GpsCallback, gpsController);
