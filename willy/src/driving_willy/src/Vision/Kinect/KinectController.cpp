@@ -26,7 +26,7 @@ void KinectController::KinectCallback(const sensor_msgs::Image::ConstPtr &msg)
 {
     std::cout << "Hey, listen! There is data. The length of the data is: " << std::endl;
 
-    printf("%d\n", msg->data_length);
+    printf("%d\n", &msg->data_length);
 
     std::cout << "Top-left corner: " << *reinterpret_cast<const float*>(&msg->data[0]) << "m" << std::endl;
     /*try
