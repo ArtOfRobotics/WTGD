@@ -6,9 +6,12 @@ class JoystickController
   public:
     //Constructor
     JoystickController();
-    void Start();
+    void JoystickCallback(const sensor_msgs::Joy::ConstPtr &msg);
+    void Move();
 
   private:
+    int linear_, angular_;
+    double l_scale_, a_scale_;
 };
 
 #endif

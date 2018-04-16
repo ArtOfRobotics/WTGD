@@ -32,7 +32,7 @@ int main(int argc, char **argv)
     ros::Subscriber gpsSubscriber = n.subscribe("/gps", 200, &GPSController::GpsCallback, gpsController);
 
     //Set up the subscriber for the Joystick
-    //ros::Subscriber joystickSubscriber = n.subscribe("/joystick", 200, &JoystickController::Start, &joystickController);
+    ros::Subscriber joystickSubscriber = n.subscribe("/joy", 10, &JoystickController::JoystickCallback, &joystickController);
 
     //Set up the subscriber for the keyboard
     //ros::Subscriber keyboardSubscriber = n.subscribe("/keyboard", 200, &KeyboardController::Start, &keyboardController);

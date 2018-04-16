@@ -10,7 +10,7 @@ KeyboardController::KeyboardController()
     //nh.advertise(keyboard);
 }
 
-void KeyboardController::Start(char input)
+void KeyboardController::Move(char input)
 {
     bool inMenu;
     int menuItem = 0;
@@ -66,7 +66,7 @@ void KeyboardController::Start(char input)
     ros::Duration(1).sleep();
 }
 
-char KeyboardController::getch()
+char KeyboardController::ReadCharacter()
 {
     fd_set set;
     struct timeval timeout;

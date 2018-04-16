@@ -2,11 +2,22 @@
 
 using namespace std;
 
-JoystickController::JoystickController()
+JoystickController::JoystickController() : linear_(1),
+                                           angular_(2)
 {
+    MovementController::GetNodeHandler()->param("axis_linear", linear_, linear_);
+    MovementController::GetNodeHandler()->param("axis_angular", angular_, angular_);
+    MovementController::GetNodeHandler()->param("scale_angular", a_scale, a_scale);
+    MovementController::GetNodeHandler()->param("scale_linear", l_scale_, l_scale_);
+
+    //http://wiki.ros.org/joy/Tutorials/ConfiguringALinuxJoystick
+    printf("Ik ben aangekomen bij de joystick controller\n");
 }
 
-void JoystickController::Start()
+void JoystickController::JoystickCallback(const sensor_msgs::Joy::ConstPtr &msg)
 {
-    printf("Ik ben aangekomen bij de joystick controller");
+    geometry_msgs::Twist twist;
+    twist.angular.z = a_scale_ * msg->axes[angular_];
+    twist.linear.x = l_scale_ * msg->axes[linear_];
+    MovementController::GetCommandPublisher().publish(twist);
 }
