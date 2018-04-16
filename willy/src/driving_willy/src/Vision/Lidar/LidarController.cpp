@@ -6,7 +6,7 @@ LidarController::LidarController()
 {
 }
 
-void LidarController::LidarCallback(const sensor_msgs::LaserScan &msg)
+void LidarController::LidarCallback(const sensor_msgs::LaserScan::ConstPtr &msg)
 {
     std::cout << "Hey, listen!" << std::endl;
 }
