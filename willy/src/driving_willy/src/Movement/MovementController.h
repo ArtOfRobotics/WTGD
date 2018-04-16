@@ -26,7 +26,7 @@ class MovementController
 	//Method which returns the command publisher
 	static ros::Publisher GetCommandPublisher();
 
-	static ros::NodeHandle GetNodeHandler();
+	static ros::Publisher GetKeyboardPublisher();
 
 	//Method which returns the gps controller;
 	GPSController *GetGPSController();

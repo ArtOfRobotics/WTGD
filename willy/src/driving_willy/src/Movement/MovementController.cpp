@@ -8,15 +8,15 @@ void *joystick;
 
 //Command publisher
 static ros::Publisher _commandPublisher;
-static ros::NodeHandle nodehandler;
+static ros::NodeHandle keyboardPublisher;
 
 MovementController::MovementController(ros::NodeHandle *nh, GPSController *gpsController, JoystickController *joystickController, KeyboardController *keyboardController)
 {
-	nodehandler = *nh;
 	keyboard = static_cast<void *>(keyboardController);
 	gps = static_cast<void *>(gpsController);
 	joystick = static_cast<void *>(joystickController);
 
+	keyboardPublisher = nh->advertise<std_msgs::Char>("/keyboard", 100);
 	_commandPublisher = nh->advertise<geometry_msgs::Twist>("/cmd_vel", 100);
 }
 
@@ -30,7 +30,12 @@ ros::Publisher MovementController::GetCommandPublisher()
 	return _commandPublisher;
 }
 
-ros::NodeHandle MovementController::GetNodeHandler() 
+ros::Publisher MovementController::GetKeyboardPublisher()
+{
+	return keyboardPublisher;
+}
+
+ros::NodeHandle MovementController::GetNodeHandler()
 {
 	return nodehandler;
 }
