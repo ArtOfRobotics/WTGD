@@ -4,10 +4,16 @@
 class VisionController
 {
 public:
-  VisionController();
+  VisionController(ros::NodeHandle *nh, KinectController *kinectController, LidarController *lidarController, SonarController *sonarController);
+  KinectController *GetKinectController();
+  LidarController *GetLidarController();
+  SonarController *GetSonarController();
 
 private:
 
+  bool useKinect;
+  bool useLidar; //Not working yet
+  bool useSonar; //Not working yet
 };
 
 #endif

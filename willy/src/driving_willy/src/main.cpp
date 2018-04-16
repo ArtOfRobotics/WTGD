@@ -3,13 +3,13 @@
 using namespace std;
 
 //Set the controller as a global variable.
-GPSController gpsController;
-JoystickController joystickController;
-KeyboardController keyboardController;
+GPSController *gpsController;
+JoystickController *joystickController;
+KeyboardController *keyboardController;
 
-KinectController kinectController;
-LidarController lidarController;
-SonarController sonarController;
+KinectController *kinectController;
+LidarController *lidarController;
+SonarController *sonarController;
 
 int main(int argc, char **argv)
 {
@@ -27,8 +27,16 @@ int main(int argc, char **argv)
     gpsLong.push_back(11.2355);
     n.setParam("gpsLong", gpsLong);
 
+    gpsController = new GPSController();
+    joystickController = new JoystickController();
+    keyboardController = new KeyboardController();
+
+    kinectController = new KinectController();
+    lidarController = new LidarController();
+    sonarController = new SonarController();
+
     //Set up the subscriber for the GPS
-    ros::Subscriber gpsSubscriber = n.subscribe("/gps", 200, &GPSController::GpsCallback, &gpsController);
+    ros::Subscriber gpsSubscriber = n.subscribe("/gps", 200, &GPSController::GpsCallback, gpsController);
 
     //Set up the subscriber for the Joystick
     //ros::Subscriber joystickSubscriber = n.subscribe("/joystick", 200, &JoystickController::Start, &joystickController);
@@ -37,19 +45,19 @@ int main(int argc, char **argv)
     //ros::Subscriber keyboardSubscriber = n.subscribe("/keyboard", 200, &KeyboardController::Start, &keyboardController);
 
     //Set up the subscriber for the kinect
-    ros::Subscriber kinectSubscriber = n.subscribe("/camera/rgb/image_color", 100, &KinectController::KinectCallback, &kinectController);
+    ros::Subscriber kinectSubscriber = n.subscribe("/camera/rgb/image_color", 100, &KinectController::KinectCallback, kinectController);
 
     //Set up the subscriber for the lidar
-    ros::Subscriber lidarSubscriber = n.subscribe("/scan", 100, &LidarController::LidarCallback, &lidarController);
+    ros::Subscriber lidarSubscriber = n.subscribe("/scan", 100, &LidarController::LidarCallback, lidarController);
 
     //Set up the subscriber for the sonar
-    ros::Subscriber subSonar = n.subscribe("/sonar", 100, &SonarController::SonarCallback, &sonarController);
+    ros::Subscriber subSonar = n.subscribe("/sonar", 100, &SonarController::SonarCallback, sonarController);
 
     //Set the asynchronised spinner for ros.
     ros::AsyncSpinner spinner(4);
     spinner.start();
 
-    AutonomousDrivingController autonomousDrivingController = AutonomousDrivingController(&n, new GPSController(), new JoystickController(), new KeyboardController(), new KinectController(), new LidarController(), new SonarController());
+    AutonomousDrivingController autonomousDrivingController = AutonomousDrivingController(&n, gpsController, joystickController, keyboardController, kinectController, lidarController, sonarController);
     autonomousDrivingController.Start();
     //JoyController joyController = JoyController(&willyController, argc, argv);
     //joyController.Start();
