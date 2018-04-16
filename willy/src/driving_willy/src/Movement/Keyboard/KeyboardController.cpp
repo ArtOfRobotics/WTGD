@@ -7,7 +7,7 @@ std_msgs::Char message;
 KeyboardController::KeyboardController()
 {
     printf("Er is een nieuwe Keyboard controller aangemaakt!\n");
-    MovementController::GetNodeHandler()->advertise<std_msgs::Char>("/keyboard", 100);
+    MovementController::nodehandler.advertise<std_msgs::Char>("/keyboard", 100);
 }
 
 void KeyboardController::KeyboardCallback(std_msgs::Char input)
