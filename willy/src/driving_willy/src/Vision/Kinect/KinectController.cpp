@@ -22,7 +22,7 @@ void KinectController::Start()
     std::cout << "byebye my friend" << std::endl;
 }
 
-void KinectController::KinectCallback(const sensor_msgs::PointCloud2 &msg)
+void KinectController::KinectCallback(const sensor_msgs::Image::ConstPtr &msg)
 {
     std::cout << "Hey, listen! There is data. The length of the data is: " << std::endl;
 

@@ -6,7 +6,7 @@ class KinectController
 public:
   //Constructor
   KinectController();
-  void KinectCallback(const sensor_msgs::PointCloud2 &msg);
+  void KinectCallback(const sensor_msgs::Image::ConstPtr &msg);
   void Start();
 
 private:
