@@ -29,7 +29,7 @@ int main(int argc, char **argv)
     SonarController sonarController();
 
     //Set up the subscriber for the GPS
-    ros::Subscriber gpsSubscriber = n.subscribe("/gps", 200, &GPSController::GpsCallback, gpsController);
+    ros::Subscriber gpsSubscriber = n.subscribe("/gps", 200, &GPSController::GpsCallback, &gpsController);
 
     //Set up the subscriber for the Joystick
     //ros::Subscriber joystickSubscriber = n.subscribe("/joystick", 200, &JoystickController::Start, &joystickController);
@@ -38,13 +38,13 @@ int main(int argc, char **argv)
     //ros::Subscriber keyboardSubscriber = n.subscribe("/keyboard", 200, &KeyboardController::Start, &keyboardController);
 
     //Set up the subscriber for the kinect
-    ros::Subscriber kinectSubscriber = n.subscribe("/camera/rgb/image_color", 100, &KinectController::KinectCallback, kinectController);
+    ros::Subscriber kinectSubscriber = n.subscribe("/camera/rgb/image_color", 100, &KinectController::KinectCallback, &kinectController);
 
     //Set up the subscriber for the lidar
-    ros::Subscriber lidarSubscriber = n.subscribe("/scan", 100, &LidarController::LidarCallback, lidarController);
+    ros::Subscriber lidarSubscriber = n.subscribe("/scan", 100, &LidarController::LidarCallback, &lidarController);
 
     //Set up the subscriber for the sonar
-    ros::Subscriber subSonar = n.subscribe("/sonar", 100, &SonarController::SonarCallback, sonarController);
+    ros::Subscriber subSonar = n.subscribe("/sonar", 100, &SonarController::SonarCallback, &sonarController);
 
     //Set the asynchronised spinner for ros.
     ros::AsyncSpinner spinner(4);
