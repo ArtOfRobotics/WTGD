@@ -17,8 +17,14 @@ JoystickController::JoystickController() : linear_(1),
 void JoystickController::JoystickCallback(const sensor_msgs::Joy::ConstPtr &msg)
 {
     printf("Received joystick data!\n");
-    geometry_msgs::Twist twist;
-    twist.angular.z = a_scale_ * msg->axes[angular_];
-    twist.linear.x = l_scale_ * msg->axes[linear_];
-    MovementController::GetCommandPublisher().publish(twist);
+    //geometry_msgs::Twist twist;
+    //twist.angular.z = a_scale_ * msg->axes[angular_];
+    //twist.linear.x = l_scale_ * msg->axes[linear_];
+    printf("Knop waarde: %d\n", msg->buttons);
+
+    if (msg->buttons == PS3_AXIS_BUTTON_CROSS_UP) {
+        MovementController::GetCommandPublisher().publish(MovementController::GetForwardCommand());
+    }
+
+    //MovementController::GetCommandPublisher().publish(twist);
 }
