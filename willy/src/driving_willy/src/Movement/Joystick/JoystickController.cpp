@@ -20,7 +20,7 @@ void JoystickController::JoystickCallback(const sensor_msgs::Joy::ConstPtr &msg)
     //geometry_msgs::Twist twist;
     //twist.angular.z = a_scale_ * msg->axes[angular_];
     //twist.linear.x = l_scale_ * msg->axes[linear_];
-    for(i=0; i < msg->buttons.size(); i++) {
+    for(int i=0; i < msg->buttons.size(); i++) {
 		ROS_INFO_STREAM("button " << i << " " << msg->buttons[i]);
     }
 
