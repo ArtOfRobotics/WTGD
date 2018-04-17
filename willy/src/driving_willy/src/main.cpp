@@ -38,7 +38,7 @@ int main(int argc, char **argv)
     ros::Subscriber keyboardSubscriber = n.subscribe("/keyboard", 100, &KeyboardController::KeyboardCallback, keyboardController);
 
     //Set up the subscriber for the kinect
-    ros::Subscriber kinectSubscriber = n.subscribe("/camera/depth/image", 100, &KinectController::KinectCallback, kinectController);
+    ros::Subscriber kinectSubscriber = n.subscribe("/camera/depth_registered/image", 100, &KinectController::KinectCallback, kinectController);
 
     //Set up the subscriber for the lidar
     ros::Subscriber lidarSubscriber = n.subscribe("/scan", 100, &LidarController::LidarCallback, lidarController);
