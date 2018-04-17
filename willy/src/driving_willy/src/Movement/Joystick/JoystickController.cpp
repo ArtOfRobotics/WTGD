@@ -16,6 +16,7 @@ JoystickController::JoystickController() : linear_(1),
 
 void JoystickController::JoystickCallback(const sensor_msgs::Joy::ConstPtr &msg)
 {
+    printf("Received joystick data!\n");
     geometry_msgs::Twist twist;
     twist.angular.z = a_scale_ * msg->axes[angular_];
     twist.linear.x = l_scale_ * msg->axes[linear_];
