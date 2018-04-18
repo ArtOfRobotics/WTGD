@@ -46,11 +46,11 @@
 #include "Includes/PUGIXML/pugiconfig.hpp"
 
 //Kinect includes
-//#include <cv_bridge/cv_bridge.h>
-//#include <opencv2/highgui.hpp>
-//#include <opencv2/core/core.hpp>
-//#include <opencv2/imgcodecs.hpp>
-//#include <opencv2/highgui/highgui.hpp>
+#include <cv_bridge/cv_bridge.h>
+#include <opencv2/highgui.hpp>
+#include <opencv2/core/core.hpp>
+#include <opencv2/imgcodecs.hpp>
+#include <opencv2/highgui/highgui.hpp>
 #include <pcl_ros/point_cloud.h>
 
 //Vision controllers
