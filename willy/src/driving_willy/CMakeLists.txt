@@ -19,7 +19,7 @@ find_package(catkin REQUIRED COMPONENTS
   	pcl_conversions
   	pcl_ros
   	urdf
-  	cv_bridge
+  	#cv_bridge
 )
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
