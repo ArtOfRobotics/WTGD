@@ -17,7 +17,7 @@ MovementController::MovementController(ros::NodeHandle *nh, GPSController *gpsCo
 	joystick = static_cast<void *>(joystickController);
 
 	keyboardPublisher = nh->advertise<std_msgs::Char>("/keyboard", 100);
-	_commandPublisher = nh->advertise<geometry_msgs::Twist>("/cmd_vel", 100);
+	_commandPublisher = nh->advertise<geometry_msgs::Twist>("/cmd_vel", 1);
 }
 
 void MovementController::SendCommandToArduino(geometry_msgs::Twist msg)

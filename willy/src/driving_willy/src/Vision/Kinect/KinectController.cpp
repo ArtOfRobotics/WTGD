@@ -8,23 +8,11 @@ KinectController::KinectController()
     printf("Er is een nieuwe Kinect controller aangemaakt!\n");
 }
 
-void KinectController::KinectCallback(const sensor_msgs::Image::ConstPtr &msg)
+virtual void KinectController::onInit()
 {
-    std::cout << "Hey, listen! There is data. The length of the data is: " << std::endl;
+}
 
-    printf("%d\n", (sizeof(msg->data) / sizeof(uint8_t)));
+void KinectController::KinectCallback(const sensor_msgs::Image::ConstPtr &depth_msg)
+{
 
-    std::cout << "Top-left corner: " << *reinterpret_cast<const float*>(&msg->data[0]) << "m" << std::endl;
-    /*try
-    {
-        cv_bridge::CvImageConstPtr cv_ptr;
-        cv_ptr = cv_bridge::toCvShare(msg);
-
-        //cv::imshow("DrivingWilly", cv_ptr->image);
-        //cv::waitKey(1); // Update screen
-    }
-    catch (const cv_bridge::Exception &e)
-    {
-        ROS_ERROR("cv_bridge exception: %s", e.what());
-    }*/
 }
