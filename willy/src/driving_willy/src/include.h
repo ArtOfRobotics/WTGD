@@ -51,7 +51,7 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui/highgui.hpp>
-#include <pcl_ros/point_cloud.h>
+//#include <pcl_ros/point_cloud.h>
 
 //Vision controllers
 #include "Vision/Kinect/KinectController.h"
