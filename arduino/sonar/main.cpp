@@ -77,13 +77,13 @@ float get_measure_from(int digitalport)
   //set pin as output so we can send a pulse
   pinMode(digitalport, OUTPUT);
 
-  //set output to LOW
+  //set output to LOW before sending pulse
   digitalWrite(digitalport, LOW);
   delayMicroseconds(5);
 
   //send a 5uS pulse out to activate the sensor
   digitalWrite(digitalport, HIGH);
-  delayMicroseconds(5);
+  delayMicroseconds(10);
   digitalWrite(digitalport, LOW);
 
   //change the digital pin to input to read the incoming pulse
