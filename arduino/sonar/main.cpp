@@ -14,6 +14,11 @@
 #define nineth_sonar_sensor   11
 #define tenth_sonar_sensor    12
 
+#define first_front_sensor    A0
+#define second_front_sensor   A1
+#define first_back_sensor     A2
+#define second_back_sensor    A3
+
 //function definition
 float get_measure_from(int digitalport);
 
@@ -49,6 +54,9 @@ void loop()
   float distance_sonar_seven = get_measure_from(seventh_sonar_sensor);
   float distance_sonar_nine = get_measure_from(nineth_sonar_sensor);
 
+  float distance_sonar_front_one = get_measure_from(first_front_sensor);
+  float distance_sonar_back_one = get_measure_from(first_back_sensor);
+
   delay(10);
 
   float distance_sonar_two = get_measure_from(second_sonar_sensor);
@@ -56,6 +64,9 @@ void loop()
   float distance_sonar_six = get_measure_from(sixth_sonar_sensor);
   float distance_sonar_eight = get_measure_from(eight_sonar_sensor);
   float distance_sonar_ten = get_measure_from(tenth_sonar_sensor);
+
+  float distance_sonar_front_two = get_measure_from(second_front_sensor);
+  float distance_sonar_back_two = get_measure_from(second_back_sensor);
 
   //add sonar values to message object and publish message
   float ech[] = {distance_sonar_one ,distance_sonar_two, distance_sonar_three,
