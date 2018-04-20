@@ -24,6 +24,8 @@ void AutonomousDrivingController::Start()
 	while (true)
 	{
 		//movementController->GetKeyboardController()->ReadCharacter();
+
+		MovementController->SendNavigationGoal(1.0, 0);
 		
 		//visionController->GetSonarController()->CalculateMovingPossibilities();
 		
