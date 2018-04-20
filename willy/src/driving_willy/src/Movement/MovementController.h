@@ -37,6 +37,9 @@ class MovementController
 	//Method which returns the keyboard controller;
 	KeyboardController *GetKeyboardController();
 
+	//Method to send a navigation goal;
+	void SendNavigationGoal(int x, int y);
+
   private:
 	bool useKeyboard;
 	bool useGPS;	  //Not working yet
