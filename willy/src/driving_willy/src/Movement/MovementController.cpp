@@ -37,6 +37,15 @@ ros::Publisher MovementController::GetKeyboardPublisher()
 	return keyboardPublisher;
 }
 
+void MovementController::SetupTransform()
+{
+	ros::Rate r(100);
+	tf::TransformBroadcaster broadcaster;
+
+	broadcaster.sendTransform(tf::StampedTransform(tf::Transform(tf::Quaternion(0, 0, 0, 1), tf::Vector3(0.3, 0.0, 0.0)), ros::Time::now(), "base_link", "base_kinect"));
+	r.sleep();
+}
+
 void MovementController::SendNavigationGoal(int x, int y)
 {
 

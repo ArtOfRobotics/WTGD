@@ -40,6 +40,9 @@ class MovementController
 	//Method to send a navigation goal;
 	void SendNavigationGoal(int x, int y);
 
+	//Method to setup transform
+	void MovementController::SetupTransform();
+
   private:
 	bool useKeyboard;
 	bool useGPS;	  //Not working yet
