@@ -1,5 +1,7 @@
 #include "../include.h"
 
+typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
+
 using namespace std;
 
 void *keyboard;
