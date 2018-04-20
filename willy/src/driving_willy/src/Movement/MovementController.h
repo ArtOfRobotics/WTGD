@@ -41,7 +41,7 @@ class MovementController
 	void SendNavigationGoal(int x, int y);
 
 	//Method to setup transform
-	void MovementController::SetupTransform();
+	void SetupTransform();
 
   private:
 	bool useKeyboard;
