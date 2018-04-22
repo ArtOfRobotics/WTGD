@@ -1,0 +1,4 @@
+http://wiki.ros.org/rtabmap_ros/Tutorials/SetupOnYourRobot
+Used for setup rtabmap without odometry
+http://wiki.ros.org/laser_scan_matcher
+Used for the setup of the tim lidar
