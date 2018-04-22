@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <package>
-  <name>navigation2d_example</name>
+  <name>willy_navigation</name>
   <version>0.0.0</version>
-  <description>The navigation2d_example package</description>
+  <description>Willy navigation package</description>
 
-  <maintainer email="d.maekawa@rapyuta-robotics.com">Daiki Maekawa</maintainer>
+  <maintainer email="martijn_van_olst@hotmail.com">Martijn van Olst</maintainer>
 
 
   <!-- One license tag required, multiple allowed, one license per tag -->
