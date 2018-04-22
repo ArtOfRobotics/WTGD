@@ -1,6 +1,8 @@
 #ifndef _MOVEMENT_CONTROLLER_H_
 #define _MOVEMENT_CONTROLLER_H_
 
+using namespace std;
+
 class MovementController
 {
   public:
