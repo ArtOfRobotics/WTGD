@@ -46,6 +46,14 @@ void MovementController::SetupTransform()
 	r.sleep();
 }
 
+void MovementController::ListenToTransform()
+{
+	tf::TransformListener listener;
+	tf::StampedTransform transform;
+
+	
+}
+
 void MovementController::SendNavigationGoal(int x, int y)
 {
 
