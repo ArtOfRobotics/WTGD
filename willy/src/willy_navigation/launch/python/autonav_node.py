@@ -13,7 +13,7 @@ class AutonavNode(object):
 
     def __init__(self):
         # CONSTANTS
-        self.min_distance = 1500 #millimeters
+        self.min_distance = 1500 #millimeterse
         self.speed = 1
         self.avoiding = False
         # Initialize node
