@@ -3,9 +3,9 @@
     <!-- Start ros core -->
     <master auto="start"/>
     <!-- Static transform from base_link to lidar -->
-    <node pkg="tf" type="static_transform_publisher" name="base_frame_2_laser_link" args="0.3 0 0.47 0 0 0 /base_link /laser 100"/>
+    <node pkg="tf" type="static_transform_publisher" name="base_frame_2_laser_link" args="0.3 0 0 0 0 0 /base_link /laser 100"/>
     <!-- Static transform from base_link to kinect -->
-    <node pkg="tf" type="static_transform_publisher" name="base_frame_2_kinect_link" args="0.3 0 0.40 0 0 0 /base_link /kinect 100"/>
+    <node pkg="tf" type="static_transform_publisher" name="base_frame_2_kinect_link" args="0.3 0 0 0 0 0 /base_link /kinect 100"/>
     <!-- Move base launch file -->
     <include file="$(find willy_navigation)/launch/move_base.launch"/>
     <!-- Hector mapping launch file -->
