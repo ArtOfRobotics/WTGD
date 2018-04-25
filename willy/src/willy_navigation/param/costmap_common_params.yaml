@@ -5,7 +5,7 @@ raytrace_range: 3.0
 footprint: [[-0.3, 0.3],  [0.3, 0.3], [0.3, -1.0], [-0.3, -1.0]]
 footprint_padding: 0.1
 cost_scaling_factor: 3.0
-inflation_radius: 0.50
+inflation_radius: 0.20
 
 # voxel map configuration; z-voxels 0 are filled by bumpers and 1 by laser scan (kinect)
 map_type: voxel
@@ -17,4 +17,4 @@ publish_voxel_map: false
 observation_sources: scan bump
 
 scan: {data_type: LaserScan, topic: scan, marking: true, clearing: true, min_obstacle_height: -1, max_obstacle_height: 1.0}
-bump: {data_type: PointCloud2, topic: camera/depth_registered/cloud, marking: true, clearing: false, min_obstacle_height: 0.0, max_obstacle_height: 0.15}
+bump: {data_type: PointCloud2, topic: camera/depth_registered/cloud, marking: true, clearing: false, min_obstacle_height: -1, max_obstacle_height: 1}
