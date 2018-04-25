@@ -22,10 +22,10 @@ TrajectoryPlannerROS:
 
 # Trajectory Scoring Parameters
   meter_scoring: true
-  pdist_scale: 0.6
-  gdist_scale: 0.8
-  occdist_scale: 0.01
-  heading_lookahead: 0.325
+  pdist_scale: 3.0
+  gdist_scale: 1.5
+  occdist_scale: 0.1
+  heading_lookahead: 1.0
   dwa: true
 
 # Oscillation Prevention Parameters
