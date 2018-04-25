@@ -2,12 +2,12 @@
 <launch>
   <!-- Sick tim launch file -->
   <include file="$(find sick_tim)/launch/sick_tim551_2050001.launch">
-    <arg name="min_ang" value="-2.35619449019"/>
+    <!--<arg name="min_ang" value="-2.35619449019"/>
     <arg name="max_ang" value="2.35619449019"/>
     <arg name="intensity" value="true"/>
     <arg name="skip" value="0"/>
     <arg name="frame_id" value="laser"/>
     <arg name="time_offset" value="-0.001"/>
-    <arg name="auto_reboot" value="true"/>
+    <arg name="auto_reboot" value="true"/>-->
   </include>
 </launch>
