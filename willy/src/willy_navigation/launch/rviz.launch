@@ -1,0 +1,4 @@
+<launch>
+    <!-- Rviz node -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find willy_navigation)/rviz_cfg/rviz_cfg.rviz" output="screen"/>
+</launch>

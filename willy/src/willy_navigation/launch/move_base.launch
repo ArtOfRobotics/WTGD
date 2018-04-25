@@ -1,18 +1,12 @@
 <?xml version="1.0"?>
-
 <launch>
-  <master auto="start"/>
-  <include file="$(find willy_navigation)/launch/tim551.launch"/>
-  <include file="$(find freenect_launch)/launch/freenect.launch">
-      <arg name="depth_registration" value="true"/>
-  </include>
-  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
-    <rosparam file="$(find willy_navigation)/param/costmap_common_params.yaml" command="load" ns="global_costmap"/>
-    <rosparam file="$(find willy_navigation)/param/costmap_common_params.yaml" command="load" ns="local_costmap"/>
-    <rosparam file="$(find willy_navigation)/param/local_costmap_params.yaml" command="load"/>
-    <rosparam file="$(find willy_navigation)/param/global_costmap_params.yaml" command="load"/>
-    <rosparam file="$(find willy_navigation)/param/base_local_planner_params.yaml" command="load"/>
-    <rosparam file="$(find willy_navigation)/param/move_base_params.yaml" command="load"/>
-  </node>
-  <node name="willy" pkg="driving_willy" type="main" args="" output="screen" />
-</launch>
+    <!-- Move base node -->
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+      <rosparam file="$(find willy_navigation)/param/costmap_common_params.yaml" command="load" ns="global_costmap"/>
+      <rosparam file="$(find willy_navigation)/param/costmap_common_params.yaml" command="load" ns="local_costmap"/>
+      <rosparam file="$(find willy_navigation)/param/local_costmap_params.yaml" command="load"/>
+      <rosparam file="$(find willy_navigation)/param/global_costmap_params.yaml" command="load"/>
+      <rosparam file="$(find willy_navigation)/param/base_local_planner_params.yaml" command="load"/>
+      <rosparam file="$(find willy_navigation)/param/move_base_params.yaml" command="load"/>
+    </node>
+  </launch>

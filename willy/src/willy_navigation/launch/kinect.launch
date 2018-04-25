@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Kinect driver -->
+  <include file="$(find freenect_launch)/launch/freenect.launch">
+    <arg name="depth_registration" value="true"/>
+  </include>
+  <!-- Start depthimage to laserscan -->
+  <node name="depthimage_to_laserscan" pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" output="screen">
+    <param name="scan_height" value="240"/>
+    <param name="scan_time" value="1/30"/>
+    <param name="range_min" value="0.45"/>
+    <param name="range_max" value="10"/>
+    <param name="output_frame_id" value="kinect"/>
+    <remap from="image" to="/camera/depth_registered/image_raw"/>
+    <remap from="scan" to="/kinectscan"/>
+  </node>
+</launch>
