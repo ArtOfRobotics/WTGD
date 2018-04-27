@@ -6,6 +6,10 @@
     <node pkg="tf" type="static_transform_publisher" name="base_frame_2_laser_link" args="0.3 0 0 0 0 0 /base_link /laser 100"/>
     <!-- Static transform from base_link to kinect -->
     <node pkg="tf" type="static_transform_publisher" name="base_frame_2_kinect_link" args="0.3 0 0 0 0 0 /base_link /kinect 100"/>
+    <!-- Lidar launch file -->
+    <include file="$(find willy_navigation)/launch/tim551.launch"/>
+    <!-- Kinect launch file -->
+    <include file="$(find willy_navigation)/launch/kinect.launch"/>
     <!-- Move base launch file -->
     <include file="$(find willy_navigation)/launch/move_base.launch"/>
     <!-- Hector mapping launch file -->
@@ -13,10 +17,6 @@
         <arg name="base_frame" value="base_link"/>
         <arg name="odom_frame" value="base_link"/>
     </include>
-    <!-- Lidar launch file -->
-    <include file="$(find willy_navigation)/launch/tim551.launch"/>
-    <!-- Kinect launch file -->
-    <include file="$(find willy_navigation)/launch/kinect.launch"/>
     <!-- Driving willy launch file -->
     <include file="$(find willy_navigation)/launch/willy.launch"/>
     <!-- Rviz launch file -->
