@@ -1,6 +1,6 @@
 TrajectoryPlannerROS:
 
-# Robot Configuration Parameters
+# Robot Configuration Parameters 
   max_vel_x: 1
   min_vel_x: 0.4
   backup_vel: -0.4

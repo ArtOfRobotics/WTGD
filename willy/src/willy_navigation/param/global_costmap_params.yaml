@@ -7,3 +7,4 @@ global_costmap:
    cost_factor: 0.5
    neutral_cost: 60
    transform_tolerance: 0.5
+
