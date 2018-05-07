@@ -13,7 +13,7 @@ z_resolution: 0.2
 z_voxels: 2
 publish_voxel_map: false
 
-observation_sources: scan bump
+observation_sources: scan kinect
 
 scan: {data_type: LaserScan, topic: scan, marking: true, clearing: true, min_obstacle_height: -1, max_obstacle_height: 1.0}
-bump: {data_type: PointCloud2, topic: camera/depth_registered/cloud, marking: true, clearing: false, min_obstacle_height: -1, max_obstacle_height: 1}
+kinect: {data_type: PointCloud2, topic: camera/depth_registered/cloud, marking: true, clearing: false, min_obstacle_height: -1, max_obstacle_height: 1}
