@@ -10,7 +10,7 @@ LightController::LightController()
     printf("Er is een nieuwe Light controller aangemaakt!\n");
 }
 
-void LightController::LightCallback(const std_msgs::Char &msg)
+void LightController::LightCallback(const std_msgs::Char input)
 {
     sirenValueOn.data = true;
     sirenValueOff.data = false;

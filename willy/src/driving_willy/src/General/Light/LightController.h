@@ -6,7 +6,7 @@ class LightController
   public:
     //Constructor
     LightController();
-    void LightCallback(const std_msgs::Char &msg);
+    void LightCallback(const std_msgs::Char input);
 
   private:
 };
