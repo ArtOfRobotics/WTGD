@@ -6,6 +6,7 @@ class GeneralController
 public:
   GeneralController(ros::NodeHandle *nh, LightController *lightController);
   LightController *GetLightController();
+  static ros::Publisher GetSirenPublisher();
 
 private:
 

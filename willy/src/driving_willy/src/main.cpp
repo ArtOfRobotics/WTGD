@@ -48,6 +48,9 @@ int main(int argc, char **argv)
     //Set up the subscriber for the sonar
     ros::Subscriber subSonar = n.subscribe("/sonar", 100, &SonarController::SonarCallback, sonarController);
 
+    //Set up the subscriber for the alarm light
+    ros::Subscriber subSirene = n.subscribe("/keyboard", 100, &LightController::LightCallback, lightController);
+
     //Set the asynchronised spinner for ros.
     ros::AsyncSpinner spinner(4);
     spinner.start();

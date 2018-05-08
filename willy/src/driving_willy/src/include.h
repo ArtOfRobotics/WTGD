@@ -68,6 +68,10 @@
 #include "Movement/Keyboard/KeyboardController.h"
 #include "Movement/MovementController.h"
 
+//General Controllers
+#include "General/Light/LightController.h"
+#include "General/GeneralController.h"
+
 //Autonomous driving controller
 #include "Controllers/AutonomousDrivingController.h"
 
