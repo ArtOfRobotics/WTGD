@@ -29,12 +29,13 @@
 #include <std_msgs/Float64.h>
 #include <std_msgs/UInt8.h>
 #include <std_msgs/UInt8.h>
+#include <std_msgs/Int32MultiArray.h>
+#include <std_msgs/Char.h>
+#include <std_msgs/Bool.h>
 #include <sensor_msgs/LaserEcho.h>
 #include <sensor_msgs/LaserScan.h>
 #include <sensor_msgs/PointCloud2.h>
 #include <sensor_msgs/Joy.h>
-#include <std_msgs/Int32MultiArray.h>
-#include <std_msgs/Char.h>
 
 //Commandos
 #include <fstream>
