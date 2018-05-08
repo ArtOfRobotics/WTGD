@@ -28,6 +28,8 @@ int main(int argc, char **argv)
     LidarController * lidarController = new LidarController();
     SonarController * sonarController = new SonarController();
 
+    LightController * lightController = new LightController();
+
     //Set up the subscriber for the GPS
     ros::Subscriber gpsSubscriber = n.subscribe("/gps", 200, &GPSController::GpsCallback, gpsController);
 
@@ -50,7 +52,7 @@ int main(int argc, char **argv)
     ros::AsyncSpinner spinner(4);
     spinner.start();
 
-    AutonomousDrivingController autonomousDrivingController = AutonomousDrivingController(&n, gpsController, joystickController, keyboardController, kinectController, lidarController, sonarController);
+    AutonomousDrivingController autonomousDrivingController = AutonomousDrivingController(&n, gpsController, joystickController, keyboardController, kinectController, lidarController, sonarController, lightController);
     autonomousDrivingController.Start();
     //JoyController joyController = JoyController(&willyController, argc, argv);
     //joyController.Start();
