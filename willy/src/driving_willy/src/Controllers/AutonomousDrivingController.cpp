@@ -24,7 +24,7 @@ void AutonomousDrivingController::Start()
 {
 	while (true)
 	{
-		//movementController->GetKeyboardController()->ReadCharacter();
+		movementController->GetKeyboardController()->ReadCharacter();
 
 		//movementController->SetupTransform();
 		//movementController->SendNavigationGoal(1.0, 0);
