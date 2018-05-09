@@ -228,7 +228,7 @@ add_executable(main
 	src/General/Light/LightController.cpp
 	src/General/Led/LedController.cpp
 
-	src/Controllers/AutonomousDrivingController.cpp
+	src/Controllers/DrivingController.cpp
 )
 
 target_link_libraries(main ${catkin_LIBRARIES} ${PCL_LIBRARIES})
