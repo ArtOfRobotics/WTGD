@@ -4,12 +4,14 @@
 class GeneralController
 {
 public:
-  GeneralController(ros::NodeHandle *nh, LightController *lightController);
+  GeneralController(ros::NodeHandle *nh, LightController *lightController, LedController *LedController);
   LightController *GetLightController();
   static ros::Publisher GetSirenPublisher();
+  LedController *GetLedController();
+  static ros::Publisher GetLedPublisher();
+
 
 private:
-
 };
 
 #endif
