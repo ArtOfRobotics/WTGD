@@ -5,7 +5,7 @@ using namespace std;
 MovementController *movementController;
 VisionController *visionController;
 
-AutonomousDrivingController::AutonomousDrivingController(ros::NodeHandle *n, GPSController *gps, JoystickController *joystick, KeyboardController *keyboard, KinectController *kinect, LidarController *lidar, SonarController *sonar, LightController *light, LedController *led)
+DrivingController::DrivingController(ros::NodeHandle *n, GPSController *gps, JoystickController *joystick, KeyboardController *keyboard, KinectController *kinect, LidarController *lidar, SonarController *sonar, LightController *light, LedController *led)
 {
 	nh = n;
 	movementController = new MovementController(n, gps, joystick, keyboard);
@@ -20,7 +20,7 @@ AutonomousDrivingController::AutonomousDrivingController(ros::NodeHandle *n, GPS
 	backward = false;
 }
 
-void AutonomousDrivingController::Start()
+void DrivingController::Start()
 {
 	while (true)
 	{

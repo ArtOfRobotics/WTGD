@@ -59,8 +59,8 @@ int main(int argc, char **argv)
     ros::AsyncSpinner spinner(4);
     spinner.start();
 
-    AutonomousDrivingController autonomousDrivingController = AutonomousDrivingController(&n, gpsController, joystickController, keyboardController, kinectController, lidarController, sonarController, lightController, ledController);
-    autonomousDrivingController.Start();
+    DrivingController drivingController = DrivingController(&n, gpsController, joystickController, keyboardController, kinectController, lidarController, sonarController, lightController, ledController);
+    drivingController.Start();
 
     // Wait
     ros::waitForShutdown();
