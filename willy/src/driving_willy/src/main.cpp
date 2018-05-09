@@ -61,8 +61,6 @@ int main(int argc, char **argv)
 
     AutonomousDrivingController autonomousDrivingController = AutonomousDrivingController(&n, gpsController, joystickController, keyboardController, kinectController, lidarController, sonarController, lightController, ledController);
     autonomousDrivingController.Start();
-    //JoyController joyController = JoyController(&willyController, argc, argv);
-    //joyController.Start();
 
     // Wait
     ros::waitForShutdown();
