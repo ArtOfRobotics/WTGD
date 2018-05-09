@@ -53,7 +53,7 @@ int main(int argc, char **argv)
     ros::Subscriber subSirene = n.subscribe("/keyboard", 100, &LightController::LightCallback, lightController);
 
     //Set up the subscriber for the led strip
-    ros::Subscriber subLed = n.subscribe("/keyboarrd", 100, &LedController::LedCallback, ledController);
+    ros::Subscriber subLed = n.subscribe("/keyboard", 100, &LedController::LedCallback, ledController);
 
     //Set the asynchronised spinner for ros.
     ros::AsyncSpinner spinner(4);

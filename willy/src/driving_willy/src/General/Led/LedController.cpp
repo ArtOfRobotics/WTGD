@@ -42,4 +42,14 @@ void LedController::LedCallback(const std_msgs::Char input)
         printf("Turn led blue\n");
         GeneralController::GetLedPublisher().publish(ledValue);
     }
+
+    if (input.data == 'y')
+    {
+        ledValue.r = 0;
+        ledValue.g = 0;
+        ledValue.b = 0;
+        ledValue.a = 0;
+        printf("Turn everything off\n");
+        GeneralController::GetLedPublisher().publish(ledValue);
+    }
 }
