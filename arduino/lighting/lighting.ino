@@ -14,13 +14,11 @@ float get_measure_from(int digitalport);
 
 void siren_message(const std_msgs::Bool& msg)
 {
-  digitalWrite(13, HIGH);
-  delay(200);
-  digitalWrite(siren0, LOW);
-  
   if(msg.data) {
     digitalWrite(siren0, HIGH);
+    digitalWrite(13, HIGH);
   } else {
+    digitalWrite(siren0, LOW);
     digitalWrite(13, LOW);
   }
 }
