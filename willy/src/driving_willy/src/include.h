@@ -29,12 +29,14 @@
 #include <std_msgs/Float64.h>
 #include <std_msgs/UInt8.h>
 #include <std_msgs/UInt8.h>
+#include <std_msgs/Int32MultiArray.h>
+#include <std_msgs/Char.h>
+#include <std_msgs/Bool.h>
+#include <std_msgs/ColorRGBA.h>
 #include <sensor_msgs/LaserEcho.h>
 #include <sensor_msgs/LaserScan.h>
 #include <sensor_msgs/PointCloud2.h>
 #include <sensor_msgs/Joy.h>
-#include <std_msgs/Int32MultiArray.h>
-#include <std_msgs/Char.h>
 
 //Commandos
 #include <fstream>
@@ -67,6 +69,11 @@
 #include "Movement/Joystick/JoystickController.h"
 #include "Movement/Keyboard/KeyboardController.h"
 #include "Movement/MovementController.h"
+
+//General Controllers
+#include "General/Light/LightController.h"
+#include "General/Led/LedController.h"
+#include "General/GeneralController.h"
 
 //Autonomous driving controller
 #include "Controllers/AutonomousDrivingController.h"

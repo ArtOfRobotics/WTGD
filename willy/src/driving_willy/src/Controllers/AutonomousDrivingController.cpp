@@ -5,11 +5,12 @@ using namespace std;
 MovementController *movementController;
 VisionController *visionController;
 
-AutonomousDrivingController::AutonomousDrivingController(ros::NodeHandle *n, GPSController *gps, JoystickController *joystick, KeyboardController *keyboard, KinectController *kinect, LidarController *lidar, SonarController *sonar)
+AutonomousDrivingController::AutonomousDrivingController(ros::NodeHandle *n, GPSController *gps, JoystickController *joystick, KeyboardController *keyboard, KinectController *kinect, LidarController *lidar, SonarController *sonar, LightController *light, LedController *led)
 {
 	nh = n;
 	movementController = new MovementController(n, gps, joystick, keyboard);
 	visionController = new VisionController(n, kinect, lidar, sonar);
+	generalController = new GeneralController(n, light, led);
 
 	//movementController = &movingController;
 	//visionController = &visionControl;
@@ -23,7 +24,7 @@ void AutonomousDrivingController::Start()
 {
 	while (true)
 	{
-		//movementController->GetKeyboardController()->ReadCharacter();
+		movementController->GetKeyboardController()->ReadCharacter();
 
 		//movementController->SetupTransform();
 		//movementController->SendNavigationGoal(1.0, 0);

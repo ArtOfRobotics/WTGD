@@ -224,6 +224,10 @@ add_executable(main
 	src/Vision/Lidar/LidarController.cpp
 	src/Vision/Sonar/SonarController.cpp
 
+	src/General/GeneralController.cpp
+	src/General/Light/LightController.cpp
+	src/General/Led/LedController.cpp
+
 	src/Controllers/AutonomousDrivingController.cpp
 )
 
