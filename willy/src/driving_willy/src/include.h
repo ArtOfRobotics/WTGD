@@ -75,7 +75,7 @@
 #include "General/Led/LedController.h"
 #include "General/GeneralController.h"
 
-//Autonomous driving controller
-#include "Controllers/AutonomousDrivingController.h"
+//Driving controller
+#include "Controllers/DrivingController.h"
 
 #endif
