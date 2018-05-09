@@ -226,6 +226,7 @@ add_executable(main
 
 	src/General/GeneralController.cpp
 	src/General/Light/LightController.cpp
+	src/General/Led/LedController.cpp
 
 	src/Controllers/AutonomousDrivingController.cpp
 )

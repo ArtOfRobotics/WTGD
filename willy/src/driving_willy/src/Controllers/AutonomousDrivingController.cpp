@@ -5,12 +5,12 @@ using namespace std;
 MovementController *movementController;
 VisionController *visionController;
 
-AutonomousDrivingController::AutonomousDrivingController(ros::NodeHandle *n, GPSController *gps, JoystickController *joystick, KeyboardController *keyboard, KinectController *kinect, LidarController *lidar, SonarController *sonar, LightController *light)
+AutonomousDrivingController::AutonomousDrivingController(ros::NodeHandle *n, GPSController *gps, JoystickController *joystick, KeyboardController *keyboard, KinectController *kinect, LidarController *lidar, SonarController *sonar, LightController *light, LedController *led)
 {
 	nh = n;
 	movementController = new MovementController(n, gps, joystick, keyboard);
 	visionController = new VisionController(n, kinect, lidar, sonar);
-	generalController = new GeneralController(n, light);
+	generalController = new GeneralController(n, light, led);
 
 	//movementController = &movingController;
 	//visionController = &visionControl;

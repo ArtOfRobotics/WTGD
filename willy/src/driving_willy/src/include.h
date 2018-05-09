@@ -71,6 +71,7 @@
 
 //General Controllers
 #include "General/Light/LightController.h"
+#include "General/Led/LedController.h"
 #include "General/GeneralController.h"
 
 //Autonomous driving controller

@@ -29,6 +29,7 @@ int main(int argc, char **argv)
     SonarController * sonarController = new SonarController();
 
     LightController * lightController = new LightController();
+    LedController * ledController = new LedController();
 
     //Set up the subscriber for the GPS
     ros::Subscriber gpsSubscriber = n.subscribe("/gps", 200, &GPSController::GpsCallback, gpsController);
@@ -51,11 +52,14 @@ int main(int argc, char **argv)
     //Set up the subscriber for the alarm light
     ros::Subscriber subSirene = n.subscribe("/keyboard", 100, &LightController::LightCallback, lightController);
 
+    //Set up the subscriber for the led strip
+    ros::Subscriber subLed = n.subscribe("/keyboarrd", 100, &LedController::LedCallback, ledController);
+
     //Set the asynchronised spinner for ros.
     ros::AsyncSpinner spinner(4);
     spinner.start();
 
-    AutonomousDrivingController autonomousDrivingController = AutonomousDrivingController(&n, gpsController, joystickController, keyboardController, kinectController, lidarController, sonarController, lightController);
+    AutonomousDrivingController autonomousDrivingController = AutonomousDrivingController(&n, gpsController, joystickController, keyboardController, kinectController, lidarController, sonarController, lightController, ledController);
     autonomousDrivingController.Start();
     //JoyController joyController = JoyController(&willyController, argc, argv);
     //joyController.Start();
