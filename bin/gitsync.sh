@@ -11,6 +11,7 @@ if [ $changed = 1 ]; then
     #source devel/setup.bash
     #cd ..
     chmod 777 bin/gitsync.sh
+    chmod -R 777 bin
 	echo "WTGD Last updated:"
 	date
 fi
