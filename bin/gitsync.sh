@@ -5,12 +5,12 @@ changed=0
 git remote update 2>&1 >/dev/null && git status -uno | grep -q 'Your branch is behind' && changed=1
 if [ $changed = 1 ]; then    
 	echo "Remote changes found in WTGD"
-    git pull origin test
+    git reset --hard origin/test
     #cd willy
     #catkin_make
     #source devel/setup.bash
     #cd ..
-    #chmod 777 bin/gitsync.sh
+    chmod 777 bin/gitsync.sh
 	echo "WTGD Last updated:"
 	date
 fi
@@ -21,7 +21,9 @@ git remote update 2>&1 >/dev/null && git status -uno | grep -q 'Your branch is b
 if [ $changed = 1 ]; then
     
 	echo "Remote changes found in WWEB"
-    git pull origin test
+    git reset --hard origin/test
+    chmod -R 777 src/views
+    chmod 777 src/start.sh
 	echo "WWEB Last updated:"
 	date
 fi
