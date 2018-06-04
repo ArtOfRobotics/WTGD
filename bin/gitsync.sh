@@ -24,6 +24,7 @@ if [ $changed = 1 ]; then
 	echo "Remote changes found in WWEB"
     git reset --hard origin/test
     chmod -R 777 src/views
+    chmod -R 777 src/scripts
     chmod 777 src/start.sh
 	echo "WWEB Last updated:"
 	date
