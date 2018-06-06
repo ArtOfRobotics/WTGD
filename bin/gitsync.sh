@@ -26,6 +26,9 @@ if [ $changed = 1 ]; then
     chmod -R 777 src/views
     chmod -R 777 src/scripts
     chmod 777 src/start.sh
+    pkill node
+    source devel/setup.bash
+    rosrun willyweb start.sh
 	echo "WWEB Last updated:"
 	date
 fi
