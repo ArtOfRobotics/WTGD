@@ -29,7 +29,7 @@ int main(int argc, char **argv)
     SonarController * sonarController = new SonarController();
 
     LightController * lightController = new LightController();
-    LedController * ledControl new LedController();
+    LedController * ledController = new LedController();
 
     //Set up the subscriber for the GPS
     ros::Subscriber gpsSubscriber = n.subscribe("/gps", 200, &GPSController::GpsCallback, gpsController);
