@@ -46,9 +46,6 @@ class MovementController
 	void SetupTransform();
 
   private:
-	bool useKeyboard;
-	bool useGPS;	  //Not working yet
-	bool useJoystick; //Not working yet
 
 	//The publisher where commands can be given throught cmd_vel
 };

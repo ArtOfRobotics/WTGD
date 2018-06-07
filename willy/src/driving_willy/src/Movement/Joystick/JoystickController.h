@@ -45,7 +45,6 @@ public:
   //Constructor
   JoystickController();
   void JoystickCallback(const sensor_msgs::Joy::ConstPtr &msg);
-  void Move();
 
 private:
   int linear_, angular_;

@@ -4,6 +4,7 @@ using namespace std;
 
 MovementController *movementController;
 VisionController *visionController;
+GeneralController *generalController;
 
 DrivingController::DrivingController(ros::NodeHandle *n, GPSController *gps, JoystickController *joystick, KeyboardController *keyboard, KinectController *kinect, LidarController *lidar, SonarController *sonar, LightController *light, LedController *led)
 {
@@ -11,9 +12,6 @@ DrivingController::DrivingController(ros::NodeHandle *n, GPSController *gps, Joy
 	movementController = new MovementController(n, gps, joystick, keyboard);
 	visionController = new VisionController(n, kinect, lidar, sonar);
 	generalController = new GeneralController(n, light, led);
-
-	//movementController = &movingController;
-	//visionController = &visionControl;
 
 	turningLeft = false;
 	turningRight = false;
@@ -27,7 +25,7 @@ void DrivingController::Start()
 		movementController->GetKeyboardController()->ReadCharacter();
 
 		//movementController->SetupTransform();
-		//movementController->SendNavigationGoal(1.0, 0);
+		movementController->SendNavigationGoal(1.0, 0);
 		
 		//visionController->GetSonarController()->CalculateMovingPossibilities();
 		
