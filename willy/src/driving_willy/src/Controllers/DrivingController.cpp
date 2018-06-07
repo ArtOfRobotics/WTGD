@@ -25,7 +25,7 @@ void DrivingController::Start()
 		movementController->GetKeyboardController()->ReadCharacter();
 
 		//movementController->SetupTransform();
-		//movementController->SendNavigationGoal(1.0, 0);
+		movementController->SendNavigationGoal(1.0, 0);
 		
 		//visionController->GetSonarController()->CalculateMovingPossibilities();
 		
