@@ -2,14 +2,8 @@
 #include <geometry_msgs/Twist.h>                                      // include Ros Message type
 #include <geometry_msgs/Vector3.h>                                    //
 #include <std_msgs/String.h>
-#include <Encoder.h>                                                  // include Encoder Librarie
 
 ros::NodeHandle nh;
- 
-#define LEncoderA 21                                                  // Defining Encoder Pins
-#define LEncoderB 20
-#define REncoderA 2
-#define REncoderB 3
 
 int irun;                                    
 int iturn;
@@ -23,18 +17,10 @@ void messageCb( const geometry_msgs::Twist& twistMsg)                 // subscri
                                                                       //
 ros::Subscriber<geometry_msgs::Twist> sub("/cmd_vel", &messageCb);    // subscriber setup
 
-geometry_msgs::Vector3 ticks;
-
-ros::Publisher encoder_ticks_pub("wheel_encoder", &ticks);            // Publish the encoder ticks
-
-Encoder LEncoder(LEncoderA, LEncoderB);
-Encoder REncoder(REncoderA, REncoderB);
- 
 void setup()
 { 
   nh.initNode();
   nh.subscribe(sub);
-  nh.advertise(encoder_ticks_pub);
   
   Serial1.begin(19200, SERIAL_8E1);  
 }
@@ -71,11 +57,6 @@ void loop()
       Serial1.write(data[i]);                                  // Writing the data to the motorcontroller
     }
   
-    ticks.x = LEncoder.read();                                // Reading the encoder Ticks
-    ticks.y = REncoder.read();
-    
-    encoder_ticks_pub.publish(&ticks);
-          
     nh.spinOnce();
 
     delay(20);
